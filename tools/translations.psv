@@ -565,3 +565,4 @@ ricorrenze|recurring expenses
 Il backup supera il limite di 4,5 MB.|The backup exceeds the 4.5 MB limit.
 Il file non contiene un JSON valido.|The file does not contain valid JSON.
 Seleziona un backup completo di TwoFifties, non un elenco di movimenti.|Choose a complete TwoFifties backup, not a transaction list.
+Il backup usa identificativi di una versione diversa. Nessun dato è stato modificato.|The backup uses identifiers from a different version. No data has been changed.

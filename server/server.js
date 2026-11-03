@@ -362,6 +362,9 @@ app.post('/api/restore', asyncRoute(async (req, res) => {
   next.categories = Array.isArray(snap.categories) ? snap.categories : [];
   next.workspace = Core.workspace(snap.workspace);
   if (snap.settings && typeof snap.settings === 'object') next.settings = Object.assign({}, snap.settings, { updatedAt: Date.now() });
+  const people=['person-a','person-b'];
+  const expensePeopleValid=row=>!!row&&(row.type==='settle'?people.includes(row.from)&&people.includes(row.to)&&row.from!==row.to:people.includes(row.payer));
+  if(!next.entries.every(expensePeopleValid)||!next.recurrences.every(row=>row&&people.includes(row.payer))||!next.workspace.pending.every(expensePeopleValid)||!next.workspace.trash.every(row=>row&&row.entry&&expensePeopleValid(row.entry)))return res.status(400).json({error:'Il backup usa identificativi di una versione diversa. Nessun dato è stato modificato.'});
   Core.validate(next);
   // Validate before creating the safety copy or changing any persisted state.
   const safety = 'pre-restore-' + fullStamp() + '-' + uid() + '.json';
