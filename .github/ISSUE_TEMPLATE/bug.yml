@@ -1,0 +1,23 @@
+﻿name: Bug report
+about: Report a reproducible problem
+labels: bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the expected and actual behavior. Do not include real expenses, receipts, backups, passwords or personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: TwoFifties version and environment
+    validations:
+      required: true
