@@ -12,3 +12,4 @@ test-results/
 playwright-report/
 *.zip
 *.log
+.site-dist/

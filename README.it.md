@@ -12,6 +12,8 @@ L'app per gestire le spese di due persone: un'interfaccia Material 3, divisioni 
 
 </div>
 
+**Sito di presentazione:** [anteprima, pubblicazione Pages e dominio personalizzato](website/README.it.md).
+
 <table>
 <tr><th colspan="3">Tema chiaro</th></tr>
 <tr><td align="center"><img src="docs/screenshots/it/light/03-expenses.png" width="260" alt="Spese e saldo — tema chiaro"></td><td align="center"><img src="docs/screenshots/it/light/05-new-expense.png" width="260" alt="Nuova spesa — tema chiaro"></td><td align="center"><img src="docs/screenshots/it/light/09-statistics.png" width="260" alt="Statistiche — tema chiaro"></td></tr>

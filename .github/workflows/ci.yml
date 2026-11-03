@@ -18,3 +18,4 @@ jobs:
       - run: docker compose -f deploy/truenas.yaml config --no-path-resolution --quiet
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: npm run site:test

@@ -12,6 +12,8 @@ A self-hosted expense-sharing app for two people, with a Material 3 interface, f
 
 </div>
 
+**Product website:** [preview, GitHub Pages and custom-domain setup](website/README.md).
+
 <table>
 <tr><th colspan="3">Light mode</th></tr>
 <tr><td align="center"><img src="docs/screenshots/en/light/03-expenses.png" width="260" alt="Expenses and balance — light"></td><td align="center"><img src="docs/screenshots/en/light/05-new-expense.png" width="260" alt="New expense — light"></td><td align="center"><img src="docs/screenshots/en/light/09-statistics.png" width="260" alt="Statistics — light"></td></tr>

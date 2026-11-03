@@ -19,7 +19,10 @@
     "check:release": "node scripts/check-release.cjs",
     "build:translations": "node scripts/build-translations.cjs",
     "check:docs": "node scripts/check-docs.cjs",
-    "screenshots": "node scripts/screenshots.cjs && node scripts/build-galleries.cjs"
+    "screenshots": "node scripts/screenshots.cjs && node scripts/build-galleries.cjs",
+    "site:build": "node scripts/build-site.cjs",
+    "site:preview": "node scripts/preview-site.cjs",
+    "site:test": "node scripts/build-site.cjs && node scripts/check-site.cjs && node tests/site-browser.cjs"
   },
   "devDependencies": {
     "acorn": "8.19.0",

@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add a bilingual static product website, localized screenshots, direct source download and installation pages.
+- Add GitHub Pages deployment, sitemap, language metadata, social previews and custom-domain configuration.
+
 - Restore legacy SPESE backups by migrating saved person identities, including settlements, recurring expenses, history, trash and saved views; retain original uploaded files.
 
 - Store Docker and Node backups in a visible host backups directory, with legacy data migration instructions.

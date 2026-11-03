@@ -9,3 +9,5 @@ Spese-screenshot-mobile.zip
 
 data/
 artifacts/
+.site-dist/
+website/
