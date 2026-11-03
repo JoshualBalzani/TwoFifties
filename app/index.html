@@ -1252,9 +1252,9 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <!-- SHEET: IMPOSTAZIONI -->
 <section class="sheet" id="settingsSheet" role="dialog" aria-modal="true" aria-labelledby="settingsSheetTitle">
 <div class="sheet-header"><button class="sheet-handle" type="button" aria-label="Chiudi impostazioni" title="Trascina verso il basso o premi per chiudere"></button><div class="settings-title-row"><button class="icon-btn" id="settingsBackBtn" type="button" aria-label="Torna alle impostazioni" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 4 1.4 1.4-5.6 5.6H20v2H7.8l5.6 5.6L12 20l-8-8z"/></svg></button><h2 class="sheet-title" id="settingsSheetTitle" tabindex="-1">Impostazioni</h2></div></div>
-<section data-settings-panel="home"><p class="settings-intro">TwoFifties · Sviluppato da JOSHBALZANI</p><p class="settings-intro">Gestisci persone, preferenze e dati.</p><div class="settings-nav-list"><button type="button" class="settings-nav-row" data-settings-page="people"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM6 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 1c-3 0-8 1.5-8 4.5V21h16v-3.5c0-3-5-4.5-8-4.5zM6 14c-2 0-6 1-6 3v3h6v-2.5c0-1.3.5-2.4 1.4-3.3L6 14z"/></svg></span><span class="settings-row-copy"><strong>Persone</strong><span id="settingsSummary-people">Nomi e autore delle modifiche</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="appearance"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9zm0 16V5a7 7 0 0 1 0 14z"/></svg></span><span class="settings-row-copy"><strong>Aspetto</strong><span id="settingsSummary-appearance">Sistema, chiaro o scuro</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="defaults"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v2H3zm3 6h12v2H6zm4 6h4v2h-4z"/></svg></span><span class="settings-row-copy"><strong>Nuove spese</strong><span id="settingsSummary-defaults">Pagatore, divisione e categoria</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="data"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/></svg></span><span class="settings-row-copy"><strong>Dati e backup</strong><span id="settingsSummary-data">Backup, importazione ed esportazione</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button></div></section>
-<section data-settings-panel="people" id="settingsPeopleContent" hidden></section>
-<section data-settings-panel="appearance" hidden><label for="appLanguage">Lingua dell’app</label><select class="language-select" id="appLanguage"><option value="it">Italiano</option><option value="en">English</option></select><p class="settings-intro">La lingua si applica a questo dispositivo.</p><p class="settings-intro">Scegli la modalità che preferisci. I colori seguono la palette standard Material 3.</p><h3 class="settings-section-title">Tema dell’app</h3><div class="segmented-m3" id="themeSeg" role="radiogroup" aria-label="Tema dell'app">
+<section data-settings-panel="home"><p class="settings-intro">TwoFifties · Sviluppato da JOSHBALZANI</p><p class="settings-intro">Gestisci persone, preferenze e dati.</p><div class="settings-nav-list"><button type="button" class="settings-nav-row" data-settings-page="people"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM6 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 1c-3 0-8 1.5-8 4.5V21h16v-3.5c0-3-5-4.5-8-4.5zM6 14c-2 0-6 1-6 3v3h6v-2.5c0-1.3.5-2.4 1.4-3.3L6 14z"/></svg></span><span class="settings-row-copy"><strong>Persone</strong><span id="settingsSummary-people">Nomi e autore delle modifiche</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" id="settingsLanguageRow" data-settings-page="language"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a16 16 0 0 0-1.3-3.5A8 8 0 0 1 18.9 8zM12 4c.8 1 1.5 2.4 1.9 4h-3.8C10.5 6.4 11.2 5 12 4zM4.3 14a8 8 0 0 1 0-4h3.8a17 17 0 0 0 0 4zm.8 2h3a16 16 0 0 0 1.3 3.5A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.3-3.5A16 16 0 0 0 8.1 8zM12 20c-.8-1-1.5-2.4-1.9-4h3.8c-.4 1.6-1.1 3-1.9 4zm2.3-6H9.7a15 15 0 0 1 0-4h4.6a15 15 0 0 1 0 4zm.3 5.5a16 16 0 0 0 1.3-3.5h3a8 8 0 0 1-4.3 3.5zm1.3-5.5a17 17 0 0 0 0-4h3.8a8 8 0 0 1 0 4z"/></svg></span><span class="settings-row-copy"><strong>Lingua</strong><span id="settingsSummary-language">Italiano / English</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="appearance"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9zm0 16V5a7 7 0 0 1 0 14z"/></svg></span><span class="settings-row-copy"><strong>Aspetto</strong><span id="settingsSummary-appearance">Sistema, chiaro o scuro</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="defaults"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v2H3zm3 6h12v2H6zm4 6h4v2h-4z"/></svg></span><span class="settings-row-copy"><strong>Nuove spese</strong><span id="settingsSummary-defaults">Pagatore, divisione e categoria</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button><button type="button" class="settings-nav-row" data-settings-page="data"><span class="settings-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-8l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/></svg></span><span class="settings-row-copy"><strong>Dati e backup</strong><span id="settingsSummary-data">Backup, importazione ed esportazione</span></span><svg class="settings-row-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button></div></section>
+<section data-settings-panel="language" hidden><p class="settings-intro">Scegli la lingua dell’interfaccia. I nomi e i testi inseriti non vengono tradotti.</p><div id="languageOptions" class="settings-language-options" role="radiogroup" aria-label="Lingua dell’app"><button type="button" class="settings-language-option" role="radio" aria-checked="false" data-language-opt="it"><span lang="it">Italiano</span><span class="settings-language-check" aria-hidden="true">✓</span></button><button type="button" class="settings-language-option" role="radio" aria-checked="false" data-language-opt="en"><span lang="en">English</span><span class="settings-language-check" aria-hidden="true">✓</span></button></div><p class="settings-note">La lingua si applica a questo dispositivo.</p><p class="settings-note" id="languageFeedback" role="status" aria-live="polite"></p></section><section data-settings-panel="people" id="settingsPeopleContent" hidden></section>
+<section data-settings-panel="appearance" hidden><p class="settings-intro">Scegli la modalità che preferisci. I colori seguono la palette standard Material 3.</p><h3 class="settings-section-title">Tema dell’app</h3><div class="segmented-m3" id="themeSeg" role="radiogroup" aria-label="Tema dell'app">
     <button type="button" class="seg" data-theme-opt="system" role="radio" aria-checked="false">Sistema</button>
     <button type="button" class="seg" data-theme-opt="light" role="radio" aria-checked="false">Chiaro</button>
     <button type="button" class="seg" data-theme-opt="dark" role="radio" aria-checked="false">Scuro</button>
@@ -1799,9 +1799,10 @@ function renderBalance(){
     const debtor = t.balance > 0 ? 'person-b' : 'person-a';
     const creditor = t.balance > 0 ? 'person-a' : 'person-b';
     const parts = Math.abs(t.balance).toFixed(2).split('.');
-    const intFmt = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    const intFmt = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, T.language==='en'?',':'.');
+    const decimalSeparator=T.language==='en'?'.':',';
     head = '<div class="bc-label">' + personMarkup(debtor) + T.fragment(' deve a ') + personMarkup(creditor) + '</div>' +
-      '<div class="bc-amount"><span class="cur">€</span><span class="int">' + intFmt + '</span><span class="dec">,' + parts[1] + '</span></div>' +
+      '<div class="bc-amount"><span class="cur">€</span><span class="int">' + intFmt + '</span><span class="dec">' + decimalSeparator + parts[1] + '</span></div>' +
       T.fragment('<div class="bc-sub">Totale speso ') + fmtEur(t.total) + '</div>';
   }
   let splitHTML = '';
@@ -2266,8 +2267,8 @@ function setSplitMode(m){
   }
   if (m === 'custom'){
     if (!splitSharesLocked){
-      $('f-shareJ').value = total > 0 ? round2(total/2).toFixed(2).replace('.', ',') : '';
-      $('f-shareG').value = total > 0 ? round2(total - round2(total/2)).toFixed(2).replace('.', ',') : '';
+      $('f-shareJ').value = total > 0 ? round2(total/2).toFixed(2).replace('.', T.language==='en'?'.':',') : '';
+      $('f-shareG').value = total > 0 ? round2(total - round2(total/2)).toFixed(2).replace('.', T.language==='en'?'.':',') : '';
     }
     updateSplitHint();
   }
@@ -2315,8 +2316,8 @@ function syncSplitFromAmount(){
     const sJ = parseAmount($('f-shareJ').value);
     const sG = parseAmount($('f-shareG').value);
     if (splitSharesLocked){
-      if (isFinite(sJ) && sJ <= total) $('f-shareG').value = round2(total - sJ).toFixed(2).replace('.', ',');
-      else if (isFinite(sG) && sG <= total) $('f-shareJ').value = round2(total - sG).toFixed(2).replace('.', ',');
+      if (isFinite(sJ) && sJ <= total) $('f-shareG').value = round2(total - sJ).toFixed(2).replace('.', T.language==='en'?'.':',');
+      else if (isFinite(sG) && sG <= total) $('f-shareJ').value = round2(total - sG).toFixed(2).replace('.', T.language==='en'?'.':',');
     }
     updateSplitHint();
   } else if (splitMode === 'percent'){
@@ -2362,7 +2363,7 @@ function openEditSheet(id){
   $('saveBtn').textContent = T.fragment('Salva modifiche');
   $('deleteEditBtn').hidden = false;
   $('f-desc').value = e.desc || '';
-  $('f-amount').value = e.amount.toFixed(2).replace('.', ',');
+  $('f-amount').value = e.amount.toFixed(2).replace('.', T.language==='en'?'.':',');
   $('f-date').value = e.date || todayISO();
   $('f-note').value = e.note || '';
   $('f-shareJ').value = '';
@@ -2753,7 +2754,7 @@ function setRecSplitMode(m){
     updateRecPctHint();
   }
   if (m === 'custom'){
-    if (!recSplitLocked){ $('r-shareJ').value = total > 0 ? round2(total/2).toFixed(2).replace('.', ',') : ''; $('r-shareG').value = total > 0 ? round2(total - round2(total/2)).toFixed(2).replace('.', ',') : ''; }
+    if (!recSplitLocked){ $('r-shareJ').value = total > 0 ? round2(total/2).toFixed(2).replace('.', T.language==='en'?'.':',') : ''; $('r-shareG').value = total > 0 ? round2(total - round2(total/2)).toFixed(2).replace('.', T.language==='en'?'.':',') : ''; }
     updateRecSplitHint();
   }
 }
@@ -2786,7 +2787,7 @@ function openRecEdit(id){
   $('recEditTitle').textContent = r ? T.fragment('Modifica ricorrente') : T.fragment('Nuova ricorrente');
   $('recDeleteBtn').hidden = !r;
   $('r-desc').value = r ? r.desc : '';
-  $('r-amount').value = r ? r.amount.toFixed(2).replace('.', ',') : '';
+  $('r-amount').value = r ? r.amount.toFixed(2).replace('.', T.language==='en'?'.':',') : '';
   $('r-start').value = r ? r.startDate : todayISO();
   $('r-day').value = r ? String(r.dayOfMonth) : '1';
   $('r-note').value = r && r.note ? r.note : '';
@@ -2903,7 +2904,7 @@ function renderBackupStatus(){
   el.innerHTML = ICON.cloud + T.fragment('<span><strong>Backup automatico</strong><br>') + esc(statusLabel) + '</span>' +
     '<span class="pill ' + pillClass + '">' + pillText + '</span>';
 }
-function backupLabel(it){ const d = new Date(it.mtime); return d.toLocaleDateString(T.locale, { day:'numeric', month:'short', year:'numeric' }) + ' · ' + d.toLocaleTimeString('it-IT', { hour:'2-digit', minute:'2-digit' }); }
+function backupLabel(it){ const d = new Date(it.mtime); return d.toLocaleDateString(T.locale, { day:'numeric', month:'short', year:'numeric' }) + ' · ' + d.toLocaleTimeString(T.locale, { hour:'2-digit', minute:'2-digit' }); }
 async function loadBackups(){
   const list = $('backupList'), empty = $('backupEmpty');
   list.innerHTML = T.fragment('<li class="backup-empty">Caricamento…</li>');
@@ -2928,7 +2929,7 @@ async function loadBackups(){
     else if (it.kind === 'manual'){ cls = 'manual'; kindLabel = T.fragment('Manuale'); }
     else if (it.file.startsWith('pre-restore-')){ cls = 'pre'; kindLabel = T.fragment('Pre-ripristino'); }
     const count = (it.entries == null) ? '—' : (it.entries + (it.entries === 1 ? T.fragment(' movimento') : T.fragment(' movimenti')));
-    const recs = (it.recurrences == null || it.recurrences === 0) ? '' : (' · ' + it.recurrences + ' ric.');
+    const recs = (it.recurrences == null || it.recurrences === 0) ? '' : (' · ' + it.recurrences + T.t(' ric.'));
     const meta = kindLabel + ' · ' + count + recs + ' · ' + humanSize(it.size);
     return '<li class="backup-item" role="listitem">' +
       '<div class="backup-icon ' + cls + '" aria-hidden="true">' + ICON.folder + '</div>' +
@@ -3517,8 +3518,9 @@ function submitExport(){
 
 /* ---------- SHEET IMPOSTAZIONI ---------- */
 let settingsPage='home';
-const settingsTitles={home:T.fragment('Impostazioni'),people:T.fragment('Persone'),appearance:T.fragment('Aspetto'),defaults:T.fragment('Nuove spese'),data:T.fragment('Dati e backup')};
+const settingsTitles={home:T.fragment('Impostazioni'),language:T.t('Lingua'),people:T.fragment('Persone'),appearance:T.fragment('Aspetto'),defaults:T.fragment('Nuove spese'),data:T.fragment('Dati e backup')};
 function refreshSettingsSummaries(){
+ $('settingsSummary-language').textContent=T.language==='en'?'English':'Italiano';
  $('settingsSummary-people').textContent=personName('person-a')+T.t(' e ')+personName('person-b');
  $('settingsSummary-appearance').textContent={system:T.fragment('Segue il dispositivo'),light:T.fragment('Tema chiaro'),dark:T.fragment('Tema scuro')}[settings.theme];
  $('settingsSummary-defaults').textContent=T.fragment('Pagatore, divisione e categoria');
@@ -3532,7 +3534,8 @@ function showSettingsPage(page,focus=true){
 }
 function openSettingsSheet(page='home'){closeAllSheets();renderSettingsSheet();showSettingsPage(page,false);showSheet($('settingsSheet'));}
 $('settingsSheet').addEventListener('click',event=>{const row=event.target.closest('[data-settings-page]');if(row)showSettingsPage(row.dataset.settingsPage);});
-$('appLanguage').value=T.language;$('appLanguage').addEventListener('change',event=>T.setLanguage(event.target.value));
+document.querySelectorAll('[data-language-opt]').forEach(button=>{const active=button.dataset.languageOpt===T.language;button.setAttribute('aria-checked',String(active));button.tabIndex=active?0:-1;button.addEventListener('click',()=>{if(!T.setLanguage(button.dataset.languageOpt,{returnTo:'language'}))$('languageFeedback').textContent=T.t('Impossibile salvare la lingua. Consenti il salvataggio dei dati del sito e riprova.');});});
+$('languageOptions').addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(event.key))return;event.preventDefault();const buttons=[...event.currentTarget.querySelectorAll('button')],index=buttons.indexOf(document.activeElement),next=event.key==='Home'?0:event.key==='End'?1:(index+1)%2;buttons[next].focus();buttons[next].click();});
 $('settingsBackBtn').addEventListener('click',()=>{const page=settingsPage;showSettingsPage('home',false);$('settingsSheet').querySelector('[data-settings-page="'+page+'"]').focus();});
 function closeSettingsSheet(){ $('settingsSheet').classList.remove('open'); maybeCloseScrim(); restoreFocus(); }
 function setSegActive(segId, attr, value){
@@ -3676,14 +3679,14 @@ $('f-shareJ').addEventListener('input', function(){
   splitSharesLocked = true;
   const total = parseAmount($('f-amount').value) || 0;
   const sJ = parseAmount($('f-shareJ').value);
-  if (total > 0 && sJ !== null) $('f-shareG').value = round2(Math.max(0, total - sJ)).toFixed(2).replace('.', ',');
+  if (total > 0 && sJ !== null) $('f-shareG').value = round2(Math.max(0, total - sJ)).toFixed(2).replace('.', T.language==='en'?'.':',');
   updateSplitHint();
 });
 $('f-shareG').addEventListener('input', function(){
   splitSharesLocked = true;
   const total = parseAmount($('f-amount').value) || 0;
   const sG = parseAmount($('f-shareG').value);
-  if (total > 0 && sG !== null) $('f-shareJ').value = round2(Math.max(0, total - sG)).toFixed(2).replace('.', ',');
+  if (total > 0 && sG !== null) $('f-shareJ').value = round2(Math.max(0, total - sG)).toFixed(2).replace('.', T.language==='en'?'.':',');
   updateSplitHint();
 });
 $('f-desc').addEventListener('keydown', function(ev){ if (ev.key === 'Enter'){ ev.preventDefault(); $('f-amount').focus(); } });
@@ -3720,14 +3723,14 @@ $('r-amount').addEventListener('input', function(){
     if (total <= 0){ updateRecSplitHint(); return; }
     const sJ = parseAmount($('r-shareJ').value), sG = parseAmount($('r-shareG').value);
     if (recSplitLocked){
-      if (isFinite(sJ) && sJ <= total) $('r-shareG').value = round2(total - sJ).toFixed(2).replace('.', ',');
-      else if (isFinite(sG) && sG <= total) $('r-shareJ').value = round2(total - sG).toFixed(2).replace('.', ',');
+      if (isFinite(sJ) && sJ <= total) $('r-shareG').value = round2(total - sJ).toFixed(2).replace('.', T.language==='en'?'.':',');
+      else if (isFinite(sG) && sG <= total) $('r-shareJ').value = round2(total - sG).toFixed(2).replace('.', T.language==='en'?'.':',');
     }
     updateRecSplitHint();
   } else if (recSplitMode === 'percent') updateRecPctHint();
 });
-$('r-shareJ').addEventListener('input', function(){ recSplitLocked = true; const total = parseAmount($('r-amount').value) || 0; const sJ = parseAmount($('r-shareJ').value); if (total > 0 && sJ !== null) $('r-shareG').value = round2(Math.max(0, total - sJ)).toFixed(2).replace('.', ','); updateRecSplitHint(); });
-$('r-shareG').addEventListener('input', function(){ recSplitLocked = true; const total = parseAmount($('r-amount').value) || 0; const sG = parseAmount($('r-shareG').value); if (total > 0 && sG !== null) $('r-shareJ').value = round2(Math.max(0, total - sG)).toFixed(2).replace('.', ','); updateRecSplitHint(); });
+$('r-shareJ').addEventListener('input', function(){ recSplitLocked = true; const total = parseAmount($('r-amount').value) || 0; const sJ = parseAmount($('r-shareJ').value); if (total > 0 && sJ !== null) $('r-shareG').value = round2(Math.max(0, total - sJ)).toFixed(2).replace('.', T.language==='en'?'.':','); updateRecSplitHint(); });
+$('r-shareG').addEventListener('input', function(){ recSplitLocked = true; const total = parseAmount($('r-amount').value) || 0; const sG = parseAmount($('r-shareG').value); if (total > 0 && sG !== null) $('r-shareJ').value = round2(Math.max(0, total - sG)).toFixed(2).replace('.', T.language==='en'?'.':','); updateRecSplitHint(); });
 $('r-pctJ').addEventListener('input', function(){ recPctLocked = true; const pJ = parseAmount($('r-pctJ').value); if (pJ !== null) $('r-pctG').value = String(Math.round((100 - pJ) * 100) / 100); updateRecPctHint(); });
 $('r-pctG').addEventListener('input', function(){ recPctLocked = true; const pG = parseAmount($('r-pctG').value); if (pG !== null) $('r-pctJ').value = String(Math.round((100 - pG) * 100) / 100); updateRecPctHint(); });
 
@@ -3894,7 +3897,7 @@ document.querySelectorAll('main,.appbar,.fab,.selection-bar-bottom,.bottom-nav,.
     }
   }
   writeLocal();applySettings();setSync(serverReachable===false?'offline':'idle');renderAll();
-  } finally {updateModalState();const initial=Object.keys(primaryHashes).find(key=>primaryHashes[key]===location.hash)||'expenses';navigatePrimary(initial,{history:false,focus:false});if(!settings.setupCompleted)window.TwoFiftiesSetup({get:()=>settings,save:saveSettings,done:()=>{updateModalState();$('fab').focus();}});}
+  } finally {updateModalState();const initial=Object.keys(primaryHashes).find(key=>primaryHashes[key]===location.hash)||'expenses';navigatePrimary(initial,{history:false,focus:false});let returnPage=null;try{returnPage=sessionStorage.getItem('twofifties-settings-return');sessionStorage.removeItem('twofifties-settings-return');}catch(_){}if(settings.setupCompleted&&returnPage==='language'){openSettingsSheet('language');setTimeout(()=>document.querySelector('[data-language-opt="'+T.language+'"]')?.focus(),80);}if(!settings.setupCompleted)window.TwoFiftiesSetup({get:()=>settings,save:saveSettings,done:()=>{updateModalState();$('fab').focus();}});}
 })();
 })();
 </script>

@@ -15,9 +15,11 @@
   "scripts": {
     "start": "node scripts/start.cjs",
     "test": "node tests/home-logic.cjs && node tests/theme-colors.cjs && node tests/regression.cjs && node tests/server-integration.cjs && node scripts/check-release.cjs",
-    "test:browser": "node tests/publication-browser.cjs && node tests/setup-tour.cjs && node tests/backup-import.cjs",
+    "test:browser": "node tests/publication-browser.cjs && node tests/setup-tour.cjs && node tests/backup-import.cjs && node tests/language-settings.cjs",
     "check:release": "node scripts/check-release.cjs",
-    "build:translations": "node scripts/build-translations.cjs"
+    "build:translations": "node scripts/build-translations.cjs",
+    "check:docs": "node scripts/check-docs.cjs",
+    "screenshots": "node scripts/screenshots.cjs && node scripts/build-galleries.cjs"
   },
   "devDependencies": {
     "acorn": "8.19.0",

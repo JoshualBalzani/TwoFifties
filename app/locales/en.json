@@ -561,5 +561,15 @@
   "Il backup supera il limite di 4,5 MB.": "The backup exceeds the 4.5 MB limit.",
   "Il file non contiene un JSON valido.": "The file does not contain valid JSON.",
   "Seleziona un backup completo di TwoFifties, non un elenco di movimenti.": "Choose a complete TwoFifties backup, not a transaction list.",
-  "Il backup usa identificativi di una versione diversa. Nessun dato è stato modificato.": "The backup uses identifiers from a different version. No data has been changed."
+  "Il backup usa identificativi di una versione diversa. Nessun dato è stato modificato.": "The backup uses identifiers from a different version. No data has been changed.",
+  "Scegli la lingua dell’interfaccia. I nomi e i testi inseriti non vengono tradotti.": "Choose the interface language. Names and text you enter are not translated.",
+  "Impossibile salvare la lingua. Consenti il salvataggio dei dati del sito e riprova.": "Unable to save the language. Allow site data storage and try again.",
+  "avviso budget": "budget alert",
+  "avvisi budget": "budget alerts",
+  "proposta": "proposal",
+  "proposte": "proposals",
+  "Si": "Yes",
+  " ric.": " recurring",
+  "Colori e personalizzazione": "Colors and customization",
+  "≠ totale": "≠ total"
 }

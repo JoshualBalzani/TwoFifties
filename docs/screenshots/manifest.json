@@ -1,132 +1,157 @@
-[
-  {
-    "file": "01-benvenuto.png",
-    "it": "Presentazione guidata",
-    "en": "Guided introduction"
+{
+  "viewport": {
+    "width": 430,
+    "height": 932,
+    "scale": 2
   },
-  {
-    "file": "02-nomi.png",
-    "it": "Due nomi, uno spazio condiviso",
-    "en": "Two names, one shared workspace"
-  },
-  {
-    "file": "03-spese.png",
-    "it": "Spese e saldo condiviso",
-    "en": "Shared expenses and balance"
-  },
-  {
-    "file": "04-azioni.png",
-    "it": "Azioni rapide dal pulsante +",
-    "en": "Quick actions from the + button"
-  },
-  {
-    "file": "05-nuova-spesa.png",
-    "it": "Nuova spesa e divisione",
-    "en": "New expense and split options"
-  },
-  {
-    "file": "06-note-ricevute.png",
-    "it": "Note, scadenze e ricevute",
-    "en": "Notes, due dates and receipts"
-  },
-  {
-    "file": "07-conferma-saldo.png",
-    "it": "Saldo protetto da conferma",
-    "en": "Settlement with confirmation"
-  },
-  {
-    "file": "08-ricerca.png",
-    "it": "Ricerca nei movimenti",
-    "en": "Search your transactions"
-  },
-  {
-    "file": "09-statistiche.png",
-    "it": "Statistiche mensili",
-    "en": "Monthly statistics"
-  },
-  {
-    "file": "10-budget.png",
-    "it": "Budget per categoria",
-    "en": "Budgets by category"
-  },
-  {
-    "file": "11-altro.png",
-    "it": "Strumenti organizzati in Altro",
-    "en": "Organized tools in More"
-  },
-  {
-    "file": "12-rimborsi.png",
-    "it": "Anticipi e rimborsi",
-    "en": "Advances and reimbursements"
-  },
-  {
-    "file": "13-ricorrenze.png",
-    "it": "Spese ricorrenti",
-    "en": "Recurring expenses"
-  },
-  {
-    "file": "14-da-confermare.png",
-    "it": "Ricorrenze da confermare",
-    "en": "Recurring expenses awaiting approval"
-  },
-  {
-    "file": "15-categorie.png",
-    "it": "Categorie delle spese",
-    "en": "Expense categories"
-  },
-  {
-    "file": "16-filtri-salvati.png",
-    "it": "Viste e filtri salvati",
-    "en": "Saved views and filters"
-  },
-  {
-    "file": "17-storico.png",
-    "it": "Storico delle modifiche",
-    "en": "Change history"
-  },
-  {
-    "file": "18-cestino.png",
-    "it": "Recupero dal cestino",
-    "en": "Restore from trash"
-  },
-  {
-    "file": "19-backup.png",
-    "it": "Backup e ripristino",
-    "en": "Backup and restore"
-  },
-  {
-    "file": "20-importazione.png",
-    "it": "Importazione JSON e CSV",
-    "en": "JSON and CSV import"
-  },
-  {
-    "file": "21-esportazione.png",
-    "it": "Esportazione Excel",
-    "en": "Excel export"
-  },
-  {
-    "file": "22-impostazioni.png",
-    "it": "Impostazioni ordinate",
-    "en": "Organized settings"
-  },
-  {
-    "file": "23-persone.png",
-    "it": "Nomi e autore delle modifiche",
-    "en": "Names and change author"
-  },
-  {
-    "file": "24-lingua-tema.png",
-    "it": "Lingua e tema",
-    "en": "Language and theme"
-  },
-  {
-    "file": "25-tema-scuro.png",
-    "it": "Tema scuro Material 3",
-    "en": "Material 3 dark theme"
-  },
-  {
-    "file": "26-english.png",
-    "it": "Interfaccia in inglese",
-    "en": "English interface"
-  }
-]
+  "languages": [
+    "it",
+    "en"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "screens": [
+    {
+      "id": "01-welcome",
+      "it": "Presentazione guidata",
+      "en": "Guided introduction"
+    },
+    {
+      "id": "02-names",
+      "it": "I nomi delle due persone",
+      "en": "Two required names"
+    },
+    {
+      "id": "03-expenses",
+      "it": "Spese e saldo condiviso",
+      "en": "Shared expenses and balance"
+    },
+    {
+      "id": "04-actions",
+      "it": "Azioni rapide dal pulsante +",
+      "en": "Quick actions from the + button"
+    },
+    {
+      "id": "05-new-expense",
+      "it": "Nuova spesa e divisione",
+      "en": "New expense and split options"
+    },
+    {
+      "id": "06-receipts",
+      "it": "Note, scadenze e ricevute",
+      "en": "Notes, due dates and receipts"
+    },
+    {
+      "id": "07-settlement",
+      "it": "Saldo protetto da conferma",
+      "en": "Settlement with confirmation"
+    },
+    {
+      "id": "08-search",
+      "it": "Ricerca nei movimenti",
+      "en": "Search your transactions"
+    },
+    {
+      "id": "09-statistics",
+      "it": "Statistiche mensili",
+      "en": "Monthly statistics"
+    },
+    {
+      "id": "10-budget",
+      "it": "Budget per categoria",
+      "en": "Budgets by category"
+    },
+    {
+      "id": "11-more",
+      "it": "Strumenti organizzati in Altro",
+      "en": "Organized tools in More"
+    },
+    {
+      "id": "12-reimbursements",
+      "it": "Anticipi e rimborsi",
+      "en": "Advances and reimbursements"
+    },
+    {
+      "id": "13-recurring",
+      "it": "Spese ricorrenti",
+      "en": "Recurring expenses"
+    },
+    {
+      "id": "14-pending",
+      "it": "Ricorrenze da confermare",
+      "en": "Recurring expenses awaiting approval"
+    },
+    {
+      "id": "15-categories",
+      "it": "Categorie delle spese",
+      "en": "Expense categories"
+    },
+    {
+      "id": "16-saved-views",
+      "it": "Viste e filtri salvati",
+      "en": "Saved views and filters"
+    },
+    {
+      "id": "17-history",
+      "it": "Storico delle modifiche",
+      "en": "Change history"
+    },
+    {
+      "id": "18-trash",
+      "it": "Recupero dal cestino",
+      "en": "Restore from trash"
+    },
+    {
+      "id": "19-backup",
+      "it": "Backup e ripristino",
+      "en": "Backup and restore"
+    },
+    {
+      "id": "20-import",
+      "it": "Importazione dei movimenti",
+      "en": "Transaction import"
+    },
+    {
+      "id": "21-export",
+      "it": "Esportazione Excel",
+      "en": "Excel export"
+    },
+    {
+      "id": "22-settings",
+      "it": "Impostazioni ordinate",
+      "en": "Organized settings"
+    },
+    {
+      "id": "23-people",
+      "it": "Nomi e autore delle modifiche",
+      "en": "Names and change author"
+    },
+    {
+      "id": "24-language",
+      "it": "Cambio lingua",
+      "en": "Language selection"
+    },
+    {
+      "id": "25-appearance",
+      "it": "Preferenze del tema",
+      "en": "Theme preferences"
+    },
+    {
+      "id": "26-transactions",
+      "it": "Elenco dei movimenti",
+      "en": "Transaction list"
+    },
+    {
+      "id": "27-filters",
+      "it": "Filtri di ricerca",
+      "en": "Transaction filters"
+    },
+    {
+      "id": "28-restore-file",
+      "it": "Ripristino da un file JSON",
+      "en": "Restore from a JSON file"
+    }
+  ]
+}

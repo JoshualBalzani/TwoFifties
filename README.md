@@ -6,15 +6,17 @@
 
 A self-hosted expense-sharing app for two people, with a Material 3 interface, flexible splits and a shared view of everyday spending.
 
-**Developed by JOSHBALZANI** · [Italiano](README.it.md) · [Screenshot gallery](docs/screenshots/README.md)
+**Developed by JOSHBALZANI** · [Italiano](README.it.md) · [Screenshot gallery](docs/screenshots/en/README.md)
 
 [![Verify TwoFifties](https://github.com/JoshualBalzani/TwoFifties/actions/workflows/ci.yml/badge.svg)](https://github.com/JoshualBalzani/TwoFifties/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-6750A4.svg)](LICENSE) [![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-43853D.svg)](https://nodejs.org/)
 
 </div>
 
 <table>
-<tr><td align="center"><img src="docs/screenshots/03-spese.png" width="260" alt="Expenses and balance"></td><td align="center"><img src="docs/screenshots/05-nuova-spesa.png" width="260" alt="New expense"></td><td align="center"><img src="docs/screenshots/09-statistiche.png" width="260" alt="Statistics"></td></tr>
-<tr><td align="center">Your balance at a glance</td><td align="center">A fair split for every expense</td><td align="center">Understand your spending</td></tr>
+<tr><th colspan="3">Light mode</th></tr>
+<tr><td align="center"><img src="docs/screenshots/en/light/03-expenses.png" width="260" alt="Expenses and balance — light"></td><td align="center"><img src="docs/screenshots/en/light/05-new-expense.png" width="260" alt="New expense — light"></td><td align="center"><img src="docs/screenshots/en/light/09-statistics.png" width="260" alt="Statistics — light"></td></tr>
+<tr><th colspan="3">Dark mode</th></tr>
+<tr><td align="center"><img src="docs/screenshots/en/dark/03-expenses.png" width="260" alt="Expenses and balance — dark"></td><td align="center"><img src="docs/screenshots/en/dark/05-new-expense.png" width="260" alt="New expense — dark"></td><td align="center"><img src="docs/screenshots/en/dark/09-statistics.png" width="260" alt="Statistics — dark"></td></tr>
 </table>
 
 ## Built for everyday life, together
@@ -22,6 +24,17 @@ A self-hosted expense-sharing app for two people, with a Material 3 interface, f
 Groceries, rent, a weekend away or a ticket bought for the other person: TwoFifties keeps track of who paid, who owes what and what remains to be settled. It works well for couples, roommates and any two people sharing a budget.
 
 The name does not mean every expense must be split in half. Choose the split that fits the situation, keep reimbursement deadlines visible and confirm a settlement when payment has actually happened.
+
+## One workflow, from recording to reconciliation
+
+TwoFifties brings expense entry, allocation, budget review and settlement into one shared workspace. Each transaction retains the person who actually paid; history makes changes traceable, and backups let you preserve and restore the workspace. The aim is to reduce manual calculations while keeping individual contributions understandable.
+
+1. **Set up your workspace:** enter both names and choose language and theme.
+2. **Record an expense:** identify the payer and assign the cost.
+3. **Review your position:** check the balance, statistics, budgets and outstanding reimbursements.
+4. **Record payment:** confirm a settlement after the money has changed hands.
+
+For example, if Alex pays €80 for an item entirely owed by Sofia, the dedicated split assigns €0 to Alex and €80 to Sofia while retaining Alex as the payer. That transaction creates an €80 amount owed to Alex; the overall balance also includes other transactions.
 
 ## What you can do
 
@@ -47,9 +60,23 @@ The first-run guide introduces the app and asks for the two names. You can skip 
 
 ## See the app in action
 
-[**Browse all 26 mobile screenshots →**](docs/screenshots/README.md)
+[**Browse 28 screens in light and dark mode →**](docs/screenshots/en/README.md)
 
-The gallery covers onboarding, expenses, quick actions, settlements, search, statistics, budgets, reimbursements, recurring expenses, categories, saved views, history, trash, backup, import/export, settings and both themes. Screenshots use **fictitious names and transactions** in an isolated temporary server. The installable app still starts empty. Most gallery images show Italian; an English interface example is included.
+The gallery covers onboarding, expenses, quick actions, settlements, search, statistics, budgets, reimbursements, recurring expenses, categories, saved views, history, trash, backup, import/export, settings and both themes. Screenshots use **fictitious names and transactions** in an isolated temporary server. The installable app still starts empty. This English manual links exclusively to English screenshots: 28 screens in both themes, 56 images in total.
+
+## Choose an installation
+
+| Environment | Installation path |
+| --- | --- |
+| Computer or server with Docker | Build the included Dockerfile and start with Compose. |
+| Server with Node.js 24+ | Run Express directly, without an external database. |
+| TrueNAS Docker Apps 24.10+ | Deploy a custom YAML app with dedicated persistent storage. |
+
+## Install on TrueNAS
+
+Follow the [English TrueNAS guide](docs/TRUENAS.md) and use the [configuration template](deploy/truenas.yaml). Prepare source and backups directories in a dataset, copy the source onto the NAS, grant UID/GID 1000 write access to persistent storage, then open **Apps → Discover Apps → Install via YAML**. Paste the template, replace its paths and credentials, adjust the host port if needed and wait for the build. Open **http://YOUR_NAS_IP:5001**.
+
+The template builds from source rather than assuming a published container image exists. The guide covers migration, receipt files, updates and persistence checks; see the [official TrueNAS custom app documentation](https://apps.truenas.com/managing-apps/installing-custom-apps/) for the platform workflow.
 
 ## Start with Docker
 
@@ -81,6 +108,19 @@ Open **http://localhost:5001**. Local server state, receipts and backups are wri
 ## Offline use and synchronization
 
 After an online visit has cached the app shell, the browser can reopen it offline and save changes locally. When the configured server is reachable again, changes synchronize; conflicting edits are presented for resolution. Devices connected to the same server use the same shared workspace. Names and theme belong to that workspace; language is a per-device preference.
+
+## Architecture and operational scope
+
+| Component | Project choice |
+| --- | --- |
+| Interface | HTML, CSS and JavaScript, local Roboto fonts and Material 3 roles in both themes. |
+| Server | Node.js 24+ and Express 5 serve the application and API. |
+| Storage | JSON state and receipt images in the backups folder, with no separate database service. |
+| Devices | One shared workspace per server, local browser copies and conflict resolution. |
+| Languages | Italian and English, selected per device under Settings → Language. |
+| Scope | Two people, euro amounts and workspace-wide authentication. |
+
+The app does not connect bank accounts, transfer money, provide tax accounting or assign separate user roles. A settlement records a payment made through another channel.
 
 ## Privacy and deployment
 

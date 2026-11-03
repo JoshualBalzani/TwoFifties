@@ -6,15 +6,17 @@
 
 L'app per gestire le spese di due persone: un'interfaccia Material 3, divisioni flessibili e una visione condivisa delle uscite quotidiane. Da ospitare sul proprio server.
 
-**Sviluppato da JOSHBALZANI** · [English](README.md) · [Galleria screenshot](docs/screenshots/README.md)
+**Sviluppato da JOSHBALZANI** · [English](README.md) · [Galleria screenshot](docs/screenshots/it/README.md)
 
 [![Verify TwoFifties](https://github.com/JoshualBalzani/TwoFifties/actions/workflows/ci.yml/badge.svg)](https://github.com/JoshualBalzani/TwoFifties/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-6750A4.svg)](LICENSE) [![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-43853D.svg)](https://nodejs.org/)
 
 </div>
 
 <table>
-<tr><td align="center"><img src="docs/screenshots/03-spese.png" width="260" alt="Spese e saldo"></td><td align="center"><img src="docs/screenshots/05-nuova-spesa.png" width="260" alt="Nuova spesa"></td><td align="center"><img src="docs/screenshots/09-statistiche.png" width="260" alt="Statistiche"></td></tr>
-<tr><td align="center">Il saldo, sempre chiaro</td><td align="center">Ogni spesa, la sua divisione</td><td align="center">Uno sguardo alle abitudini</td></tr>
+<tr><th colspan="3">Tema chiaro</th></tr>
+<tr><td align="center"><img src="docs/screenshots/it/light/03-expenses.png" width="260" alt="Spese e saldo — tema chiaro"></td><td align="center"><img src="docs/screenshots/it/light/05-new-expense.png" width="260" alt="Nuova spesa — tema chiaro"></td><td align="center"><img src="docs/screenshots/it/light/09-statistics.png" width="260" alt="Statistiche — tema chiaro"></td></tr>
+<tr><th colspan="3">Tema scuro</th></tr>
+<tr><td align="center"><img src="docs/screenshots/it/dark/03-expenses.png" width="260" alt="Spese e saldo — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/05-new-expense.png" width="260" alt="Nuova spesa — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/09-statistics.png" width="260" alt="Statistiche — tema scuro"></td></tr>
 </table>
 
 ## Le spese di tutti i giorni, insieme
@@ -22,6 +24,17 @@ L'app per gestire le spese di due persone: un'interfaccia Material 3, divisioni 
 La spesa al supermercato, l'affitto, una cena o un biglietto anticipato per l'altra persona: TwoFifties tiene traccia di chi ha pagato, di quanto spetta a ciascuno e di cosa rimane da saldare. È pensata per coppie, coinquilini e due persone che condividono delle spese.
 
 Il nome non obbliga a dividere tutto a metà. Ogni movimento può seguire una divisione diversa, con promemoria per i rimborsi e una conferma prima di registrare il saldo.
+
+## Un flusso completo, dalla spesa al saldo
+
+TwoFifties riunisce registrazione delle spese, ripartizione, controllo del budget e riconciliazione in uno spazio condiviso. Ogni movimento conserva chi ha effettivamente pagato; la cronologia aiuta a ricostruire le modifiche e il backup permette di conservare e ripristinare lo spazio di lavoro. L’obiettivo è ridurre i conteggi manuali mantenendo comprensibili i contributi individuali.
+
+1. **Configura lo spazio:** inserisci i due nomi e scegli lingua e tema.
+2. **Registra una spesa:** indica chi ha pagato e come assegnare il costo.
+3. **Controlla la situazione:** consulta saldo, statistiche, budget e rimborsi in attesa.
+4. **Registra il pagamento:** conferma il saldo quando il trasferimento è avvenuto.
+
+Per esempio, se Alex paga €80 per un acquisto interamente a carico di Sofia, la modalità dedicata attribuisce €0 ad Alex e €80 a Sofia, conservando Alex come pagatore. Questo movimento genera un debito di €80 verso Alex; il saldo complessivo tiene conto anche delle altre spese.
 
 ## Tutto quello che puoi gestire
 
@@ -47,11 +60,25 @@ Al primo avvio una presentazione guidata introduce l'app. Puoi saltare la spiega
 
 ## Guarda tutte le funzioni
 
-[**Apri la galleria con 26 screenshot mobile →**](docs/screenshots/README.md)
+[**Apri le 28 schermate nei temi chiaro e scuro →**](docs/screenshots/it/README.md)
 
-Le immagini mostrano schermate reali dell'app: configurazione, spese, azioni rapide, saldo, ricerca, statistiche, budget, rimborsi, ricorrenze, categorie, viste salvate, storico, cestino, backup, importazione, esportazione e impostazioni. Sono inclusi tema scuro e interfaccia inglese.
+Le immagini mostrano schermate reali dell'app: configurazione, spese, azioni rapide, saldo, ricerca, statistiche, budget, rimborsi, ricorrenze, categorie, viste salvate, storico, cestino, backup, importazione, esportazione e impostazioni. Questo manuale usa soltanto screenshot in italiano: 28 schermate in entrambi i temi, per un totale di 56 immagini.
 
 **Nomi e movimenti nelle immagini sono inventati.** Gli screenshot sono generati su un server temporaneo isolato; l'app distribuita continua a partire senza dati.
+
+## Scegliere l’installazione
+
+| Ambiente | Percorso |
+| --- | --- |
+| Computer o server con Docker | Compilazione dal Dockerfile incluso e avvio con Compose. |
+| Server con Node.js 24+ | Avvio diretto del server Express, senza database esterno. |
+| TrueNAS con Docker Apps 24.10+ | App personalizzata tramite YAML e dataset dedicato ai backup. |
+
+## Installazione su TrueNAS
+
+Usa la [guida TrueNAS in italiano](docs/TRUENAS.it.md) e il [modello da adattare](deploy/truenas.yaml). Prepara le cartelle source e backups in un dataset, copia i sorgenti sul NAS, assegna alla cartella dati accesso per UID/GID 1000 e apri **Apps → Discover Apps → Install via YAML**. Incolla il modello sostituendo percorsi, credenziali ed eventuale porta, poi attendi compilazione e avvio. L’app si apre su **http://IP_DEL_NAS:5001**.
+
+Il modello compila direttamente i sorgenti, senza presupporre un’immagine pubblica. La guida comprende migrazione dei dati, ricevute, aggiornamenti e verifica della persistenza; il riferimento ufficiale è la [documentazione TrueNAS sulle app personalizzate](https://apps.truenas.com/managing-apps/installing-custom-apps/).
 
 ## Avvio con Docker
 
@@ -83,6 +110,19 @@ Apri **http://localhost:5001**. Stato, ricevute e backup vengono conservati nell
 ## Offline e sincronizzazione
 
 Dopo una visita online che abbia memorizzato l'app, puoi riaprirla offline e salvare modifiche nel browser. Al ritorno della connessione il server riceve gli aggiornamenti; eventuali conflitti vengono proposti per la risoluzione. I dispositivi collegati allo stesso server condividono uno spazio di lavoro. Nomi e tema sono condivisi; la lingua è una preferenza del dispositivo.
+
+## Struttura e limiti operativi
+
+| Componente | Scelta del progetto |
+| --- | --- |
+| Interfaccia | HTML, CSS e JavaScript; font Roboto inclusi e ruoli Material 3 per i due temi. |
+| Server | Node.js 24+ ed Express 5; serve sia l’app sia le API. |
+| Archivio | File JSON e immagini nella cartella backups, senza database da amministrare. |
+| Dispositivi | Uno spazio condiviso per server, con copia locale e risoluzione dei conflitti. |
+| Lingue | Italiano e inglese, con scelta per dispositivo in Impostazioni → Lingua. |
+| Ambito | Due persone, importi in euro e autenticazione condivisa dello spazio. |
+
+Non sono previsti conti bancari collegati, trasferimenti automatici di denaro, contabilità fiscale o account con ruoli separati. La conferma di un saldo registra un pagamento già effettuato altrove.
 
 ## Dati, privacy e pubblicazione
 

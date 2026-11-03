@@ -1,0 +1,21 @@
+# TrueNAS Docker Apps (24.10+): replace BOTH /mnt/tank paths and credentials.
+# Build from the source directory copied to your NAS; no public image required.
+services:
+  twofifties:
+    build:
+      context: /mnt/tank/apps/twofifties/source
+      dockerfile: Dockerfile
+    environment:
+      TZ: Europe/Rome
+      AUTH_USER: replace-with-your-username
+      AUTH_PASS: replace-with-a-long-unique-password
+      BACKUP_DIR: /app/data
+    ports:
+      - "5001:8080"
+    volumes:
+      - type: bind
+        source: /mnt/tank/apps/twofifties/backups
+        target: /app/data
+        bind:
+          create_host_path: false
+    restart: unless-stopped
