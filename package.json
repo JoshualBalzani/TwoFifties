@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JOSHBALZANI/TwoFifties.git"
+    "url": "https://github.com/JoshualBalzani/TwoFifties.git"
   },
   "engines": {
     "node": ">=24"

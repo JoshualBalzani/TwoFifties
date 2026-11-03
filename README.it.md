@@ -14,7 +14,7 @@ Prima di esporre il server a internet imposta entrambe le credenziali AUTH_USER 
 
 ## Pubblicazione
 
-Il README inglese contiene i comandi per JOSHBALZANI/TwoFifties. Sono inclusi licenza MIT, workflow GitHub Actions e configurazione Docker. GitHub Pages da solo non esegue l'API Node necessaria. Nessuna pubblicazione viene effettuata automaticamente.
+Il README inglese contiene i comandi per JoshualBalzani/TwoFifties. Sono inclusi licenza MIT, workflow GitHub Actions e configurazione Docker. GitHub Pages da solo non esegue l'API Node necessaria. Nessuna pubblicazione viene effettuata automaticamente.
 
 Le funzioni comprendono divisioni personalizzate e 100/0, saldo con conferma, categorie, ricorrenze, rimborsi, ricevute, statistiche, budget, filtri, storico, cestino, backup e importazione/esportazione. L'uso offline mantiene una copia nel browser e sincronizza al ritorno della connessione.
 

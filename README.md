@@ -47,13 +47,13 @@ Browser tests run against isolated temporary data.
 
 ## Publish on GitHub
 
-Create an empty TwoFifties repository in the JOSHBALZANI account. Review staged files and run:
+Create an empty TwoFifties repository in the JoshualBalzani account. Review staged files and run:
 
 ```sh
 git init -b main
 git add .
 git commit -m "Initial TwoFifties release"
-git remote add origin https://github.com/JOSHBALZANI/TwoFifties.git
+git remote add origin https://github.com/JoshualBalzani/TwoFifties.git
 git push -u origin main
 ```
 
