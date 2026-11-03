@@ -33,7 +33,7 @@ module.exports={
    ['Dove cambio lingua?','Nell’app apri Altro → Impostazioni → Lingua. Italiano e inglese sono una preferenza del singolo dispositivo; nomi e testi inseriti restano invariati.'],
    ['Come segnalo un problema?','Apri una segnalazione su GitHub con i passaggi per riprodurlo. Evita di allegare dati personali, ricevute o backup reali a una segnalazione pubblica.']
   ],
-  closing:'Meno conti da rifare. Più chiarezza, insieme.',closingText:'Scarica TwoFifties e prepara il vostro spazio condiviso.',issues:'Segnala un problema',privacy:'Questo sito non raccoglie spese e non offre account. Salva solo la preferenza del tema nel browser; non include analytics o font da servizi esterni. L’hosting GitHub Pages applica la propria informativa.',privacyLink:'Privacy GitHub',built:'Sviluppato da',source:'Sorgente aperto',notFound:'Questa pagina non esiste.',back:'Torna a TwoFifties'
+  closing:'Meno conti da rifare. Più chiarezza, insieme.',closingText:'Scarica TwoFifties e prepara il vostro spazio condiviso.',issues:'Segnala un problema',privacy:'Questo sito non raccoglie spese e non offre account. Salva solo la preferenza del tema nel browser; non include analytics o font da servizi esterni. L’hosting GitHub Pages applica la propria informativa.',privacyLink:'Privacy Google',consentTitle:'Ci aiuti a migliorare il sito?',consentText:'Con il tuo consenso Google Analytics usa cookie per misurare le visite. Puoi rifiutare o cambiare scelta in qualsiasi momento.',acceptAnalytics:'Accetta analytics',rejectAnalytics:'Rifiuta',changeConsent:'Preferenze cookie',built:'Sviluppato da',source:'Sorgente aperto',notFound:'Questa pagina non esiste.',back:'Torna a TwoFifties'
  },
  en:{
   title:'TwoFifties — Open-source expense sharing for two',
