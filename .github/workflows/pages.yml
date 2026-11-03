@@ -6,7 +6,6 @@ on:
       - website/**
       - scripts/build-site.cjs
       - scripts/check-site.cjs
-      - scripts/pages-status.cjs
       - docs/screenshots/**
       - app/fonts/**
       - .github/workflows/pages.yml
@@ -19,38 +18,25 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: read
-    outputs:
-      pages_enabled: ${{ steps.status.outputs.enabled }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
       - run: node scripts/build-site.cjs
       - run: node scripts/check-site.cjs
-      - uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .site-dist
-      - name: Check Pages publishing configuration
-        id: status
-        run: node scripts/pages-status.cjs
-        env:
-          GH_TOKEN: ${{ github.token }}
   deploy:
-    if: needs.build.outputs.pages_enabled == 'true'
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/configure-pages@v6
-      - uses: actions/deploy-pages@v5
+      - uses: actions/deploy-pages@v4
         id: deployment
