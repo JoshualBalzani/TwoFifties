@@ -1,0 +1,16 @@
+name: twofifties
+services:
+  twofifties:
+    build: .
+    ports:
+      - "${PORT:-5001}:8080"
+    environment:
+      TZ: ${TZ:-Europe/Rome}
+      AUTH_USER: ${AUTH_USER:-}
+      AUTH_PASS: ${AUTH_PASS:-}
+      CLEAR_ALL_PASSWORD_HASH: ${CLEAR_ALL_PASSWORD_HASH:-}
+    volumes:
+      - twofifties-data:/app/data
+    restart: unless-stopped
+volumes:
+  twofifties-data:

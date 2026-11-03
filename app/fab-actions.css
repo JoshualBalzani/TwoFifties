@@ -1,0 +1,15 @@
+.fab-actions-scrim{position:fixed;inset:0;z-index:24;background:var(--md-scrim);pointer-events:none}
+/* Expandable FAB with two circular Material tonal icon actions. */
+.fab{z-index:19}.fab[aria-expanded="true"]{z-index:25}.fab>svg{transition:transform var(--dur-medium) var(--motion-standard)}.fab[aria-expanded="true"]>svg{transform:rotate(45deg)}
+.fab-actions{position:fixed;right:20px;bottom:calc(168px + env(safe-area-inset-bottom));z-index:25;display:flex;flex-direction:column;align-items:flex-end;gap:12px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 180px);overflow-y:auto;padding:4px;scrollbar-width:thin}
+.fab-action{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:12px;min-height:48px;flex-shrink:0;max-width:100%;padding:0;border:0;border-radius:24px;background:transparent;color:var(--md-on-surface);font:inherit;cursor:pointer}
+.fab-action-label{display:block;max-width:calc(100vw - 108px);padding:8px 12px;border-radius:8px;background:var(--md-surface-container-high);color:var(--md-on-surface);box-shadow:none;font-size:14px;line-height:20px;letter-spacing:.1px;font-weight:500;overflow-wrap:anywhere}
+.fab-action-circle{position:relative;display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--md-secondary-container);color:var(--md-on-secondary-container);box-shadow:none;overflow:hidden}.fab-action-circle svg{width:24px;height:24px}
+#fabSettle .fab-action-circle{background:var(--md-secondary-container);color:var(--md-on-secondary-container)}
+.fab-action-circle::before{content:'';position:absolute;inset:0;background:currentColor;opacity:0;pointer-events:none}.fab-action:active .fab-action-circle::before,.fab-action:focus-visible .fab-action-circle::before{opacity:.12}.fab-action:focus-visible{outline-offset:4px}
+.fab-action:disabled{cursor:default}.fab-action:disabled .fab-action-circle{background:color-mix(in srgb,var(--md-on-surface) 12%,var(--md-surface));color:color-mix(in srgb,var(--md-on-surface) 38%,var(--md-surface));box-shadow:none}.fab-action:disabled .fab-action-label{color:var(--md-on-surface-variant);box-shadow:none}
+.dialog-text{overflow-wrap:anywhere}
+@media(min-width:840px){.fab-actions{right:max(28px,calc((100vw - 720px)/2 + 4px))}}
+@media(hover:hover){.fab-action:not(:disabled):hover .fab-action-circle::before{opacity:.08}}
+@media(prefers-reduced-motion:reduce){.fab>svg{transition:none}}
+.dialog-card{max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;scroll-padding:16px}.dialog-actions{flex-shrink:0}

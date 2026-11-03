@@ -1,0 +1,20 @@
+﻿/* Readability uses fixed Material 3 semantic roles, never user-selected text colors. */
+[data-person-name],.person-label{color:var(--md-on-surface)}
+:is(.balance-card,.dash-hero) [data-person-name]{color:var(--md-on-primary-container)}
+:is(.seg.active,.chip.selected,.item.selected) [data-person-name]{color:var(--md-on-secondary-container)}
+.avatar.j,.ap-icon.j,.segmented-m3 .seg[data-payer="person-a"] .mini{background:var(--md-primary-container);color:var(--md-on-primary-container)}
+.avatar.g,.ap-icon.g,.segmented-m3 .seg[data-payer="person-b"] .mini{background:var(--md-tertiary-container);color:var(--md-on-tertiary-container)}
+.more-person[data-person-id="person-a"] .more-avatar{background:var(--md-primary-container);color:var(--md-on-primary-container)}
+.more-person[data-person-id="person-b"] .more-avatar{background:var(--md-tertiary-container);color:var(--md-on-tertiary-container)}
+.split-seg.j,.leg-dot.j{background:var(--md-primary)}.split-seg.g,.leg-dot.g{background:var(--md-tertiary)}
+.item.selected,.item.selected .item-sub,.item.selected .item-note{color:var(--md-on-secondary-container)}
+.feature-history .person-label{color:var(--md-on-surface)}
+.hint,.split-hint,.management-supporting,.management-status{font-size:14px;line-height:20px;letter-spacing:.25px}
+.bc-label,.bc-sub{opacity:1}.item-note{font-style:normal}
+/* Mobile stress cases: long names and large totals remain inside the balance card. */
+.bc-label [data-person-name]{overflow-wrap:anywhere}
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.leg{display:grid;grid-template-columns:10px minmax(0,1fr);column-gap:8px;row-gap:4px;align-items:center;min-width:0}
+.leg-name{white-space:normal;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.leg-amt{grid-column:1/-1;margin-left:0;white-space:normal;overflow-wrap:anywhere}
+#syncText{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

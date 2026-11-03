@@ -1,0 +1,11 @@
+backups/
+**/node_modules/
+.env
+.git/
+tests/
+.tmp-*
+pubblicazione-mobile/
+Spese-screenshot-mobile.zip
+
+data/
+artifacts/

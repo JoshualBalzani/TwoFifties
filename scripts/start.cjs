@@ -1,0 +1,1 @@
+const path=require('node:path'),fs=require('node:fs');const root=path.resolve(__dirname,'..');if(fs.existsSync(path.join(root,'.env')))process.loadEnvFile(path.join(root,'.env'));process.env.PORT||='5001';process.env.PUBLIC_DIR=path.join(root,'app');process.env.BACKUP_DIR||=path.join(root,'data');require('../server/server.js');

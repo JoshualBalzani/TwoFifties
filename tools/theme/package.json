@@ -1,0 +1,10 @@
+﻿{
+  "name": "spese-theme-build",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "devDependencies": {
+    "@material/material-color-utilities": "0.4.0",
+    "esbuild": "0.28.2"
+  }
+}

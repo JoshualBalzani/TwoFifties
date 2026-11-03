@@ -1,0 +1,32 @@
+﻿/* Material 3 navigation bar: 80px container, 64x32 indicator, 24px icons. */
+:root{--navigation-height:80px}
+html{scroll-padding-top:80px;scroll-padding-bottom:calc(112px + env(safe-area-inset-bottom))}html:has(body[data-primary="budget"]){scroll-padding-bottom:calc(176px + env(safe-area-inset-bottom))}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:16;background:var(--md-surface-container);padding-bottom:env(safe-area-inset-bottom);box-shadow:var(--elev-2)}
+.bottom-nav-inner{display:flex;justify-content:center;max-width:720px;height:var(--navigation-height);margin:0 auto;padding:0 8px}
+.bottom-nav-item{position:relative;display:flex;flex:1;min-width:0;min-height:80px;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:12px 0 16px;border:0;background:transparent;color:var(--md-on-surface-variant);font-family:inherit;cursor:pointer}
+.bottom-nav-indicator{position:relative;display:grid;place-items:center;width:64px;height:32px;border-radius:16px;color:var(--md-on-surface-variant);transition:background-color var(--dur-fast),color var(--dur-fast)}
+.bottom-nav-indicator svg{width:24px;height:24px}.bottom-nav-label{font-size:12px;line-height:16px;font-weight:500;letter-spacing:.5px;white-space:nowrap}
+.bottom-nav-item[aria-current="page"]{color:var(--md-on-surface)}.bottom-nav-item[aria-current="page"] .bottom-nav-indicator{background:var(--md-secondary-container);color:var(--md-on-secondary-container)}.bottom-nav-item[aria-current="page"] .bottom-nav-label{font-weight:700}
+.bottom-nav-indicator::before{content:'';position:absolute;inset:0;border-radius:inherit;background:currentColor;opacity:0;pointer-events:none}.bottom-nav-item:active .bottom-nav-indicator::before,.bottom-nav-item:focus-visible .bottom-nav-indicator::before{opacity:.12}.bottom-nav-item:focus-visible{outline-offset:-4px;border-radius:12px}
+#appbarNormal{padding-left:16px}.brand{padding-left:0}#primaryTitle:focus{outline:none}
+#expensesPage{padding-bottom:calc(176px + env(safe-area-inset-bottom))}
+.primary-page{display:block;position:static;inset:auto;z-index:auto;width:100%;max-width:720px;margin:0 auto;padding:16px 16px calc(112px + env(safe-area-inset-bottom));border-radius:0;box-shadow:none;background:transparent;overflow:visible;max-height:none;transform:none;transition:none}
+.sheet.primary-page,.sheet.primary-page.open{position:static;inset:auto;max-height:none;overflow:visible;transform:none;box-shadow:none;border-radius:0;background:transparent;max-width:720px;padding:16px 16px calc(112px + env(safe-area-inset-bottom))}
+.primary-page>.sheet-header{display:none}.primary-page .feature-field>label{background:var(--md-surface)}.primary-page .management-card .feature-field>label{background:var(--md-surface-container-low)}
+.primary-page .feature-form-actions{bottom:calc(80px + env(safe-area-inset-bottom));padding:16px 0;background:var(--md-surface);margin-bottom:0}
+.page-intro{font-size:14px;line-height:20px;letter-spacing:.25px;color:var(--md-on-surface-variant);margin:0 0 24px}
+.more-group{margin:0 0 24px}.more-group h2{font-size:14px;line-height:20px;font-weight:500;letter-spacing:.1px;color:var(--md-on-surface-variant);margin:0 0 12px;padding-inline:16px}.more-list{border:1px solid var(--md-outline-variant);border-radius:12px;overflow:hidden}
+.more-row,.more-person{position:relative;display:flex;align-items:center;gap:16px;width:100%;min-height:56px;padding:16px;border:0;border-bottom:1px solid var(--md-outline-variant);background:var(--md-surface-container-low);color:var(--md-on-surface);font:inherit;text-align:left;cursor:pointer}
+.more-row:last-child,.more-person:last-child{border-bottom:0}.more-row>svg{width:24px;height:24px;flex:0 0 24px;color:var(--md-on-surface-variant)}.more-row-label{flex:1;min-width:0;font-size:16px;line-height:24px;letter-spacing:.5px;overflow-wrap:anywhere}
+.more-row::before,.more-person::before{content:'';position:absolute;inset:0;background:currentColor;opacity:0;pointer-events:none}.more-row:active::before,.more-person:active::before{opacity:.12}
+.more-person{min-height:72px;padding-block:12px}.more-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--md-secondary-container);color:var(--md-on-secondary-container);font-size:16px;font-weight:500}.more-person>span:nth-child(2){flex:1;min-width:0}.more-person strong{display:block;font-size:16px;line-height:24px;font-weight:500;overflow-wrap:anywhere}.more-person small{display:block;font-size:14px;line-height:20px;color:var(--md-on-surface-variant)}.more-person>span:last-child{font-size:24px;color:var(--md-on-surface-variant)}
+.more-connection{display:flex;align-items:center;gap:8px;min-height:48px;padding:8px 16px;font-size:14px;line-height:20px;color:var(--md-on-surface-variant)}
+.fab{bottom:calc(96px + env(safe-area-inset-bottom))}.snackbar{bottom:calc(96px + env(safe-area-inset-bottom))}body[data-primary="expenses"]:not(.modal-open) .snackbar{bottom:calc(168px + env(safe-area-inset-bottom))}
+body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+@media(hover:hover){.bottom-nav-item:hover .bottom-nav-indicator::before,.more-row:hover::before,.more-person:hover::before{opacity:.08}}
+@media(min-width:840px){.primary-page,.sheet.primary-page{padding-inline:24px}.bottom-nav-inner{max-width:720px}.fab{bottom:calc(96px + env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){.bottom-nav-indicator{transition:none}}
+@media print{.bottom-nav{display:none}.primary-page,#expensesPage{padding-bottom:0}}
+.nav-badge{display:grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--md-error);color:var(--md-on-error);font-size:11px;line-height:16px;font-weight:500;flex-shrink:0}
+.bottom-nav-badge{position:absolute;top:0;right:4px;display:grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--md-error);color:var(--md-on-error);font-size:11px;line-height:16px;font-weight:500}
+.more-row:focus-visible::before,.more-person:focus-visible::before{opacity:.12}

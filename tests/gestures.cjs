@@ -1,0 +1,14 @@
+﻿'use strict';
+const assert=require('node:assert/strict');
+require('../app/gestures.js');
+const {swipeDirection,shouldDismiss}=globalThis.SpeseGestures;
+assert.equal(swipeDirection(-100,8,300),'left');
+assert.equal(swipeDirection(100,8,300),'right');
+assert.equal(swipeDirection(70,100,300),null,'vertical scrolling');
+assert.equal(swipeDirection(20,0,300),null,'accidental movement');
+assert.equal(swipeDirection(100,0,1500),null,'slow scrolling');
+assert.equal(shouldDismiss(100,500),true);
+assert.equal(shouldDismiss(45,50),true,'short fast fling');
+assert.equal(shouldDismiss(45,500),false,'short slow drag springs back');
+assert.equal(shouldDismiss(5,1),false,'tap is not fling');
+console.log('OK: gesture directions, scroll rejection, drag thresholds');

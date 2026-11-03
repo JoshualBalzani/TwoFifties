@@ -1,0 +1,26 @@
+{
+  "name": "twofifties",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Material 3 expense sharing for two people",
+  "author": "JOSHBALZANI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JOSHBALZANI/TwoFifties.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node scripts/start.cjs",
+    "test": "node tests/home-logic.cjs && node tests/theme-colors.cjs && node tests/regression.cjs && node tests/server-integration.cjs && node scripts/check-release.cjs",
+    "test:browser": "node tests/publication-browser.cjs && node tests/setup-tour.cjs",
+    "check:release": "node scripts/check-release.cjs",
+    "build:translations": "node scripts/build-translations.cjs"
+  },
+  "devDependencies": {
+    "acorn": "8.15.0",
+    "playwright": "1.64.1"
+  }
+}
