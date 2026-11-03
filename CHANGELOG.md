@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Restore legacy SPESE backups by migrating saved person identities, including settlements, recurring expenses, history, trash and saved views; retain original uploaded files.
+
 - Store Docker and Node backups in a visible host backups directory, with legacy data migration instructions.
 - Import full JSON backups from the device with validation, confirmation, a pre-restore safety copy and retained history.
 

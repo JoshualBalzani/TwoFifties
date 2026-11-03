@@ -165,3 +165,5 @@ docker compose up --build -d
 ```
 
 Keep the old `twofifties_twofifties-data` volume until you have verified the migrated files. On Linux, the bind directory must be writable by container UID 1000; if needed, set its owner with `sudo chown -R 1000:1000 backups`. Node installations using the old `data/` default are copied to `backups/` on first start when no current state exists there; the original directory is retained.
+
+Backups from the previous SPESE app are converted automatically when their saved names identify the two people unambiguously. Payers, shares and settlements are mapped to the current format without translating descriptions or notes. The original uploaded JSON is retained alongside the pre-restore safety copy. Ambiguous identities are rejected without replacing the workspace.

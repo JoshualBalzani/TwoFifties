@@ -356,6 +356,9 @@ app.post('/api/restore', asyncRoute(async (req, res) => {
   if (!snap || !Array.isArray(snap.entries)) return res.status(400).json({ error: 'backup non valido' });
   await loadState();
   if (!checkRevision(req, res)) return;
+  const originalSnapshot=snap;
+  const migration=Core.migrateBackup(snap);
+  snap=migration.snapshot;
   const next = draft();
   next.entries = snap.entries;
   next.recurrences = Array.isArray(snap.recurrences) ? snap.recurrences : [];
@@ -369,8 +372,9 @@ app.post('/api/restore', asyncRoute(async (req, res) => {
   // Validate before creating the safety copy or changing any persisted state.
   const safety = 'pre-restore-' + fullStamp() + '-' + uid() + '.json';
   await writeJson(path.join(BACKUP_DIR, safety), state);
-  if(req.body && Object.hasOwn(req.body,'snapshot'))await writeJson(path.join(BACKUP_DIR,'manual-import-'+fullStamp()+'-'+uid()+'.json'),snap);
+  if(req.body && Object.hasOwn(req.body,'snapshot'))await writeJson(path.join(BACKUP_DIR,'manual-import-'+fullStamp()+'-'+uid()+'.json'),originalSnapshot);
   await commit(next, actorOf(req), next.workspace.history);
+  if(migration.converted)res.set('X-TwoFifties-Migrated','true');
   res.json(state);
 }));
 

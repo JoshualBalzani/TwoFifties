@@ -170,3 +170,5 @@ docker compose up --build -d
 ```
 
 Non eliminare il vecchio volume `twofifties_twofifties-data` finché non hai controllato la copia. Su Linux la cartella deve essere scrivibile dall’utente del container, UID 1000: se necessario usa `sudo chown -R 1000:1000 backups`. Per Node, i dati del precedente percorso `data/` vengono copiati in `backups/` al primo avvio, se manca lo stato attuale nella nuova cartella; la cartella originale viene conservata.
+
+I backup della precedente app SPESE vengono convertiti automaticamente quando i nomi salvati identificano le due persone senza ambiguità. Pagatori, quote e saldi sono associati al nuovo formato, senza cambiare descrizioni o note. Il JSON originale importato viene conservato insieme alla copia di sicurezza precedente al ripristino. Se l’associazione non è certa, i dati attuali non vengono sostituiti.

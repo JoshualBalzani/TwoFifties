@@ -57,4 +57,29 @@ function reconcileReminders(entries){
  for(const e of entries)if(e.type==='expense'){if(links.has(e.id))e.reimbursedAt=links.get(e.id);else delete e.reimbursedAt;}
  return entries;
 }
-module.exports={workspace,audit,validate,reconcileReminders};
+function migrateBackup(source){
+ const snapshot=structuredClone(source),aliases=[new Set(),new Set()];
+ const identity=value=>typeof value==='string'?value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,''):'';
+ const remember=settings=>{if(!settings||typeof settings!=='object')return;for(const [index,key]of ['nameJ','nameG'].entries()){const name=identity(settings[key]);if(name)aliases[index].add(name);}};
+ remember(snapshot.settings);
+ for(const event of snapshot.workspace?.history||[])if(event?.kind==='persone'){remember(event.before);remember(event.after);}
+ const canonical=['person-a','person-b'],fields=new Set(['payer','from','to','actor','deletedBy','defaultPayer','person','advance']);
+ let converted=0;
+ function walk(value){
+  if(!value||typeof value!=='object')return;
+  for(const [key,item]of Object.entries(value)){
+   const dateRange=(key==='from'||key==='to')&&value.type!=='settle';
+   const allPeople=(key==='person'||key==='advance')&&item==='all';
+   if(fields.has(key)&&!dateRange&&!allPeople&&typeof item==='string'&&!canonical.includes(item)){
+    const normalized=identity(item),matches=aliases.map((names,index)=>names.has(normalized)?index:-1).filter(index=>index>=0);
+    // Only an unambiguous match to the saved first/second names is safe.
+    if(matches.length===1){value[key]=canonical[matches[0]];converted++;}
+   }else if(item&&typeof item==='object')walk(item);
+  }
+ }
+ walk(snapshot);
+ const settings=snapshot.settings;
+ if(settings&&typeof settings==='object'&&!Array.isArray(settings)&&settings.setupCompleted===undefined&&typeof settings.nameJ==='string'&&typeof settings.nameG==='string'&&settings.nameJ.trim()&&settings.nameG.trim()&&settings.nameJ.trim().toLowerCase()!==settings.nameG.trim().toLowerCase())settings.setupCompleted=true;
+ return {snapshot,converted};
+}
+module.exports={workspace,audit,validate,reconcileReminders,migrateBackup};

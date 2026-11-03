@@ -2964,8 +2964,9 @@ async function doRestore(file, snapshot=null){
     updatedAt = Number(s.updatedAt) || Date.now();
     if (s.settings) { settings = normalizeSettings(s.settings); writeSettingsLocal(); applySettings(); }
     writeLocal(); renderAll(); renderRecurrences(); await loadBackups();
+    $('backupImportStatus').textContent=r.headers.get('X-TwoFifties-Migrated')==='true'?T.t('Backup della vecchia app convertito e ripristinato.'):'';
     toast(T.fragment('Backup ripristinato'));
-  } catch(e){ $('backupImportStatus').textContent=e.message||T.t('Errore ripristino');toast(T.fragment('Errore ripristino')); }
+  } catch(e){ const message=e.message||T.t('Errore ripristino');$('backupImportStatus').textContent=message;toast(message); }
 }
 async function importBackupFile(){
   const file=$('backupFileInput').files[0];if(!file)return;
