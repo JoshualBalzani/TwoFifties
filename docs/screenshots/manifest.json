@@ -1,0 +1,132 @@
+[
+  {
+    "file": "01-benvenuto.png",
+    "it": "Presentazione guidata",
+    "en": "Guided introduction"
+  },
+  {
+    "file": "02-nomi.png",
+    "it": "Due nomi, uno spazio condiviso",
+    "en": "Two names, one shared workspace"
+  },
+  {
+    "file": "03-spese.png",
+    "it": "Spese e saldo condiviso",
+    "en": "Shared expenses and balance"
+  },
+  {
+    "file": "04-azioni.png",
+    "it": "Azioni rapide dal pulsante +",
+    "en": "Quick actions from the + button"
+  },
+  {
+    "file": "05-nuova-spesa.png",
+    "it": "Nuova spesa e divisione",
+    "en": "New expense and split options"
+  },
+  {
+    "file": "06-note-ricevute.png",
+    "it": "Note, scadenze e ricevute",
+    "en": "Notes, due dates and receipts"
+  },
+  {
+    "file": "07-conferma-saldo.png",
+    "it": "Saldo protetto da conferma",
+    "en": "Settlement with confirmation"
+  },
+  {
+    "file": "08-ricerca.png",
+    "it": "Ricerca nei movimenti",
+    "en": "Search your transactions"
+  },
+  {
+    "file": "09-statistiche.png",
+    "it": "Statistiche mensili",
+    "en": "Monthly statistics"
+  },
+  {
+    "file": "10-budget.png",
+    "it": "Budget per categoria",
+    "en": "Budgets by category"
+  },
+  {
+    "file": "11-altro.png",
+    "it": "Strumenti organizzati in Altro",
+    "en": "Organized tools in More"
+  },
+  {
+    "file": "12-rimborsi.png",
+    "it": "Anticipi e rimborsi",
+    "en": "Advances and reimbursements"
+  },
+  {
+    "file": "13-ricorrenze.png",
+    "it": "Spese ricorrenti",
+    "en": "Recurring expenses"
+  },
+  {
+    "file": "14-da-confermare.png",
+    "it": "Ricorrenze da confermare",
+    "en": "Recurring expenses awaiting approval"
+  },
+  {
+    "file": "15-categorie.png",
+    "it": "Categorie delle spese",
+    "en": "Expense categories"
+  },
+  {
+    "file": "16-filtri-salvati.png",
+    "it": "Viste e filtri salvati",
+    "en": "Saved views and filters"
+  },
+  {
+    "file": "17-storico.png",
+    "it": "Storico delle modifiche",
+    "en": "Change history"
+  },
+  {
+    "file": "18-cestino.png",
+    "it": "Recupero dal cestino",
+    "en": "Restore from trash"
+  },
+  {
+    "file": "19-backup.png",
+    "it": "Backup e ripristino",
+    "en": "Backup and restore"
+  },
+  {
+    "file": "20-importazione.png",
+    "it": "Importazione JSON e CSV",
+    "en": "JSON and CSV import"
+  },
+  {
+    "file": "21-esportazione.png",
+    "it": "Esportazione Excel",
+    "en": "Excel export"
+  },
+  {
+    "file": "22-impostazioni.png",
+    "it": "Impostazioni ordinate",
+    "en": "Organized settings"
+  },
+  {
+    "file": "23-persone.png",
+    "it": "Nomi e autore delle modifiche",
+    "en": "Names and change author"
+  },
+  {
+    "file": "24-lingua-tema.png",
+    "it": "Lingua e tema",
+    "en": "Language and theme"
+  },
+  {
+    "file": "25-tema-scuro.png",
+    "it": "Tema scuro Material 3",
+    "en": "Material 3 dark theme"
+  },
+  {
+    "file": "26-english.png",
+    "it": "Interfaccia in inglese",
+    "en": "English interface"
+  }
+]

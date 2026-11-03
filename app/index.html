@@ -1896,6 +1896,7 @@ function renderSummary(){
       '<span><span data-person-name="person-a">Persona 1</span> <strong>' + fmtEur(t.paidJ) + '</strong></span>' +
       '<span><span data-person-name="person-b">Persona 2</span> <strong>' + fmtEur(t.paidG) + '</strong></span>' +
     '</div></div>';
+  wrap.querySelectorAll('[data-person-name]').forEach(el=>{el.textContent=personName(el.dataset.personName);});
 }
 
 /* ---------- RENDER LIST ---------- */
