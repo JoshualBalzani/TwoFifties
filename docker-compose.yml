@@ -10,7 +10,5 @@ services:
       AUTH_PASS: ${AUTH_PASS:-}
       CLEAR_ALL_PASSWORD_HASH: ${CLEAR_ALL_PASSWORD_HASH:-}
     volumes:
-      - twofifties-data:/app/data
+      - ./backups:/app/data
     restart: unless-stopped
-volumes:
-  twofifties-data:

@@ -64,7 +64,7 @@ cp .env.example .env
 docker compose up --build -d
 ```
 
-In PowerShell puoi usare `Copy-Item .env.example .env`. Apri **http://localhost:5001** e completa la configurazione iniziale. Il volume separato `twofifties-data` conserva i dati anche quando ricostruisci il container.
+In PowerShell puoi usare `Copy-Item .env.example .env`. Apri **http://localhost:5001** e completa la configurazione iniziale. La cartella visibile `backups/`, accanto a `docker-compose.yml`, conserva i dati anche quando ricostruisci il container. Dentro Docker è collegata a `/app/data`.
 
 Prima dell'accesso da internet imposta **entrambe** le credenziali `AUTH_USER` e `AUTH_PASS` nel file `.env` e usa un reverse proxy HTTPS. Senza credenziali l'accesso è libero, adatto all'uso locale. Non pubblicare il file `.env`.
 
@@ -78,7 +78,7 @@ npm ci --prefix server
 npm start
 ```
 
-Apri **http://localhost:5001**. Stato, ricevute e backup vengono conservati nella cartella `data/`, esclusa da Git. Le variabili facoltative sono in [.env.example](.env.example). Prima degli aggiornamenti salva una copia della cartella dati o del volume Docker.
+Apri **http://localhost:5001**. Stato, ricevute e backup vengono conservati nella cartella `backups/`, esclusa da Git. Le variabili facoltative sono in [.env.example](.env.example). Prima degli aggiornamenti salva una copia della cartella `backups/`.
 
 ## Offline e sincronizzazione
 
@@ -107,3 +107,26 @@ Per rigenerare la galleria: `node scripts/screenshots.cjs`. Lo script crea solta
 ## Licenza
 
 [MIT](LICENSE) · Copyright © 2026 **JOSHBALZANI**. Font e Material Color Utilities mantengono le proprie licenze.
+
+## Dove sono i backup e come importarli
+
+Nella cartella **backups** del server trovi `latest.json` (stato attuale), `daily-*.json` (copie giornaliere), `manual-*.json` (copie manuali), `pre-restore-*.json` (copie di sicurezza) e `receipts/` (immagini delle ricevute). Git esclude i dati reali: viene pubblicato solo il segnaposto della cartella vuota.
+
+1. Apri **Altro → Backup e ripristino**.
+2. **Crea backup** salva un file nella cartella del server. L’icona **Scarica** lo porta sul dispositivo.
+3. Per recuperare una copia scaricata, premi **Importa backup** e seleziona il JSON (massimo 4,5 MB).
+4. Conferma il ripristino: sostituisce spese, ricorrenze, categorie, nomi, preferenze e budget. Prima di procedere il server valida il file e salva lo stato precedente in un backup di sicurezza. Annullando, i dati restano invariati.
+
+**Importa movimenti** serve invece ad aggiungere movimenti da un file, non a ripristinare l’intero spazio. Il JSON contiene i riferimenti alle ricevute: se cambi server copia anche `backups/receipts/`, oppure conserva tutta la cartella backups.
+
+### Migrazione dal vecchio volume Docker
+
+Prima di avviare la nuova configurazione:
+
+```sh
+docker compose stop twofifties
+docker compose cp twofifties:/app/data/. ./backups
+docker compose up --build -d
+```
+
+Non eliminare il vecchio volume `twofifties_twofifties-data` finché non hai controllato la copia. Su Linux la cartella deve essere scrivibile dall’utente del container, UID 1000: se necessario usa `sudo chown -R 1000:1000 backups`. Per Node, i dati del precedente percorso `data/` vengono copiati in `backups/` al primo avvio, se manca lo stato attuale nella nuova cartella; la cartella originale viene conservata.

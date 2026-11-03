@@ -62,7 +62,7 @@ cp .env.example .env
 docker compose up --build -d
 ```
 
-On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp` if preferred. Open **http://localhost:5001** and complete the first-run setup. The separate `twofifties-data` Docker volume preserves server data across container rebuilds.
+On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp` if preferred. Open **http://localhost:5001** and complete the first-run setup. The visible `backups/` directory beside `docker-compose.yml` preserves server data across container rebuilds. It is bind-mounted to `/app/data` in the container.
 
 Set **both** `AUTH_USER` and `AUTH_PASS` in `.env`, and use an HTTPS reverse proxy before exposing the app to the internet. Blank credentials allow unauthenticated access and are intended for local use. Do not commit `.env`.
 
@@ -76,7 +76,7 @@ npm ci --prefix server
 npm start
 ```
 
-Open **http://localhost:5001**. Local server state, receipts and backups are written to `data/`, which Git ignores. Optional environment variables are documented in [.env.example](.env.example). Back up the data directory or Docker volume before upgrades.
+Open **http://localhost:5001**. Local server state, receipts and backups are written to `backups/`, which Git ignores. Optional environment variables are documented in [.env.example](.env.example). Back up the entire `backups/` directory before upgrades.
 
 ## Offline use and synchronization
 
@@ -105,3 +105,23 @@ To reproduce the documentation images, run `node scripts/screenshots.cjs` after 
 ## License
 
 [MIT](LICENSE) · Copyright © 2026 **JOSHBALZANI**. Fonts and Material Color Utilities retain their respective licenses.
+
+## Backup files and restore
+
+The server creates `backups/latest.json` (current state), `daily-*.json` (daily copies), `manual-*.json` (manual backups), `pre-restore-*.json` (safety copies) and `backups/receipts/` (receipt images). Runtime files are excluded from Git; only the empty directory placeholder is published.
+
+In **More → Backup and restore**, use **Create backup** to save on the server, the download icon to keep a JSON copy on your device, or **Import backup** to choose a previously downloaded JSON file (up to 4.5 MB). Confirm to replace expenses, recurring expenses, categories, names, preferences and budgets. The server validates the file and saves the previous state before restoring. Cancel leaves the workspace unchanged. **Import transactions** is a separate action for adding transactions, not a full restore.
+
+A JSON backup references receipt images; when moving servers, copy `backups/receipts/` too, or copy the entire backups folder.
+
+### Upgrade from the previous Docker volume
+
+Before starting the new configuration, preserve the existing container data:
+
+```sh
+docker compose stop twofifties
+docker compose cp twofifties:/app/data/. ./backups
+docker compose up --build -d
+```
+
+Keep the old `twofifties_twofifties-data` volume until you have verified the migrated files. On Linux, the bind directory must be writable by container UID 1000; if needed, set its owner with `sudo chown -R 1000:1000 backups`. Node installations using the old `data/` default are copied to `backups/` on first start when no current state exists there; the original directory is retained.

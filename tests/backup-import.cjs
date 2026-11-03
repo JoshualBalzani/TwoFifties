@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs/promises'),path=require('node:path');
+const {chromium}=require('playwright'),{start}=require('./server-integration.cjs'),L=require('../app/logic.js').SpeseLogic;
+(async()=>{const env=await start();let browser;try{
+ const read=async()=>await(await fetch(env.url+'/api/state')).json();
+ const restore=async(snapshot,baseRevision)=>fetch(env.url+'/api/restore',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({snapshot,baseRevision,actor:'person-a'})});
+ let state=await read();
+ const fixture={...state,entries:[{id:'import-expense',type:'expense',desc:'Imported expense',amount:80,shareJ:0,shareG:80,payer:'person-a',date:L.todayISO(),categoryId:'cibo'}],categories:L.DEFAULT_CATEGORIES,recurrences:[],settings:{...L.DEFAULT_SETTINGS,setupCompleted:true,nameJ:'Taylor',nameG:'Sam'},workspace:{...state.workspace,budgets:{cibo:250},savedFilters:[{id:'view',name:'Imported view',filters:{period:'all'}}],history:[{id:'old-history',at:Date.now(),actor:'person-a',actorName:'Taylor',label:'Previous change',action:'modificato',before:{},after:{}}]}};
+ assert.equal((await restore({entries:[]},state.revision)).status,400);
+ assert.equal((await restore({...fixture,entries:[{...fixture.entries[0],shareG:1}]},state.revision)).status,400);
+ assert.equal((await read()).revision,state.revision);assert(!(await fs.readdir(env.dir)).some(x=>x.startsWith('pre-restore-')));
+ let response=await restore(fixture,state.revision);assert.equal(response.status,200);state=await response.json();assert.equal(state.entries.length,1);assert.equal(state.settings.nameJ,'Taylor');assert.equal(state.workspace.budgets.cibo,250);assert(state.workspace.history.some(x=>x.id==='old-history'));assert.equal(state.workspace.savedFilters[0].name,'Imported view');
+ const files=await fs.readdir(env.dir);assert(files.some(x=>x.startsWith('manual-import-')));const safety=JSON.parse(await fs.readFile(path.join(env.dir,files.find(x=>x.startsWith('pre-restore-'))),'utf8'));assert.equal(safety.entries.length,0);
+ assert.equal((await restore(fixture,0)).status,409);assert.equal((await read()).revision,state.revision);
+ browser=await chromium.launch({headless:true,...(process.platform==='win32'?{channel:'msedge'}:{})});const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(env.url);await page.locator('#nav-more').click();await page.locator('#drawerBackupBtn').click();await page.locator('#importBackupBtn').waitFor();
+ const upload=async contents=>page.locator('#backupFileInput').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(contents)});
+ await upload('{broken');await page.waitForFunction(()=>document.getElementById('backupImportStatus').textContent.length>0);assert.equal(await page.locator('#dialog').isVisible(),false);
+ const replacement={...fixture,entries:[{...fixture.entries[0],desc:'Restored from device'}],settings:{...fixture.settings,nameJ:'Alex',nameG:'Sofia'},workspace:{...fixture.workspace,budgets:{cibo:300}}};
+ await upload(JSON.stringify(replacement));await page.locator('#dialog').waitFor();assert((await page.locator('#dialogText').innerText()).includes('pre-restore'));await page.locator('#dialogCancelBtn').click();assert.equal((await read()).settings.nameJ,'Taylor');
+ await page.waitForFunction(()=>!document.getElementById('importBackupBtn').disabled);await upload(JSON.stringify(replacement));await page.locator('#dialogConfirmBtn').click();await page.waitForFunction(()=>document.getElementById('snackText').textContent.includes('Backup ripristinato'));state=await read();assert.equal(state.entries[0].desc,'Restored from device');assert.equal(state.settings.nameJ,'Alex');assert.equal(state.workspace.budgets.cibo,300);assert.deepEqual(errors,[]);
+ console.log('OK: full JSON restore, validation, stale revisions, safety copies, retained history, import retained on disk, file picker, cancellation and confirmed browser restore');
+ }finally{await browser?.close();await env.close();}})().catch(error=>{console.error(error);process.exitCode=1;});

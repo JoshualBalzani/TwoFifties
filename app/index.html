@@ -1130,7 +1130,12 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
       Crea backup
     </button>
     <button class="btn text" id="refreshBackupsBtn" type="button">Aggiorna</button>
+    <button class="btn outlined" id="importBackupBtn" type="button">Importa backup</button>
   </div>
+  <input id="backupFileInput" type="file" accept=".json,application/json" hidden>
+  <p class="hint">I backup sono salvati nella cartella backups del server. Puoi scaricarli dall’elenco o importare un file JSON per ripristinare tutti i dati.</p>
+  <p class="hint">Se cambi server, copia anche la sottocartella receipts per conservare le immagini delle ricevute.</p>
+  <p class="hint" id="backupImportStatus" role="status" aria-live="polite"></p>
 
   <div class="backup-section-label">Backup disponibili</div>
   <ul class="backup-list" id="backupList" role="list"></ul>
@@ -2937,16 +2942,17 @@ async function loadBackups(){
   list.querySelectorAll('[data-restore]').forEach(b => b.addEventListener('click', function(){ doRestore(b.dataset.restore); }));
   list.querySelectorAll('[data-delete]').forEach(b => b.addEventListener('click', function(){ doDeleteBackup(b.dataset.delete); }));
 }
-async function doRestore(file){
-  if (!await showConfirm({ title: T.fragment('Ripristinare il backup?'), text: file + T.fragment('\n\nLo stato attuale verrà salvato come "pre-restore".'), confirmLabel: T.fragment('Ripristina') })) return;
+async function doRestore(file, snapshot=null){
+  const details=snapshot?'\n\n'+snapshot.entries.length+' '+T.t('movimenti')+' · '+snapshot.recurrences.length+' '+T.t('ricorrenze')+'\n'+T.t('Sostituirà spese, ricorrenze, categorie, nomi, preferenze e budget.'):'';
+  if (!await showConfirm({ title: T.fragment('Ripristinare il backup?'), text: file + details + T.fragment('\n\nLo stato attuale verrà salvato come "pre-restore".'), confirmLabel: T.fragment('Ripristina'),initialFocus:'cancel' })) return;
   try {
     clearTimeout(syncTimer);
     while (syncInFlight) await syncPromise;
     clearTimeout(syncTimer);
     syncPending = false;
     if (!await doSync()) throw new Error(T.fragment('Sincronizzazione necessaria'));
-    const r = await fetch('/api/restore', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ file, baseRevision:syncBase.revision, actor:featureUI.actor() }) });
-    if (!r.ok) throw new Error();
+    const r = await fetch('/api/restore', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ ...(snapshot?{snapshot}:{file}), baseRevision:syncBase.revision, actor:featureUI.actor() }) });
+    if (!r.ok) {const error=await r.json().catch(()=>({}));throw new Error(T.t(error.error)||T.t('Errore ripristino'));}
     const s = await r.json();
     applyState(s); syncBase = normalizedSnapshot(s);
     const cats = normalizeCategories(s.categories);
@@ -2958,7 +2964,18 @@ async function doRestore(file){
     if (s.settings) { settings = normalizeSettings(s.settings); writeSettingsLocal(); applySettings(); }
     writeLocal(); renderAll(); renderRecurrences(); await loadBackups();
     toast(T.fragment('Backup ripristinato'));
-  } catch(e){ toast(T.fragment('Errore ripristino')); }
+  } catch(e){ $('backupImportStatus').textContent=e.message||T.t('Errore ripristino');toast(T.fragment('Errore ripristino')); }
+}
+async function importBackupFile(){
+  const file=$('backupFileInput').files[0];if(!file)return;
+  const status=$('backupImportStatus');status.textContent='';$('importBackupBtn').disabled=true;
+  try{
+    if(file.size>4500000)throw Error(T.t('Il backup supera il limite di 4,5 MB.'));
+    let snapshot;try{snapshot=JSON.parse((await file.text()).replace(/^\uFEFF/,''));}catch(_){throw Error(T.t('Il file non contiene un JSON valido.'));}
+    if(!snapshot||!Array.isArray(snapshot.entries)||!Array.isArray(snapshot.recurrences)||!Array.isArray(snapshot.categories)||!snapshot.settings||typeof snapshot.settings!=='object'||Array.isArray(snapshot.settings))throw Error(T.t('Seleziona un backup completo di TwoFifties, non un elenco di movimenti.'));
+    await doRestore(file.name,snapshot);
+  }catch(error){status.textContent=error.message;}
+  finally{$('importBackupBtn').disabled=false;$('backupFileInput').value='';}
 }
 async function doDeleteBackup(file){
   if (!await showConfirm({ title: T.fragment('Eliminare il backup?'), text: file, confirmLabel: T.fragment('Elimina'), danger: true })) return;
@@ -3600,6 +3617,8 @@ $('exportCancelBtn').addEventListener('click', closeExportSheet);
 $('exportSubmitBtn').addEventListener('click', submitExport);
 
 $('createBackupBtn').addEventListener('click', doCreateBackup);
+$('importBackupBtn').addEventListener('click',()=>$('backupFileInput').click());
+$('backupFileInput').addEventListener('change',importBackupFile);
 $('refreshBackupsBtn').addEventListener('click', function(){ loadBackups(); });
 
 $('cancelBtn').addEventListener('click', closeSheet);

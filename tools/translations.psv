@@ -555,3 +555,13 @@ restituisce|reimburses
 e|and
 Scarica il template CSV vuoto|Download the empty CSV template
 TwoFifties · Sviluppato da JOSHBALZANI|TwoFifties · Developed by JOSHBALZANI
+
+Importa backup|Import backup
+I backup sono salvati nella cartella backups del server. Puoi scaricarli dall’elenco o importare un file JSON per ripristinare tutti i dati.|Backups are stored in the server backups folder. Download one from the list or import a JSON file to restore all data.
+Se cambi server, copia anche la sottocartella receipts per conservare le immagini delle ricevute.|When moving servers, also copy the receipts subfolder to preserve receipt images.
+Sostituirà spese, ricorrenze, categorie, nomi, preferenze e budget.|This replaces expenses, recurring expenses, categories, names, preferences and budgets.
+movimenti|transactions
+ricorrenze|recurring expenses
+Il backup supera il limite di 4,5 MB.|The backup exceeds the 4.5 MB limit.
+Il file non contiene un JSON valido.|The file does not contain valid JSON.
+Seleziona un backup completo di TwoFifties, non un elenco di movimenti.|Choose a complete TwoFifties backup, not a transaction list.

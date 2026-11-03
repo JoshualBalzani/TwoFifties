@@ -231,10 +231,11 @@ function serial(operation) {
   transaction = next.catch(() => {});
   return next;
 }
-async function commit(next, actor = 'Sistema') {
+async function commit(next, actor = 'Sistema', restoredHistory) {
   Core.reconcileReminders(next.entries);
   next.workspace = Core.workspace(next.workspace);
-  next.workspace.history = Core.audit(state, next, actor);
+  const auditBase=restoredHistory===undefined?state:{...state,workspace:{...state.workspace,history:restoredHistory}};
+  next.workspace.history = Core.audit(auditBase, next, actor);
   next.revision = state.revision + 1;
   next.updatedAt = Math.max(Date.now(), state.updatedAt + 1);
   await persistState(next);
@@ -342,23 +343,31 @@ app.get('/api/backups/:file', asyncRoute(async (req, res) => {
 }));
 
 app.post('/api/restore', asyncRoute(async (req, res) => {
-  const file = safeName(req.body && req.body.file);
-  if (!file) return res.status(400).json({ error: 'file richiesto' });
   let snap;
-  try { snap = JSON.parse(await fs.readFile(path.join(BACKUP_DIR, file), 'utf8')); }
-  catch (e) { return res.status(404).json({ error: 'backup non trovato' }); }
-  if (!Array.isArray(snap.entries)) return res.status(400).json({ error: 'backup non valido' });
+  if(req.body && Object.hasOwn(req.body,'snapshot')){
+    snap=req.body.snapshot;
+    if(!snap || typeof snap!=='object' || Array.isArray(snap) || !Array.isArray(snap.entries) || !Array.isArray(snap.recurrences) || !Array.isArray(snap.categories) || !snap.settings || typeof snap.settings!=='object' || Array.isArray(snap.settings))return res.status(400).json({error:'Seleziona un backup completo di TwoFifties, non un elenco di movimenti.'});
+  }else{
+    const file = safeName(req.body && req.body.file);
+    if (!file) return res.status(400).json({ error: 'file richiesto' });
+    try { snap = JSON.parse(await fs.readFile(path.join(BACKUP_DIR, file), 'utf8')); }
+    catch (e) { return res.status(404).json({ error: 'backup non trovato' }); }
+  }
+  if (!snap || !Array.isArray(snap.entries)) return res.status(400).json({ error: 'backup non valido' });
   await loadState();
   if (!checkRevision(req, res)) return;
-  const safety = 'pre-restore-' + fullStamp() + '-' + uid() + '.json';
-  await writeJson(path.join(BACKUP_DIR, safety), state);
   const next = draft();
   next.entries = snap.entries;
   next.recurrences = Array.isArray(snap.recurrences) ? snap.recurrences : [];
   next.categories = Array.isArray(snap.categories) ? snap.categories : [];
   next.workspace = Core.workspace(snap.workspace);
   if (snap.settings && typeof snap.settings === 'object') next.settings = Object.assign({}, snap.settings, { updatedAt: Date.now() });
-  await commit(next, actorOf(req));
+  Core.validate(next);
+  // Validate before creating the safety copy or changing any persisted state.
+  const safety = 'pre-restore-' + fullStamp() + '-' + uid() + '.json';
+  await writeJson(path.join(BACKUP_DIR, safety), state);
+  if(req.body && Object.hasOwn(req.body,'snapshot'))await writeJson(path.join(BACKUP_DIR,'manual-import-'+fullStamp()+'-'+uid()+'.json'),snap);
+  await commit(next, actorOf(req), next.workspace.history);
   res.json(state);
 }));
 
