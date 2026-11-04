@@ -68,6 +68,8 @@ main{padding-top:8px}.balance-card{background:var(--md-primary-container);color:
 .empty-action{overflow:visible;min-width:48px;line-height:20px}.empty-action::after{content:'';position:absolute;inset:auto 0;top:50%;height:48px;transform:translateY(-50%);border-radius:inherit}
 .tf input[type="month"]+label{top:0;transform:translateY(-50%);font-size:12px;line-height:16px;letter-spacing:.4px}
 .tf input:is([type="date"],[type="month"]){padding:0 16px;line-height:24px}.tf input:is([type="date"],[type="month"]):focus{padding:0 15px}
+.tf input[type="date"]{box-sizing:border-box;width:100%;min-width:0;height:56px;border-radius:4px;background:var(--md-surface-container-low);color:var(--md-on-surface);font:inherit;letter-spacing:.5px;-webkit-appearance:none;appearance:none}
+.tf input[type="date"]:focus{border:2px solid var(--md-primary)}
 .field-error{color:var(--md-error);font-size:12px;line-height:16px;letter-spacing:.4px;margin:4px 16px 0}
 .tf:has([aria-invalid="true"]) label{color:var(--md-error)}.tf :is(input,textarea)[aria-invalid="true"]{border-color:var(--md-error)}.tf :is(input,textarea)[aria-invalid="true"]:focus{border-color:var(--md-error)}
 .icon-choice.active{color:var(--md-on-secondary-container)}.icon-choice.active::after{content:'✓';position:absolute;right:1px;bottom:1px;display:grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--md-primary);color:var(--md-on-primary);font-size:12px;line-height:16px}

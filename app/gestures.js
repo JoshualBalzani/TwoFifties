@@ -2,7 +2,7 @@
 (function(root){
   'use strict';
   function swipeDirection(dx,dy,elapsed){
-    if(elapsed>800 || Math.abs(dx)<64 || Math.abs(dx)<Math.abs(dy)*1.5) return null;
+    if(elapsed>700 || Math.abs(dx)<112 || Math.abs(dx)<Math.abs(dy)*2.2) return null;
     return dx<0?'left':'right';
   }
   function shouldDismiss(distance,elapsed){return distance>=96 || (distance>=40 && distance/Math.max(elapsed,1)>.65);}
@@ -47,7 +47,7 @@
         if(event.touches.length!==1 || !isTop(el) || event.target.closest('button,input,textarea,select,a,[role="slider"],.sheet-handle'))return;
         const t=event.touches[0];start={x:t.clientX,y:t.clientY,time:Date.now(),id:t.identifier};
       },{passive:true});
-      el.addEventListener('touchmove',event=>{if(event.touches.length!==1)start=null;},{passive:true});
+      el.addEventListener('touchmove',event=>{if(event.touches.length!==1){start=null;return;}if(start){const t=event.touches[0];if(Math.abs(t.clientY-start.y)>Math.abs(t.clientX-start.x)*.7)start=null;}},{passive:true});
       el.addEventListener('touchend',event=>{
         if(!start)return;
         const initial=start;start=null;
