@@ -320,10 +320,8 @@ body.selection-mode .fab{transform:scale(0);opacity:0;pointer-events:none}
 .tf input::placeholder,.tf textarea::placeholder{color:transparent}
 .tf input:focus,.tf textarea:focus{border:2px solid var(--md-primary);padding:0 15px}
 .tf textarea:focus{padding:15px 15px 15px 15px}
-.tf input[type="date"]{box-sizing:border-box;width:100%;min-width:0;height:56px;padding:0 16px;line-height:24px;display:block;border:1px solid var(--md-outline);border-radius:4px;background:transparent;color:var(--md-on-surface);font:inherit;letter-spacing:.5px;-webkit-appearance:none;appearance:none}
+.tf input[type="date"]{box-sizing:border-box;width:100%;min-width:0;height:56px;padding:0 16px;line-height:normal;display:block;border:1px solid var(--md-outline);border-radius:4px;background:transparent;color:var(--md-on-surface);font:inherit;letter-spacing:.5px;-webkit-appearance:auto;appearance:auto}
 .tf input[type="date"]:focus{padding:0 15px;border:2px solid var(--md-primary)}
-.tf input[type="date"]::-webkit-date-and-time-value{text-align:left;min-height:24px;line-height:24px;margin:0;display:block}
-.tf input[type="date"]::-webkit-datetime-edit{padding:0;line-height:24px}
 .tf input[type="date"]::-webkit-calendar-picker-indicator{padding:4px;margin:0 -4px 0 auto;cursor:pointer;opacity:.65}
 .tf input[type="month"]{padding:16px var(--sp-4) 6px;line-height:1.5;display:block}
 .tf input[type="month"]:focus{padding:15px 15px 5px;border-width:2px}
@@ -609,7 +607,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 .snackbar button:focus-visible::before{opacity:.12}
 .item:focus-visible::after{opacity:.12}
 </style>
-<link rel="stylesheet" href="m3.css?v=16">
+<link rel="stylesheet" href="m3.css?v=17">
 <link rel="stylesheet" href="onboarding.css">
 <script src="translations.js"></script><script src="i18n.js"></script><script src="onboarding.js"></script>
 <script src="color-theme.js?v=13"></script>
@@ -626,7 +624,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   } catch(e){}
 })();
 </script>
-<link rel="stylesheet" href="features.css?v=16">
+<link rel="stylesheet" href="features.css?v=17">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=13">
 <link rel="stylesheet" href="navigation.css?v=13">
