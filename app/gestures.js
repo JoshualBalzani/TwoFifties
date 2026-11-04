@@ -18,11 +18,13 @@
       });
       handle.addEventListener('pointerdown',event=>{
         if(!event.isPrimary || event.button!==0 || !isTop(sheet))return;
-        drag={id:event.pointerId,y:event.clientY,time:Date.now(),distance:0};suppressClick=false;
+        drag={id:event.pointerId,x:event.clientX,y:event.clientY,time:Date.now(),distance:0,cancelled:false};suppressClick=false;
         handle.setPointerCapture(event.pointerId);
       });
       handle.addEventListener('pointermove',event=>{
         if(!drag || event.pointerId!==drag.id)return;
+        if(Math.abs(event.clientX-drag.x)>10 && Math.abs(event.clientX-drag.x)>Math.abs(event.clientY-drag.y)){drag.cancelled=true;return;}
+        if(drag.cancelled)return;
         drag.distance=Math.max(0,event.clientY-drag.y);
         if(drag.distance<6)return;
         sheet.classList.add('gesture-dragging');
@@ -31,10 +33,10 @@
       function finish(event,cancelled){
         if(!drag || event.pointerId!==drag.id)return;
         const current=drag;drag=null;
-        suppressClick=current.distance>=6;
+        suppressClick=current.distance>=6||current.cancelled;
         sheet.classList.remove('gesture-dragging');sheet.style.removeProperty('transform');
         if(handle.hasPointerCapture(event.pointerId))handle.releasePointerCapture(event.pointerId);
-        if(!cancelled && shouldDismiss(current.distance,Date.now()-current.time) && isTop(sheet))dismissSheet(sheet);
+        if(!cancelled && !current.cancelled && shouldDismiss(current.distance,Date.now()-current.time) && isTop(sheet))dismissSheet(sheet);
       }
       handle.addEventListener('pointerup',e=>finish(e,false));
       handle.addEventListener('pointercancel',e=>finish(e,true));

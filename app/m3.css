@@ -24,7 +24,7 @@ main{padding-top:8px}.balance-card{background:var(--md-primary-container);color:
 .filter-row{gap:12px;margin-bottom:16px;min-height:48px}.chip{height:32px;line-height:20px;letter-spacing:.1px}.chip::after{inset:-8px 0}.chip:active::before{opacity:var(--state-pressed)}.chip-x{pointer-events:none}
 .fab{box-shadow:var(--elev-2)}.fab:hover{box-shadow:var(--elev-3)}
 /* Sheets share the same title, drag affordance, gutters and action placement. */
-.sheet{max-width:var(--sheet-width);background:var(--md-surface-container-low);padding:8px 24px calc(24px + env(safe-area-inset-bottom));border-radius:28px 28px 0 0;overscroll-behavior-y:contain;scrollbar-width:thin;scroll-padding:var(--sheet-header-offset,112px) 0 24px;transform:translateY(calc(100% + 48px));box-shadow:var(--elev-1)}
+.sheet{left:0;right:0;width:min(100%,var(--sheet-width));max-width:none;margin-inline:auto;background:var(--md-surface-container-low);padding:8px 24px calc(24px + env(safe-area-inset-bottom));border-radius:28px 28px 0 0;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:thin;scroll-padding:var(--sheet-header-offset,112px) 0 24px;transform:translateY(calc(100% + 48px));box-shadow:var(--elev-1)}
 .sheet.open{transform:translateY(0)}
 .sheet:has(.feature-form-actions){scroll-padding-bottom:104px}
 .sheet-header{position:sticky;top:-8px;z-index:4;margin:0 -24px 24px;padding:0 24px 16px;background:var(--md-surface-container-low);border-radius:28px 28px 0 0}
