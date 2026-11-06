@@ -638,7 +638,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
     <div class="brand" style="flex:1">
       <h1 id="primaryTitle" tabindex="-1">TwoFifties</h1>
     </div>
-    <div class="appbar-actions"><button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="quickSearchForm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m20.7 19.3-5-5A7 7 0 1 0 14.3 16l5 5zM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0z"/></svg></button></div>
+    <div class="appbar-actions"><button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="quickSearchForm"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button><button class="icon-btn server-status-button" id="serverStatusButton" type="button" aria-label="Stato server in verifica" title="Stato server in verifica"><span class="sync-dot" id="syncDot" aria-hidden="true"></span></button></div>
   </div>
   <div class="appbar-inner selection-bar" id="appbarSelection" hidden>
     <button class="icon-btn" id="selCloseBtn" type="button" aria-label="Esci dalla selezione">
@@ -651,10 +651,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   </div>
 </header>
 
-<div class="sync-status" aria-live="polite">
-  <span class="sync-dot" id="syncDot" role="img" aria-label="Stato server in verifica" title="Stato server in verifica"></span>
-  <span id="syncText">person-a &amp; person-b</span>
-</div>
+<div class="sr-only" id="syncStatusLive" aria-live="polite"><span id="syncText">person-a &amp; person-b</span></div>
 
 <main id="expensesPage">
   <form class="quick-search" id="quickSearchForm" role="search" aria-label="Cerca nei movimenti"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m20.7 19.3-5-5A7 7 0 1 0 14.3 16l5 5zM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0z"/></svg><label class="sr-only" for="quickSearch">Cerca descrizione o nota</label><input id="quickSearch" type="search" placeholder="Cerca nelle spese" autocomplete="off" enterkeyhint="search"><button class="icon-btn" type="button" id="clearQuickSearch" aria-label="Cancella ricerca" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg></button></form>
@@ -1671,9 +1668,10 @@ function updateServerIndicator(){
   const status = serverReachable === true ? 'online' : (serverReachable === false ? 'offline' : 'unknown');
   const label = status === 'online' ? T.fragment('Server raggiungibile') : (status === 'offline' ? T.fragment('Server non raggiungibile') : T.fragment('Stato server in verifica'));
   syncDot.className = 'sync-dot server-' + status;
-  syncDot.setAttribute('aria-label', label);
-  syncDot.title = label;
+  $('serverStatusButton').setAttribute('aria-label', label);
+  $('serverStatusButton').title = label;
 }
+ $('serverStatusButton').addEventListener('click',()=>{const status=serverReachable===true?T.fragment('Server raggiungibile'):serverReachable===false?T.fragment('Server non raggiungibile · modalità locale attiva'):T.fragment('Verifica della connessione al server in corso');toast(status);});
 function setSync(status){
   updateServerIndicator();
   if (drawerSyncDot) drawerSyncDot.className = 'sync-dot';
