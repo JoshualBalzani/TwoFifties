@@ -351,6 +351,7 @@ const T=root.TwoFiftiesI18n||{t:x=>x,fragment:x=>x,locale:"it-IT"};
     defaultPayer: 'person-a',
     defaultSplit: 'equal',
     defaultCategoryId: 'altro',
+    navThird: 'budget',
     updatedAt: 0
   };
 
@@ -373,12 +374,14 @@ const T=root.TwoFiftiesI18n||{t:x=>x,fragment:x=>x,locale:"it-IT"};
     const defaultSplit = src.defaultSplit === 'percent' ? 'percent' : DEFAULT_SETTINGS.defaultSplit;
     const defaultCategoryId = String(src.defaultCategoryId || '').trim().slice(0, 40)
       || DEFAULT_SETTINGS.defaultCategoryId;
+    const navChoices = ['hidden','budget','reminders','pending','recurrences','categories','filters','history','trash'];
+    const navThird = navChoices.includes(src.navThird) ? src.navThird : DEFAULT_SETTINGS.navThird;
     return {
       theme, setupCompleted:src.setupCompleted===true, nameJ: normalizePersonName(src.nameJ, T.fragment('Persona 1')), nameG: normalizePersonName(src.nameG, T.fragment('Persona 2')),
       themeColor: normalizeColor(src.themeColor, DEFAULT_SETTINGS.themeColor),
       secondaryColor: normalizeColor(src.secondaryColor), tertiaryColor: normalizeColor(src.tertiaryColor), surfaceColor: normalizeColor(src.surfaceColor),
       personColorJ: normalizeColor(src.personColorJ, DEFAULT_SETTINGS.personColorJ), personColorG: normalizeColor(src.personColorG, DEFAULT_SETTINGS.personColorG),
-      contrastLevel: src.contrastLevel === 'high' ? 'high' : 'standard', defaultPayer, defaultSplit, defaultCategoryId,
+      contrastLevel: src.contrastLevel === 'high' ? 'high' : 'standard', defaultPayer, defaultSplit, defaultCategoryId, navThird,
       updatedAt: Number(src.updatedAt) || 0
     };
   }
