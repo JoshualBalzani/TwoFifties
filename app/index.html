@@ -628,7 +628,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=13">
 <link rel="stylesheet" href="navigation.css?v=13">
-<link rel="stylesheet" href="home.css?v=14">
+<link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=13">
 </head>
 <body>
@@ -638,7 +638,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
     <div class="brand" style="flex:1">
       <h1 id="primaryTitle" tabindex="-1">TwoFifties</h1>
     </div>
-    <div class="appbar-actions"></div>
+    <div class="appbar-actions"><button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="quickSearchForm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m20.7 19.3-5-5A7 7 0 1 0 14.3 16l5 5zM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0z"/></svg></button></div>
   </div>
   <div class="appbar-inner selection-bar" id="appbarSelection" hidden>
     <button class="icon-btn" id="selCloseBtn" type="button" aria-label="Esci dalla selezione">
@@ -1310,7 +1310,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 </div>
 
 <script src="logic.js?v=13"></script>
-<script src="gestures.js?v=16"></script>
+<script src="gestures.js?v=17"></script>
 <script src="features-core.js?v=13"></script>
 <script src="date-fields.js?v=1"></script>
 <script src="features-ui.js?v=13"></script>
@@ -3795,7 +3795,7 @@ function dismissSheet(el){
   const layer = topLayer();
   if (layer) layer.querySelector('.sheet-handle,button')?.focus({preventScroll:true});
 }
-window.SpeseGestures.install({ document, sheets:SHEET_IDS.map($), dashboard:$('dashSheet'), expensesPage:$('expensesPage'), quickSearch:$('quickSearch'),
+window.SpeseGestures.install({ document, sheets:SHEET_IDS.map($), dashboard:$('dashSheet'), expensesPage:$('expensesPage'), quickSearch:$('quickSearch'), searchToggle:$('searchToggle'),
   isTop:el => el.id==='dashSheet'&&currentPrimary==='statistics'?!topLayer():topLayer()===el, dismissSheet, previousMonth:dashPrev, nextMonth:dashNext });
 // Modal surfaces keep page scrolling and keyboard focus inside the active layer.
 function updateModalState(){
