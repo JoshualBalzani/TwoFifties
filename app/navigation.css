@@ -214,6 +214,6 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   .desktop-settle{display:inline-flex}
   .balance-card .desktop-settle{max-width:220px;margin-top:20px}
 }
-@media(min-width:1000px) and (max-height:800px){
+@media(min-width:1000px) and (max-height:940px){
   #sheet>.sheet-actions{position:static;bottom:auto;z-index:auto;margin:16px 0 0;padding:12px 0 8px;background:transparent;border-top:1px solid var(--md-outline-variant)}
 }
