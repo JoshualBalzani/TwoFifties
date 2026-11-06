@@ -627,7 +627,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=14">
+<link rel="stylesheet" href="navigation.css?v=15">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=13">
 </head>
@@ -1484,6 +1484,8 @@ function saveSettings(patch){
 /* ---------- PRIMARY NAVIGATION ---------- */
 const primaryTitles={expenses:'TwoFifties',statistics:T.fragment('Statistiche'),budget:'Budget',more:T.fragment('Altro')};
 const primaryHashes={expenses:'#spese',statistics:'#statistiche',budget:'#budget',more:'#altro'};
+function refreshDesktopMoreLabel(){const desktop=window.matchMedia('(min-width:1000px)').matches,label=T.fragment(desktop?'Tutto':'Altro'),button=$('nav-more');button.querySelector('.bottom-nav-label').textContent=label;button.setAttribute('aria-label',label);$('morePage').setAttribute('aria-label',label);button.querySelector('svg path').setAttribute('d',desktop?'M3 3h8v8H3zm2 2v4h4V5H5zm8-2h8v8h-8zm2 2v4h4V5h-4zM3 13h8v8H3zm2 2v4h4v-4H5zm8-2h8v8h-8zm2 2v4h4v-4h-4z':'M6 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z');if(currentPrimary==='more')$('primaryTitle').textContent=label;}
+window.addEventListener('resize',refreshDesktopMoreLabel,{passive:true});
 const thirdNavItems={budget:{label:'Budget',icon:'M21 7V5H3v14h18v-6h-8V7h8zM3 3h18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm12 6v2h8V9h-8z'},reminders:{label:'Rimborsi',icon:'M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.91V4a1 1 0 0 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z'},pending:{label:'Da confermare',icon:'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v6l4 2.4-1 1.6-5-3V7h2z'},recurrences:{label:'Spese ricorrenti',icon:'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z'},categories:{label:'Categorie',icon:'M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z'},filters:{label:'Filtri salvati',icon:'M3 5h18v2H3zm3 6h12v2H6zm4 6h4v2h-4z'},history:{label:'Storico modifiche',icon:'M13 3a9 9 0 1 1-8.5 12H6.7A7 7 0 1 0 6 10h3l-4 4-4-4h3a9 9 0 0 1 9-7zm-1 4h2v5.4l3.3 2-.8 1.3L12 13V7z'},trash:{label:'Cestino',icon:'M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zm3-14 1-2h4l1 2h4v2H5V5z'}};
 function refreshThirdNavigation(){
  const button=$('nav-third'),choice=settings.navThird,item=thirdNavItems[choice];
@@ -1492,6 +1494,7 @@ function refreshThirdNavigation(){
  const label=item?T.fragment(item.label):T.fragment('Menu personalizzato');
  $('navThirdLabel').textContent=label;button.setAttribute('aria-label',label);
  $('navThirdIcon').setAttribute('d',item?item.icon:'M6 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z');
+ refreshDesktopMoreLabel();
 }
 let currentPrimary='expenses';const primaryScroll={expenses:0,statistics:0,budget:0,more:0};
 function resetToolsSurface(){const el=$('toolsSheet');el.classList.remove('primary-page','open');el.hidden=false;el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');}
@@ -1505,7 +1508,7 @@ function activatePrimary(page,options={}){
  const dash=$('dashSheet');dash.classList.add('primary-page');dash.hidden=page!=='statistics';dash.setAttribute('role','main');dash.removeAttribute('aria-modal');
  if(page==='statistics')dash.classList.add('open');else dash.classList.remove('open');
  if(page==='budget'){const tools=$('toolsSheet');tools.classList.add('primary-page','open');tools.setAttribute('role','main');tools.removeAttribute('aria-modal');}
- $('fab').hidden=page!=='expenses';$('primaryTitle').textContent=primaryTitles[page];
+ $('fab').hidden=page!=='expenses';$('primaryTitle').textContent=page==='more'&&window.matchMedia('(min-width:1000px)').matches?T.fragment('Tutto'):primaryTitles[page];
  document.querySelectorAll('[data-primary]').forEach(button=>{if(button.dataset.primary===page)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');});
  if(options.history!==false&&location.hash!==primaryHashes[page])history.pushState({primary:page},'',primaryHashes[page]);
  updateModalState();requestAnimationFrame(()=>{window.scrollTo(0,primaryScroll[page]||0);if(options.focus!==false)$('primaryTitle').focus({preventScroll:true});});
