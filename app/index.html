@@ -1446,7 +1446,7 @@ function refreshPersonLabels(){
   document.querySelectorAll('[data-payer],[data-person]').forEach(el=>{const id=el.dataset.payer||el.dataset.person;if(['person-a','person-b'].includes(id))el.setAttribute('aria-label',personName(id));});
   for(const prefix of ['f','r'])for(const [suffix,id]of [['J','person-a'],['G','person-b']]){
     const share=$(prefix+'-share'+suffix),pct=$(prefix+'-pct'+suffix);
-    if(share){share.setAttribute('aria-label',T.fragment('Quota di ')+personName(id));share.nextElementSibling.textContent=T.fragment('Quota ')+personName(id)+' (€)';}
+    if(share){share.setAttribute('aria-label',T.fragment('Quota di')+' '+personName(id));share.nextElementSibling.textContent=T.fragment('Quota di')+' '+personName(id)+' (€)';}
     if(pct){pct.setAttribute('aria-label',T.fragment('Percentuale di ')+personName(id));pct.nextElementSibling.textContent=personName(id)+' %';}
   }
   const pair=personName('person-a')+' & '+personName('person-b');
@@ -3024,7 +3024,7 @@ function showImportError(msg){
 function downloadImportTemplate(){
   const csvCell=value=>String(value).includes(';')||String(value).includes('"')?'"'+String(value).replace(/"/g,'""')+'"':String(value);
   const lines = [
-    [T.fragment('Data'),T.fragment('Descrizione'),T.fragment('Importo'),T.fragment('Pagato da'),T.fragment('Categoria'),T.fragment('Nota'),T.fragment('Quota ')+personName('person-a'),T.fragment('Quota ')+personName('person-b')]
+    [T.fragment('Data'),T.fragment('Descrizione'),T.fragment('Importo'),T.fragment('Pagato da'),T.fragment('Categoria'),T.fragment('Nota'),T.fragment('Quota di')+' '+personName('person-a'),T.fragment('Quota di')+' '+personName('person-b')]
   ].map(row=>row.map(csvCell).join(';'));
   const csv = '\uFEFF' + lines.join('\r\n');
   const blob = new Blob([csv], { type:'text/csv;charset=utf-8' });
@@ -3395,58 +3395,42 @@ function makeZip(files){
   return new Blob(parts.concat(central, [eocd]), { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
 }
 function escXml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c])); }
+function xlsxCell(value,style,type){return {value,style:style||0,type:type||''};}
+function xlsxColumnName(index){let name='';for(index++;index;index=Math.floor((index-1)/26))name=String.fromCharCode(65+(index-1)%26)+name;return name;}
+function xlsxDateSerial(value){const match=String(value||'').match(/^(\d{4})-(\d{2})-(\d{2})$/);return match?(Date.UTC(+match[1],+match[2]-1,+match[3])/86400000)+25569:null;}
+function xlsxStylesXml(){return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="2"><numFmt numFmtId="164" formatCode="\u20AC #,##0.00;[Red]-\u20AC #,##0.00"/><numFmt numFmtId="165" formatCode="dd mmm yyyy"/></numFmts><fonts count="4"><font><sz val="11"/><color rgb="FF243447"/><name val="Aptos"/></font><font><b/><sz val="18"/><color rgb="FFFFFFFF"/><name val="Aptos Display"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Aptos"/></font><font><b/><sz val="11"/><color rgb="FF17324D"/><name val="Aptos"/></font></fonts><fills count="6"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF17324D"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFEAF1F7"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF5F8FA"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFDDF2E7"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left/><right/><top/><bottom style="thin"><color rgb="FFD8E0E8"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="20"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="3" fillId="3" borderId="0" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="3" borderId="0" xfId="0"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="2" fillId="2" borderId="0" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="2" fillId="2" borderId="1" xfId="0"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="165" fontId="0" fillId="0" borderId="1" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="164" fontId="0" fillId="0" borderId="1" xfId="0"><alignment horizontal="right" vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="3" fillId="3" borderId="0" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="164" fontId="3" fillId="3" borderId="0" xfId="0"><alignment horizontal="right" vertical="center"/></xf><xf numFmtId="0" fontId="3" fillId="3" borderId="0" xfId="0"><alignment horizontal="center" vertical="center"/></xf><xf numFmtId="0" fontId="3" fillId="5" borderId="0" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="3" fillId="5" borderId="0" xfId="0"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="164" fontId="3" fillId="5" borderId="0" xfId="0"><alignment horizontal="right" vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0"><alignment vertical="center"/></xf><xf numFmtId="164" fontId="0" fillId="4" borderId="1" xfId="0"><alignment horizontal="right" vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0"><alignment vertical="center" wrapText="1"/></xf><xf numFmtId="165" fontId="0" fillId="4" borderId="1" xfId="0"><alignment vertical="center"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';}
 function sheetXml(rows){
-  let out = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-  out += '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><cols>' +
-    '<col min="1" max="1" width="14" customWidth="1"/><col min="2" max="2" width="34" customWidth="1"/>' +
-    '<col min="3" max="3" width="18" customWidth="1"/><col min="4" max="4" width="14" customWidth="1"/>' +
-    '<col min="5" max="5" width="14" customWidth="1"/><col min="6" max="6" width="30" customWidth="1"/>' +
-    '<col min="7" max="7" width="16" customWidth="1"/><col min="8" max="8" width="16" customWidth="1"/>' +
-    '</cols><sheetData>';
-  rows.forEach(function(row, r){
-    out += '<row r="' + (r+1) + '">';
-    row.forEach(function(val, c){
-      if (val === null || val === undefined || val === '') return;
-      const ref = String.fromCharCode(65 + c) + (r+1);
-      if (typeof val === 'number' && isFinite(val)) out += '<c r="' + ref + '"><v>' + val + '</v></c>';
-      else out += '<c r="' + ref + '" t="inlineStr"><is><t xml:space="preserve">' + escXml(val) + '</t></is></c>';
-    });
-    out += '</row>';
-  });
-  out += '</sheetData></worksheet>';
-  return out;
+  const base=[15,34,18,16,21,34,19,19],min=[13,20,14,13,15,20,17,17];
+  const widths=base.map((width,c)=>{let longest=0;rows.forEach(row=>{const raw=row[c],cell=raw&&typeof raw==='object'&&Object.hasOwn(raw,'value')?raw:null;longest=Math.max(longest,String(cell?cell.value:raw==null?'':raw).length);});return Math.max(min[c],Math.min(c===1||c===5?48:width,longest+2));});
+  let out='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr><dimension ref="A1:H'+rows.length+'"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="8" topLeftCell="A9" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A9" sqref="A9"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="20"/><cols>';
+  widths.forEach((width,c)=>{out+='<col min="'+(c+1)+'" max="'+(c+1)+'" width="'+width+'" customWidth="1"/>';});out+='</cols><sheetData>';
+  rows.forEach((row,r)=>{const height=r===0?34:(r===2||r===6?24:r===7?32:22);out+='<row r="'+(r+1)+'" ht="'+height+'" customHeight="1">';row.forEach((raw,c)=>{if(raw===null||raw===undefined||raw==='')return;const cell=raw&&typeof raw==='object'&&Object.hasOwn(raw,'value')?raw:{value:raw,style:0};const ref=xlsxColumnName(c)+(r+1);if(typeof cell.value==='number'&&isFinite(cell.value))out+='<c r="'+ref+'" s="'+cell.style+'"><v>'+cell.value+'</v></c>';else out+='<c r="'+ref+'" s="'+cell.style+'" t="inlineStr"><is><t xml:space="preserve">'+escXml(cell.value)+'</t></is></c>';});out+='</row>';});
+  out+='</sheetData><autoFilter ref="A8:H'+rows.length+'"/><mergeCells count="3"><mergeCell ref="A1:H1"/><mergeCell ref="A3:H3"/><mergeCell ref="A7:H7"/></mergeCells><printOptions horizontalCentered="1"/><pageMargins left="0.25" right="0.25" top="0.5" bottom="0.5" header="0.2" footer="0.2"/><pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/></worksheet>';return out;
 }
 function buildXlsxBlob(list){
-  const enc = new TextEncoder();
-  const sorted = list.slice().sort((a,b) => String(a.date || '').localeCompare(String(b.date || '')));
-  const rows = [[T.fragment('Data'),T.fragment('Descrizione'),T.fragment('Categoria'),T.fragment('Importo (€)'),T.fragment('Pagato da'),T.fragment('Nota'),T.fragment('Quota ')+personName('person-a')+' (€)',T.fragment('Quota ')+personName('person-b')+' (€)']];
-  for (const e of sorted){
-    if (e.type === 'settle'){
-      rows.push([fmtDateLong(e.date), T.fragment('Saldo (') + personName(e.from) + ' → ' + personName(e.to) + ')', '', round2(e.amount), '', e.note || '', '', '']);
-    } else {
-      const sJ = e.shareJ !== undefined ? e.shareJ : e.amount/2;
-      const sG = e.shareG !== undefined ? e.shareG : e.amount/2;
-      const c = getCategory(categories, e.categoryId);
-      rows.push([fmtDateLong(e.date), e.desc, c ? c.name : '', round2(e.amount), personName(e.payer), e.note || '', round2(sJ), round2(sG)]);
-    }
-  }
-  const t = computeTotals(list);
-  rows.push([]); rows.push([T.fragment('RIEPILOGO'),'','','','','','','']);
-  rows.push([T.fragment('Totale speso'),'','', round2(t.total),'','','','']);
-  rows.push([T.fragment('Ha pagato ')+personName('person-a'),'','', round2(t.paidJ),'','','','']);
-  rows.push([T.fragment('Ha pagato ')+personName('person-b'),'','', round2(t.paidG),'','','','']);
-  rows.push([T.fragment('Quota di ')+personName('person-a'),'','', round2(t.owedJ),'','','','']);
-  rows.push([T.fragment('Quota di ')+personName('person-b'),'','', round2(t.owedG),'','','','']);
-  if (Math.abs(t.balance) < 0.005) rows.push([T.fragment('Saldo'),'','',T.fragment('Siete in pari'),'','','','']);
-  else rows.push([T.fragment('Saldo'), personName(t.balance > 0 ? 'person-b' : 'person-a') + T.fragment(' deve a ') + personName(t.balance > 0 ? 'person-a' : 'person-b'), '', round2(Math.abs(t.balance)),'','','','']);
-  const files = [
-    { name:'[Content_Types].xml', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>') },
-    { name:'_rels/.rels', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>') },
-    { name:'xl/workbook.xml', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="TwoFifties" sheetId="1" r:id="rId1"/></sheets></workbook>') },
-    { name:'xl/_rels/workbook.xml.rels', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>') },
-    { name:'xl/worksheets/sheet1.xml', data: enc.encode(sheetXml(rows)) }
+  const enc=new TextEncoder(),sorted=list.slice().sort((a,b)=>String(a.date||'').localeCompare(String(b.date||''))),t=computeTotals(list);
+  const dates=sorted.map(e=>String(e.date||'')).filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)),from=dates[0],to=dates[dates.length-1];
+  const period=from?(from===to?fmtDateLong(from):fmtDateLong(from)+' \u2013 '+fmtDateLong(to)):T.fragment('Tutto il periodo');
+  const money=v=>xlsxCell(round2(v),11);
+  const rows=[
+    [xlsxCell(T.fragment('Report spese \u00B7 TwoFifties'),1)],
+    [xlsxCell(T.fragment('Periodo esportato'),2),xlsxCell(period,3),'','',xlsxCell(T.fragment('Generato il'),2),xlsxCell(new Date().toLocaleString(T.locale),3)],
+    [xlsxCell(T.fragment('RIEPILOGO'),4)],
+    [xlsxCell(T.fragment('Totale speso'),10),money(t.total),xlsxCell(T.fragment('Movimenti'),10),xlsxCell(list.length,12)],
+    [xlsxCell(T.fragment('Ha pagato')+' '+personName('person-a'),10),money(t.paidJ),xlsxCell(T.fragment('Ha pagato')+' '+personName('person-b'),10),money(t.paidG)],
+    [xlsxCell(T.fragment('Quota di')+' '+personName('person-a'),10),money(t.owedJ),xlsxCell(T.fragment('Quota di')+' '+personName('person-b'),10),money(t.owedG),xlsxCell(T.fragment('Saldo'),13),xlsxCell(Math.abs(t.balance)<0.005?T.fragment('Siete in pari'):personName(t.balance>0?'person-b':'person-a')+T.fragment(' deve a ')+personName(t.balance>0?'person-a':'person-b'),14),xlsxCell(Math.abs(t.balance)<0.005?'':round2(Math.abs(t.balance)),15)],
+    [xlsxCell(T.fragment('DETTAGLIO MOVIMENTI'),4)],
+    [T.fragment('Data'),T.fragment('Descrizione'),T.fragment('Categoria'),T.fragment('Importo (\u20AC)'),T.fragment('Pagato da'),T.fragment('Nota'),T.fragment('Quota di')+' '+personName('person-a')+' (\u20AC)',T.fragment('Quota di')+' '+personName('person-b')+' (\u20AC)'].map(v=>xlsxCell(v,5))
   ];
-  return makeZip(files);
+  for(const e of sorted){const alt=rows.length%2===0,dateSerial=xlsxDateSerial(e.date),dateCell=dateSerial===null?xlsxCell(fmtDateLong(e.date),alt?19:6):xlsxCell(dateSerial,alt?19:6);if(e.type==='settle'){rows.push([dateCell,xlsxCell(T.fragment('Saldo (')+personName(e.from)+' \u2192 '+personName(e.to)+')',alt?16:7),xlsxCell('',0),xlsxCell(round2(e.amount),alt?17:8),xlsxCell('',0),xlsxCell(e.note||'',alt?18:9),xlsxCell('',0),xlsxCell('',0)]);}else{const category=getCategory(categories,e.categoryId),shareJ=e.shareJ!==undefined?e.shareJ:e.amount/2,shareG=e.shareG!==undefined?e.shareG:e.amount/2;rows.push([dateCell,xlsxCell(e.desc,alt?16:7),xlsxCell(category?category.name:'',alt?16:7),xlsxCell(round2(e.amount),alt?17:8),xlsxCell(personName(e.payer),alt?16:7),xlsxCell(e.note||'',alt?18:9),xlsxCell(round2(shareJ),alt?17:8),xlsxCell(round2(shareG),alt?17:8)]);}}
+  const files=[
+    {name:'[Content_Types].xml',data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>')},
+    {name:'_rels/.rels',data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')},
+    {name:'xl/workbook.xml',data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="TwoFifties" sheetId="1" r:id="rId1"/></sheets><definedNames><definedName name="_xlnm.Print_Titles" localSheetId="0">\'TwoFifties\'!$8:$8</definedName><definedName name="_xlnm.Print_Area" localSheetId="0">\'TwoFifties\'!$A$1:$H$'+rows.length+'</definedName></definedNames></workbook>')},
+    {name:'xl/_rels/workbook.xml.rels',data:enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>')},
+    {name:'xl/styles.xml',data:enc.encode(xlsxStylesXml())},
+    {name:'xl/worksheets/sheet1.xml',data:enc.encode(sheetXml(rows))}
+  ];return makeZip(files);
 }
 function doExportList(list, filename){
   if (!list.length){ toast(T.fragment('Nessun dato')); return; }
