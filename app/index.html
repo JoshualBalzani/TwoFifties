@@ -241,6 +241,7 @@ body.selection-mode .item .avatar{display:none}
 .item-note{font-size:12px;font-weight:400;letter-spacing:var(--track-body-sm);color:var(--md-on-surface-variant);margin-top:2px;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}
 .item-note svg{width:12px;height:12px;flex:0 0 auto;opacity:.7}
 .item-amount{font-size:16px;font-weight:500;letter-spacing:var(--track-title-md);white-space:nowrap;font-variant-numeric:tabular-nums;flex:0 0 auto}
+.desktop-list-header,.item-date-column{display:none}
 
 .empty{text-align:center;color:var(--md-on-surface-variant);font-size:14px;line-height:1.6;padding:var(--sp-8) var(--sp-4);display:flex;flex-direction:column;align-items:center;gap:var(--sp-4)}
 .empty svg{opacity:.4}
@@ -551,6 +552,9 @@ body.selection-mode .fab{transform:scale(0);opacity:0;pointer-events:none}
 .actions-preview .ap-desc{font-size:16px;font-weight:500;letter-spacing:var(--track-title-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .actions-preview .ap-sub{font-size:12px;color:var(--md-on-surface-variant);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .actions-preview .ap-amount{font-size:16px;font-weight:500;letter-spacing:var(--track-title-md);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.actions-close{display:none}
+.context-close{display:none}
+.actions-details{display:none}
 
 .snackbar{position:fixed;left:var(--sp-4);right:var(--sp-4);bottom:calc(var(--sp-4) + env(safe-area-inset-bottom));background:var(--md-inverse-surface);color:var(--md-inverse-on-surface);border-radius:var(--shape-xs);padding:var(--sp-3) var(--sp-2) var(--sp-3) var(--sp-4);font-size:14px;font-weight:400;letter-spacing:var(--track-body-md);display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);transform:translateY(200%);opacity:0;transition:transform var(--dur-slow) var(--motion-standard),opacity var(--dur-medium);z-index:19;max-width:588px;margin:0 auto;box-shadow:var(--elev-2)}
 .snackbar.show{transform:translateY(0);opacity:1}
@@ -627,7 +631,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=19">
+<link rel="stylesheet" href="navigation.css?v=20">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -701,6 +705,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   <div class="sheet-header">
   <button class="sheet-handle" type="button" aria-label="Chiudi pannello" title="Trascina verso il basso o premi per chiudere"></button>
   <h2 class="sheet-title" id="sheetTitle">Nuova spesa</h2>
+  <button class="icon-btn context-close" id="editCloseBtn" type="button" aria-label="Chiudi pannello"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m19 6.4-1.4-1.4L12 10.6 6.4 5 5 6.4l5.6 5.6L5 19l1.4 1.4L12 13.4l5.6 5.6 1.4-1.4-5.6-5.6z"/></svg></button>
   </div>
 
   <section id="recentExpenseWrap" hidden><details class="recent-expenses" id="recentExpenses"><summary>Usa una spesa recente</summary><p class="hint">Riprendi i dati e controllali prima di salvare.</p><div id="recentExpenseList"></div></details><p id="reuseExpenseStatus" class="hint" role="status" hidden></p></section>
@@ -807,9 +812,11 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   <div class="sheet-header">
   <button class="sheet-handle" type="button" aria-label="Chiudi pannello" title="Trascina verso il basso o premi per chiudere"></button>
   <h2 class="sheet-title" id="actionsTitle">Azioni movimento</h2>
+  <button class="icon-btn actions-close" id="actionsCloseBtn" type="button" aria-label="Chiudi pannello"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m19 6.4-1.4-1.4L12 10.6 6.4 5 5 6.4l5.6 5.6L5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg></button>
   </div>
 
   <div class="actions-preview" id="actionsPreview"></div>
+  <dl class="actions-details" id="actionsDetails"></dl>
 
   <ul class="action-list">
     <li><button class="action-item" id="actionEditBtn" type="button">
@@ -1953,6 +1960,7 @@ function itemHTML(e){
         '<div class="item-sub"><span class="sub-text">' + esc(fmtDateShort(e.date)) + ' · ' + personMarkup(e.from) + ' → ' + personMarkup(e.to) + '</span></div>' +
         (e.note ? '<div class="item-note">' + ICON.note + esc(e.note) + '</div>' : '') +
       '</div>' +
+      '<span class="item-date-column">' + esc(fmtDateShort(e.date)) + '</span>' +
       '<div class="item-amount">' + fmtEur(e.amount) + '</div>' +
     '</li>';
   }
@@ -1979,6 +1987,7 @@ function itemHTML(e){
       '</div>' +
       (e.note ? '<div class="item-note">' + ICON.note + esc(e.note) + '</div>' : '') +
     '</div>' +
+    '<span class="item-date-column">' + esc(fmtDateShort(e.date)) + '</span>' +
     '<div class="item-amount">' + fmtEur(e.amount) + '</div>' +
   '</li>';
 }
@@ -2014,7 +2023,7 @@ function renderList(){
     if (!current || current.key !== key){ current = { key, label: groupLabel(key), items: [] }; groups.push(current); }
     current.items.push(e);
   }
-  let idx = 0, html = '';
+  let idx = 0, html = '<div class="desktop-list-header" aria-hidden="true"><span></span><span>' + T.fragment('Descrizione') + '</span><span>' + T.fragment('Data') + '</span><span>' + T.fragment('Importo') + '</span></div>';
   for (const g of groups){
     html += '<h2 class="group-header">' + esc(g.label) + T.fragment('</h2><ul class="list" role="group" aria-label="Movimenti">');
     for (const e of g.items){
@@ -2207,6 +2216,9 @@ let actionsTargetId = null;
 function openActionsSheet(id){
   const e = entries.find(x => x.id === id);
   if (!e) return;
+  const returnFocus=Array.from(document.querySelectorAll('#listWrap [data-id]')).find(row=>row.dataset.id===id)||document.activeElement;
+  document.querySelectorAll('#listWrap .detail-active').forEach(row=>row.classList.remove('detail-active'));
+  returnFocus.classList?.add('detail-active');
   actionsTargetId = id;
 
   const preview = $('actionsPreview');
@@ -2232,10 +2244,24 @@ function openActionsSheet(id){
       '<div class="ap-amount">' + fmtEur(e.amount) + '</div>';
   }
 
+  const detailRows=[];
+  const addDetail=(label,value)=>{if(value!==undefined&&value!==null&&String(value)!=='')detailRows.push('<div class="actions-detail-row"><dt>'+esc(label)+'</dt><dd>'+value+'</dd></div>');};
+  if(e.type==='expense'){
+    addDetail(T.fragment('Pagato da'),esc(personName(e.payer)));
+    addDetail(T.fragment('Quota di')+' '+esc(personName('person-a')),esc(fmtEur(e.shareJ!==undefined?e.shareJ:e.amount/2)));
+    addDetail(T.fragment('Quota di')+' '+esc(personName('person-b')),esc(fmtEur(e.shareG!==undefined?e.shareG:e.amount/2)));
+    if(e.dueDate&&!e.reimbursedAt)addDetail(T.fragment('Scadenza rimborso'),esc(fmtDateLong(e.dueDate)));
+  }else{
+    addDetail(T.fragment('Pagato da'),esc(personName(e.from)));
+    addDetail(T.fragment('Quota'),esc(personName(e.to)));
+  }
+  if(e.note)addDetail(T.fragment('Nota'),esc(e.note));
+  if(e.receipts?.length)addDetail(T.fragment('Ricevute'),e.receipts.map(receipt=>'<a href="/api/receipts/'+encodeURIComponent(receipt.id)+'" target="_blank" rel="noopener">'+esc(receipt.name)+'</a>').join('<br>'));
+  $('actionsDetails').innerHTML=detailRows.join('');
   closeAllSheets();
-  showSheet($('actionsSheet'));
+  if(window.matchMedia('(min-width:1000px)').matches)showDesktopContextPanel($('actionsSheet'),returnFocus);else showSheet($('actionsSheet'));
 }
-function closeActionsSheet(){ $('actionsSheet').classList.remove('open'); maybeCloseScrim(); restoreFocus(); actionsTargetId = null; }
+function closeActionsSheet(){ $('actionsSheet').classList.remove('open');resetDesktopContextPanel($('actionsSheet'));maybeCloseScrim();restoreFocus(); actionsTargetId = null; }
 function duplicateEntry(id){
   const e = entries.find(x => x.id === id);
   if (!e) return;
@@ -2390,6 +2416,7 @@ function openEditSheet(id){
   $('recentExpenseWrap').hidden=true;
   const e = entries.find(x => x.id === id);
   if (!e) return;
+  const returnFocus=Array.from(document.querySelectorAll('#listWrap [data-id]')).find(row=>row.dataset.id===id)||document.activeElement;
   currentEditId = id; editEntryBaseline = window.SpeseFeaturesCore.clone(e);
   $('sheetTitle').textContent = e.type === 'settle' ? T.fragment('Modifica saldo') : T.fragment('Modifica spesa');
   $('saveBtn').textContent = T.fragment('Salva modifiche');
@@ -2430,10 +2457,10 @@ function openEditSheet(id){
   exitSelectionMode();
   closeAllSheets();
   if(featureUI)featureUI.openExpense(e);
-  showSheet($('sheet'));
+  if(window.matchMedia('(min-width:1000px)').matches)showDesktopContextPanel($('sheet'),returnFocus);else showSheet($('sheet'));
 }
 function closeSheet(){
-  $('sheet').classList.remove('open'); maybeCloseScrim();
+  $('sheet').classList.remove('open');resetDesktopContextPanel($('sheet')); maybeCloseScrim();
   if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   restoreFocus();
 }
@@ -3214,8 +3241,13 @@ async function doImportReplace(){
 /* ---------- SHEET MGMT ---------- */
 const SHEET_IDS = ['sheet','pickerSheet','actionsSheet','filterSheet','bulkCatSheet','dashSheet','catSheet','catEditSheet','recSheet','recEditSheet','backupSheet','importSheet','exportSheet','settingsSheet','toolsSheet'];
 function showSheet(el){ closeFabMenu();el.querySelectorAll('.tf [aria-invalid]').forEach(clearFieldError);lastFocusBeforeSheet = document.activeElement; el.scrollTop = 0; el.classList.add('open'); $('scrim').classList.add('open'); }
+function showDesktopContextPanel(el,returnFocus){
+ closeFabMenu();el.querySelectorAll('.tf [aria-invalid]').forEach(clearFieldError);lastFocusBeforeSheet=returnFocus||document.activeElement;el.scrollTop=0;el.classList.add('desktop-context-panel','open');el.setAttribute('role','complementary');el.removeAttribute('aria-modal');document.body.classList.add('has-context-panel');updateModalState();
+ const target=el.id==='actionsSheet'?$('actionsCloseBtn'):$('editCloseBtn');requestAnimationFrame(()=>target?.focus({preventScroll:true}));
+}
+function resetDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel'))return;el.classList.remove('desktop-context-panel');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');document.body.classList.remove('has-context-panel');}
 function closeAllSheets(){
-  SHEET_IDS.forEach(function(id){ const el = $(id); if (el&&!el.classList.contains('primary-page')) el.classList.remove('open'); });
+  SHEET_IDS.forEach(function(id){ const el = $(id); if (el&&!el.classList.contains('primary-page')){el.classList.remove('open');resetDesktopContextPanel(el);} });
   $('scrim').classList.remove('open');
   $('scrim').classList.remove('high');
   pickerConfig = null;
@@ -3259,7 +3291,7 @@ function topLayer(){
  if(document.getElementById('initialSetup')?.open)return document.getElementById('initialSetup');
   const cands = [];
   if (!$('dialog').hidden) cands.push($('dialog'));
-  for (let i = 0; i < SHEET_IDS.length; i++){ const el = $(SHEET_IDS[i]); if (el && !el.classList.contains('primary-page') && el.classList.contains('open')) cands.push(el); }
+  for (let i = 0; i < SHEET_IDS.length; i++){ const el = $(SHEET_IDS[i]); if (el && !el.classList.contains('primary-page') && el.classList.contains('open') && !el.classList.contains('desktop-context-panel')) cands.push(el); }
   let best = null, bestZ = -1, bestOrder = -1;
   for (let i = 0; i < cands.length; i++){
     const el = cands[i];
@@ -3660,6 +3692,8 @@ $('selDeleteBtn').addEventListener('click', deleteSelected);
 $('bulkCatCancel').addEventListener('click', function(){ closeBulkCatSheet(); });
 
 $('actionEditBtn').addEventListener('click', editFromActions);
+$('actionsCloseBtn').addEventListener('click', closeActionsSheet);
+$('editCloseBtn').addEventListener('click', closeSheet);
 $('actionDuplicateBtn').addEventListener('click', function(){ if (actionsTargetId) duplicateEntry(actionsTargetId); });
 $('actionDeleteBtn').addEventListener('click', deleteFromActions);
 
