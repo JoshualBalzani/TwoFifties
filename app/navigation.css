@@ -60,7 +60,7 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #listWrap .desktop-list-header span:nth-child(4){text-align:right}
   #listWrap .group-header{display:none}
   #listWrap .list{display:flex;flex-direction:column;gap:0}
-  #listWrap .list .item{display:grid;grid-template-columns:42px minmax(0,1fr) 112px 140px;gap:16px;min-height:64px;padding:8px 16px;border:0;border-bottom:1px solid var(--md-outline-variant);border-radius:0;background:transparent}
+  #listWrap .list .item{display:grid;grid-template-columns:42px minmax(0,1fr) 112px 140px;align-items:center;gap:16px;min-height:72px;padding:8px 16px;border:0;border-bottom:1px solid var(--md-outline-variant);border-radius:0;background:transparent}
   #listWrap .item-date-column{display:block;text-align:right;color:var(--md-on-surface-variant);font-size:14px;line-height:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
   #listWrap .item-sub>.sub-text,.item.settle .item-sub{display:none}
   #listWrap .list .item-amount{text-align:right}

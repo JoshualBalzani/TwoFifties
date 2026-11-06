@@ -1,6 +1,6 @@
 'use strict';
-const CACHE = 'twofifties-v18';
-const SHELL = ["/translations.js","/i18n.js","/onboarding.js","/onboarding.css","/","/index.html","/fonts.css?v=13","/m3.css?v=20","/color-theme.js?v=13","/features.css?v=20","/readability.css?v=13","/settings.css?v=15","/navigation.css?v=20","/home.css?v=16","/fab-actions.css?v=13","/logic.js?v=14","/gestures.js?v=17","/features-core.js?v=13","/features-ui.js?v=13","/date-fields.js?v=1","/fonts/roboto-latin.woff2","/fonts/roboto-latin-ext.woff2"];
+const CACHE = 'twofifties-v19';
+const SHELL = ["/translations.js","/i18n.js","/onboarding.js","/onboarding.css","/","/index.html","/fonts.css?v=13","/m3.css?v=20","/color-theme.js?v=13","/features.css?v=20","/readability.css?v=13","/settings.css?v=15","/navigation.css?v=21","/home.css?v=16","/fab-actions.css?v=13","/logic.js?v=14","/gestures.js?v=17","/features-core.js?v=13","/features-ui.js?v=13","/date-fields.js?v=1","/fonts/roboto-latin.woff2","/fonts/roboto-latin-ext.woff2"];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL).catch(() => {}))); self.skipWaiting(); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', (e) => {
