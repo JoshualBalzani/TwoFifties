@@ -41,7 +41,8 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
 @media(min-width:1000px){
   :root{--navigation-rail-width:88px}
   html{scroll-padding-top:80px;scroll-padding-bottom:32px}
-  .appbar{width:100%;border:0;box-shadow:none;background:var(--md-surface)}
+  .appbar{width:100%;border:0;box-shadow:none;background:var(--md-surface);z-index:24}
+  .appbar.scrolled{box-shadow:0 1px 3px rgba(29,27,32,.12),0 1px 2px rgba(29,27,32,.08)}
   .appbar-inner,.appbar-inner.selection-bar{width:100%;max-width:none;height:64px;margin:0;padding-inline:28px}
   .appbar-inner .brand{padding-left:0}
   .bottom-nav{top:64px;right:auto;bottom:0;left:0;width:var(--navigation-rail-width);box-sizing:border-box;padding:16px 4px env(safe-area-inset-bottom);border:0;box-shadow:none;background:var(--md-surface)}

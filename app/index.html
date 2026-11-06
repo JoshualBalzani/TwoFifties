@@ -123,7 +123,7 @@ input,textarea{-webkit-user-select:text;user-select:text;-webkit-touch-callout:d
 :focus-visible{outline:3px solid var(--md-primary);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
 
-.appbar{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top);background:var(--md-surface);transition:background-color var(--dur-medium)}
+.appbar{position:sticky;top:0;z-index:20;isolation:isolate;padding-top:env(safe-area-inset-top);background:var(--md-surface);transition:background-color var(--dur-medium),box-shadow var(--dur-medium)}
 .appbar.scrolled{background:var(--md-surface-container)}
 .appbar-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2);height:64px;padding:0 var(--sp-1) 0 var(--sp-2);max-width:620px;margin:0 auto}
 .appbar-inner[hidden]{display:none}
@@ -628,10 +628,10 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   } catch(e){}
 })();
 </script>
-<link rel="stylesheet" href="features.css?v=20">
+<link rel="stylesheet" href="features.css?v=21">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=36">
+<link rel="stylesheet" href="navigation.css?v=37">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
