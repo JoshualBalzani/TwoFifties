@@ -58,13 +58,14 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #listWrap .desktop-list-header{display:grid;grid-template-columns:42px minmax(0,1fr) 112px 140px;align-items:center;gap:16px;padding:8px 16px;color:var(--md-on-surface-variant);font-size:12px;line-height:16px;font-weight:500;letter-spacing:.4px;border-bottom:1px solid var(--md-outline-variant)}
   #listWrap .desktop-list-header span:nth-child(3){text-align:right}
   #listWrap .desktop-list-header span:nth-child(4){text-align:right}
-  #listWrap .group-header{display:none}
-  #listWrap .list{display:flex;flex-direction:column;gap:0}
+  #listWrap .group-header{display:block;margin:20px 0 8px;padding:0 12px;color:var(--md-on-surface-variant);font-size:14px;line-height:20px;font-weight:500;letter-spacing:.1px}
+  #listWrap .desktop-list-header+.group-header{margin-top:12px}
+  #listWrap .list{display:flex;flex-direction:column;gap:0;margin:0 0 8px;padding:0;border-radius:16px;background:var(--md-surface-container-low);overflow:hidden}
   #listWrap .list .item{display:grid;grid-template-columns:42px minmax(0,1fr) 112px 140px;align-items:center;gap:16px;min-height:72px;padding:8px 16px;border:0;border-bottom:1px solid var(--md-outline-variant);border-radius:0;background:transparent}
   #listWrap .item-date-column{display:block;text-align:right;color:var(--md-on-surface-variant);font-size:14px;line-height:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
   #listWrap .item-sub>.sub-text,.item.settle .item-sub{display:none}
   #listWrap .list .item-amount{text-align:right}
-  #listWrap .list .item.detail-active{background:var(--md-secondary-container);color:var(--md-on-secondary-container)}
+  #listWrap .list .item.detail-active{width:calc(100% - 16px);min-height:64px;margin:4px 8px;border:0;border-radius:16px;background:var(--md-secondary-container);color:var(--md-on-secondary-container)}
   #listWrap .empty{min-height:280px;border:1px solid var(--md-outline-variant);border-radius:24px;background:var(--md-surface-container-low)}
   #dashSheet.primary-page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:0 24px}
   #dashSheet.primary-page .dash-month,#dashSheet.primary-page .dash-hero{grid-column:1/-1}
@@ -108,8 +109,8 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #actionsSheet.desktop-context-panel .actions-preview{align-items:flex-start;padding:16px;border-radius:16px}
   #actionsSheet.desktop-context-panel .actions-preview .ap-desc{white-space:normal;overflow-wrap:anywhere}
   #actionsSheet.desktop-context-panel .actions-preview .ap-sub{white-space:normal;overflow-wrap:anywhere}
-  #actionsSheet.desktop-context-panel .actions-details{display:grid;gap:0;margin:0 0 20px;border:1px solid var(--md-outline-variant);border-radius:16px;overflow:hidden}
-  #actionsSheet.desktop-context-panel .actions-detail-row{display:grid;grid-template-columns:minmax(112px,.8fr) minmax(0,1.2fr);gap:12px;padding:12px 16px;border-bottom:1px solid var(--md-outline-variant)}
+  #actionsSheet.desktop-context-panel .actions-details{display:grid;gap:0;margin:0 0 20px;padding:0 8px;border:0;border-radius:0;background:transparent}
+  #actionsSheet.desktop-context-panel .actions-detail-row{display:grid;grid-template-columns:minmax(112px,.8fr) minmax(0,1.2fr);align-items:center;gap:12px;min-height:52px;padding:8px;border-bottom:1px solid var(--md-outline-variant)}
   #actionsSheet.desktop-context-panel .actions-detail-row:last-child{border-bottom:0}
   #actionsSheet.desktop-context-panel .actions-detail-row dt{color:var(--md-on-surface-variant);font-size:12px;line-height:16px;font-weight:500;letter-spacing:.4px}
   #actionsSheet.desktop-context-panel .actions-detail-row dd{min-width:0;margin:0;color:var(--md-on-surface);font-size:14px;line-height:20px;overflow-wrap:anywhere}
