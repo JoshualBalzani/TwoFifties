@@ -1,6 +1,8 @@
 ﻿/* Material 3 navigation bar: 80px container, 64x32 indicator, 24px icons. */
 :root{--navigation-height:80px}
 html{scroll-padding-top:80px;scroll-padding-bottom:calc(112px + env(safe-area-inset-bottom))}html:has(body[data-primary="budget"]){scroll-padding-bottom:calc(176px + env(safe-area-inset-bottom))}
+.skip-link{position:fixed;top:8px;left:16px;z-index:100;display:flex;min-height:48px;align-items:center;padding:0 16px;border-radius:16px;background:var(--md-primary);color:var(--md-on-primary);font-size:14px;line-height:20px;font-weight:500;text-decoration:none;transform:translateY(calc(-100% - 16px));transition:transform var(--dur-fast) var(--motion-standard)}
+.skip-link:focus-visible{transform:translateY(0);outline:3px solid var(--md-on-surface);outline-offset:2px}
 .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:16;background:var(--md-surface-container);padding-bottom:env(safe-area-inset-bottom);box-shadow:var(--elev-2)}
 .bottom-nav-inner{display:flex;justify-content:center;max-width:720px;height:var(--navigation-height);margin:0 auto;padding:0 8px}
 .bottom-nav-item{position:relative;display:flex;flex:1;min-width:0;min-height:80px;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:12px 0 16px;border:0;background:transparent;color:var(--md-on-surface-variant);font-family:inherit;cursor:pointer}
