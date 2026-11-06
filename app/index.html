@@ -627,7 +627,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=15">
+<link rel="stylesheet" href="navigation.css?v=16">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=13">
 </head>
@@ -1524,6 +1524,13 @@ function openFeatureSurface(tab){
 }
 function openThirdNavigation(){const choice=settings.navThird;if(choice==='budget'){navigatePrimary('budget');return;}if(choice==='recurrences'){openRecSheet();return;}if(choice==='categories'){openCatSheet();return;}if(['reminders','pending','filters','history','trash'].includes(choice))featureUI.open(choice);}
 $('bottomNav').addEventListener('click',event=>{if(event.target.closest('#nav-third')){openThirdNavigation();return;}const button=event.target.closest('[data-primary]');if(button)navigatePrimary(button.dataset.primary);});
+function buildDesktopDestinations(){
+ const inner=$('bottomNav').querySelector('.bottom-nav-inner');if(!inner||inner.dataset.destinationsBuilt)return;inner.dataset.destinationsBuilt='true';
+ const groups=[['Preferenze',['drawerSettingsBtn','drawerIdentityBtn']],['Gestione',['drawerRemindersBtn','drawerToolsBtn','drawerRecBtn','drawerCatBtn','drawerFiltersBtn']],['Archivio e dati',['drawerHistoryBtn','drawerTrashBtn','drawerBackupBtn','drawerImportBtn','drawerExportBtn']]];
+ for(const [title,ids] of groups){const heading=document.createElement('div');heading.className='desktop-nav-heading';heading.textContent=T.fragment(title);inner.append(heading);for(const id of ids){const source=$(id),copy=source.cloneNode(true);copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(node=>node.removeAttribute('id'));copy.className='bottom-nav-item desktop-destination';copy.removeAttribute('data-feature-target');const label=id==='drawerIdentityBtn'?T.fragment('Persone'):source.querySelector('.more-row-label')?.textContent.trim()||source.textContent.trim();copy.setAttribute('aria-label',label);const identity=copy.querySelector('.more-person strong');if(identity)identity.textContent=label;copy.dataset.proxy=id;inner.append(copy);}}
+}
+buildDesktopDestinations();
+$('bottomNav').addEventListener('click',event=>{const proxy=event.target.closest('[data-proxy]');if(proxy){$(proxy.dataset.proxy)?.click();return;}});
 window.addEventListener('hashchange',()=>{const page=Object.keys(primaryHashes).find(key=>primaryHashes[key]===location.hash)||'expenses';if(page!==currentPrimary)navigatePrimary(page,{history:false});});
 
 /* ---------- EXPANDABLE FLOATING ACTIONS ---------- */
