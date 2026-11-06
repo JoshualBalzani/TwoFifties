@@ -628,7 +628,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=13">
 <link rel="stylesheet" href="navigation.css?v=13">
-<link rel="stylesheet" href="home.css?v=13">
+<link rel="stylesheet" href="home.css?v=14">
 <link rel="stylesheet" href="fab-actions.css?v=13">
 </head>
 <body>
@@ -1310,7 +1310,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 </div>
 
 <script src="logic.js?v=13"></script>
-<script src="gestures.js?v=15"></script>
+<script src="gestures.js?v=16"></script>
 <script src="features-core.js?v=13"></script>
 <script src="date-fields.js?v=1"></script>
 <script src="features-ui.js?v=13"></script>
@@ -3795,7 +3795,7 @@ function dismissSheet(el){
   const layer = topLayer();
   if (layer) layer.querySelector('.sheet-handle,button')?.focus({preventScroll:true});
 }
-window.SpeseGestures.install({ document, sheets:SHEET_IDS.map($), dashboard:$('dashSheet'),
+window.SpeseGestures.install({ document, sheets:SHEET_IDS.map($), dashboard:$('dashSheet'), expensesPage:$('expensesPage'), quickSearch:$('quickSearch'),
   isTop:el => el.id==='dashSheet'&&currentPrimary==='statistics'?!topLayer():topLayer()===el, dismissSheet, previousMonth:dashPrev, nextMonth:dashNext });
 // Modal surfaces keep page scrolling and keyboard focus inside the active layer.
 function updateModalState(){
