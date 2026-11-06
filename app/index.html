@@ -627,9 +627,9 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=17">
+<link rel="stylesheet" href="navigation.css?v=18">
 <link rel="stylesheet" href="home.css?v=16">
-<link rel="stylesheet" href="fab-actions.css?v=13">
+<link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
 <body>
 
@@ -669,6 +669,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
   <svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true">
     <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
   </svg>
+  <span class="fab-label">Aggiungi spesa</span>
 </button>
 
 <div class="fab-actions" id="fabActions" role="menu" aria-label="Azioni rapide" hidden>
@@ -1539,10 +1540,13 @@ window.addEventListener('hashchange',()=>{const page=Object.keys(primaryHashes).
 
 /* ---------- EXPANDABLE FLOATING ACTIONS ---------- */
 let fabMenuOpen=false,settlementPending=false;
+function refreshDesktopFab(){const desktop=window.matchMedia('(min-width:1000px)').matches,label=T.fragment('Aggiungi spesa'),fab=$('fab');fab.querySelector('.fab-label').textContent=label;fab.setAttribute('aria-label',desktop?label:(fabMenuOpen?T.fragment('Chiudi azioni rapide'):T.fragment('Apri azioni rapide')));fab.setAttribute('aria-haspopup',desktop?'dialog':'menu');fab.setAttribute('aria-controls',desktop?'sheet':'fabActions');if(desktop)fab.removeAttribute('aria-expanded');else fab.setAttribute('aria-expanded',String(fabMenuOpen));}
+refreshDesktopFab();window.addEventListener('resize',refreshDesktopFab,{passive:true});
 function updateFabActions(){
  const settled=Math.abs(computeTotals(entries).balance)<.005;
  $('fabSettle').disabled=settled||settlementPending;
  $('fabSettleLabel').textContent=settled?T.fragment('Saldo già in pari'):T.fragment('Registra saldo');
+ const balanceSettle=$('balanceCard').querySelector('.desktop-settle');if(balanceSettle)balanceSettle.disabled=settled||settlementPending;
 }
 function closeFabMenu(restore=false){
  if(!fabMenuOpen)return;fabMenuOpen=false;$('fabActions').hidden=true;$('fabBackdrop').hidden=true;$('fab').setAttribute('aria-expanded','false');$('fab').setAttribute('aria-label',T.fragment('Apri azioni rapide'));
@@ -1552,10 +1556,11 @@ function openFabMenu(){
  if(currentPrimary!=='expenses'||selectionMode||topLayer())return;
  updateFabActions();fabMenuOpen=true;$('fabActions').hidden=false;$('fabBackdrop').hidden=false;$('fab').setAttribute('aria-expanded','true');$('fab').setAttribute('aria-label',T.fragment('Chiudi azioni rapide'));$('fabAddExpense').focus({preventScroll:true});
 }
-$('fab').addEventListener('click',()=>fabMenuOpen?closeFabMenu(true):openFabMenu());
+ $('fab').addEventListener('click',()=>{if(window.matchMedia('(min-width:1000px)').matches){openSheet();return;}fabMenuOpen?closeFabMenu(true):openFabMenu();});
 $('fabAddExpense').addEventListener('click',()=>{closeFabMenu(true);openSheet();});
 $('fabSettle').addEventListener('click',()=>{closeFabMenu(true);doSettle();});
-$('fab').addEventListener('keydown',event=>{if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();openFabMenu();}});
+$('balanceCard').addEventListener('click',event=>{if(event.target.closest('.desktop-settle'))doSettle();});
+$('fab').addEventListener('keydown',event=>{if(window.matchMedia('(min-width:1000px)').matches)return;if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();openFabMenu();}});
 $('fabActions').addEventListener('keydown',event=>{
  if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeFabMenu(true);return;}
  if(event.key==='Tab'){closeFabMenu();return;}
@@ -1827,7 +1832,8 @@ function renderBalance(){
     const decimalSeparator=T.language==='en'?'.':',';
     head = '<div class="bc-label">' + personMarkup(debtor) + T.fragment(' deve a ') + personMarkup(creditor) + '</div>' +
       '<div class="bc-amount"><span class="cur">€</span><span class="int">' + intFmt + '</span><span class="dec">' + decimalSeparator + parts[1] + '</span></div>' +
-      T.fragment('<div class="bc-sub">Totale speso ') + fmtEur(t.total) + '</div>';
+      T.fragment('<div class="bc-sub">Totale speso ') + fmtEur(t.total) + '</div>' +
+      '<button type="button" class="bc-settle desktop-settle">' + T.fragment('Registra saldo') + '</button>';
   }
   let splitHTML = '';
   if (totalPaid > 0){

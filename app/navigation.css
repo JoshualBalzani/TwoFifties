@@ -138,3 +138,19 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #settingsSheet .settings-nav-list:has(>.settings-nav-row:nth-child(2))>.settings-nav-row:nth-child(odd){border-right:1px solid var(--md-outline-variant)}
   #scrim{z-index:29}
 }
+@media(min-width:1000px){
+  #sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:16px;overflow-y:auto;}
+  #sheet>.sheet-header,#sheet>#recentExpenseWrap,#sheet>#payerWrap,#sheet>#splitWrap,#sheet>.sheet-actions{grid-column:1/-1;}
+  #sheet>.tf:has(#f-note){grid-column:1;}
+  #sheet>#expenseMetadata{grid-column:2;min-width:0;margin-top:0;padding-top:0;border-top:0;}
+  #sheet>.sheet-header{margin-bottom:0}
+  #sheet>.tf{min-width:0;margin:0!important}
+  #sheet>#catWrap{min-width:0}
+  #sheet .dd-field{margin-bottom:0}
+  #sheet .field-label{margin:4px 0 8px}
+  #splitMainHint{margin:8px 0 0}
+  #sheet>.sheet-actions{position:sticky;bottom:-32px;z-index:3;margin:0 -32px -32px;padding:12px 32px 16px;background:var(--md-surface-container-low);border-top:1px solid var(--md-outline-variant);}
+  #sheet .sheet-actions .btn{min-width:96px}
+  .desktop-settle{display:inline-flex}
+  .balance-card .desktop-settle{max-width:220px;margin-top:20px}
+}

@@ -1,4 +1,6 @@
 .fab-actions-scrim{position:fixed;inset:0;z-index:24;background:var(--md-scrim);pointer-events:none}
+.fab-label{display:none}
+.desktop-settle{display:none}
 /* Expandable FAB with two circular Material tonal icon actions. */
 .fab{z-index:19}.fab[aria-expanded="true"]{z-index:25}.fab>svg{transition:transform var(--dur-medium) var(--motion-standard)}.fab[aria-expanded="true"]>svg{transform:rotate(45deg)}
 .fab-actions{position:fixed;right:20px;bottom:calc(168px + env(safe-area-inset-bottom));z-index:25;display:flex;flex-direction:column;align-items:flex-end;gap:12px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 180px);overflow-y:auto;padding:4px;scrollbar-width:thin}
@@ -13,3 +15,10 @@
 @media(hover:hover){.fab-action:not(:disabled):hover .fab-action-circle::before{opacity:.08}}
 @media(prefers-reduced-motion:reduce){.fab>svg{transition:none}}
 .dialog-card{max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;scroll-padding:16px}.dialog-actions{flex-shrink:0}
+@media(min-width:1000px){
+  #fab{display:flex;width:auto;min-width:184px;height:56px;padding:0 24px;align-items:center;justify-content:center;gap:12px;border-radius:16px;font-family:inherit;font-size:14px;font-weight:500;line-height:20px;}
+  #fab .fab-label{display:block;white-space:nowrap;}
+  #fab[aria-expanded="true"]>svg{transform:none;}
+  .fab-actions-scrim{display:none;}
+  .balance-card .desktop-settle{display:inline-flex;}
+}
