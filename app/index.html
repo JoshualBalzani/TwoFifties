@@ -627,7 +627,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=18">
+<link rel="stylesheet" href="navigation.css?v=19">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -1312,7 +1312,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <script src="gestures.js?v=17"></script>
 <script src="features-core.js?v=13"></script>
 <script src="date-fields.js?v=1"></script>
-<script src="features-ui.js?v=13"></script>
+<script src="features-ui.js?v=14"></script>
 <script>
 (function(){
 'use strict';
@@ -1531,10 +1531,12 @@ function buildDesktopDestinations(){
  let collapsed=false;try{collapsed=localStorage.getItem('twofifties-desktop-nav-collapsed-v1')==='true';}catch(_){}document.body.classList.toggle('desktop-nav-collapsed',collapsed);
  const updateToggle=()=>{toggle.setAttribute('aria-expanded',String(!document.body.classList.contains('desktop-nav-collapsed')));const label=document.body.classList.contains('desktop-nav-collapsed')?T.fragment('Espandi navigazione'):T.fragment('Comprimi navigazione');toggle.setAttribute('aria-label',label);toggle.title=label;toggle.querySelector('.desktop-nav-toggle-label').textContent=label;};updateToggle();
  toggle.addEventListener('click',()=>{const next=!document.body.classList.contains('desktop-nav-collapsed');document.body.classList.toggle('desktop-nav-collapsed',next);inner.scrollTop=0;try{localStorage.setItem('twofifties-desktop-nav-collapsed-v1',String(next));}catch(_){}updateToggle();});
- const groups=[['Preferenze',['drawerSettingsBtn','drawerIdentityBtn']],['Gestione',['drawerRemindersBtn','drawerToolsBtn','drawerRecBtn','drawerCatBtn','drawerFiltersBtn']],['Archivio e dati',['drawerHistoryBtn','drawerTrashBtn','drawerBackupBtn','drawerImportBtn','drawerExportBtn']]];
- for(const [title,ids] of groups){const heading=document.createElement('div');heading.className='desktop-nav-heading';heading.textContent=T.fragment(title);inner.append(heading);for(const id of ids){const source=$(id),copy=source.cloneNode(true);copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(node=>node.removeAttribute('id'));copy.className='bottom-nav-item desktop-destination';copy.removeAttribute('data-feature-target');const label=id==='drawerIdentityBtn'?T.fragment('Persone'):source.querySelector('.more-row-label')?.textContent.trim()||source.textContent.trim();copy.setAttribute('aria-label',label);copy.title=label;const identity=copy.querySelector('strong');if(identity)identity.textContent=label;copy.dataset.proxy=id;inner.append(copy);}}
+ const groups=[['Preferenze',['drawerIdentityBtn','drawerSettingsBtn']],['Gestione',['drawerRemindersBtn','drawerToolsBtn','drawerRecBtn','drawerCatBtn','drawerFiltersBtn']],['Archivio e dati',['drawerHistoryBtn','drawerTrashBtn','drawerBackupBtn','drawerImportBtn','drawerExportBtn']]];
+ for(const [title,ids] of groups){const heading=document.createElement('div');heading.className='desktop-nav-heading';heading.textContent=T.fragment(title);inner.append(heading);for(const id of ids){const source=$(id),copy=source.cloneNode(true);copy.removeAttribute('id');copy.querySelectorAll('[id]').forEach(node=>node.removeAttribute('id'));copy.className='bottom-nav-item desktop-destination';copy.removeAttribute('data-feature-target');const label=id==='drawerIdentityBtn'?source.querySelector('#drawerActorName')?.textContent.trim()||T.fragment('Persone'):source.querySelector('.more-row-label')?.textContent.trim()||source.textContent.trim();copy.setAttribute('aria-label',label);copy.title=label;const identity=copy.querySelector('strong');if(identity)identity.textContent=label;copy.dataset.proxy=id;inner.append(copy);}}
 }
 buildDesktopDestinations();
+window.refreshDesktopActor=function(){const source=$('drawerIdentityBtn'),name=source?.querySelector('#drawerActorName')?.textContent.trim()||T.fragment('Persone'),initial=$('drawerActorInitial')?.textContent.trim()||'';document.querySelectorAll('[data-proxy="drawerIdentityBtn"]').forEach(button=>{const strong=button.querySelector('strong'),avatar=button.querySelector('.more-avatar');if(strong)strong.textContent=name;if(avatar)avatar.textContent=initial;button.setAttribute('aria-label',name);button.setAttribute('aria-description',source.getAttribute('aria-description')||T.fragment('Gestisci persone e nome nello storico'));button.title=name;});};
+window.refreshDesktopActor();
 $('bottomNav').addEventListener('click',event=>{const proxy=event.target.closest('[data-proxy]');if(proxy){$(proxy.dataset.proxy)?.click();return;}});
 window.addEventListener('hashchange',()=>{const page=Object.keys(primaryHashes).find(key=>primaryHashes[key]===location.hash)||'expenses';if(page!==currentPrimary)navigatePrimary(page,{history:false});});
 

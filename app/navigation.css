@@ -139,8 +139,9 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #scrim{z-index:29}
 }
 @media(min-width:1000px){
-  #sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:16px;overflow-y:auto;}
-  #sheet>.sheet-header,#sheet>#recentExpenseWrap,#sheet>#payerWrap,#sheet>#splitWrap,#sheet>.sheet-actions{grid-column:1/-1;}
+  #sheet{left:calc(50% + var(--navigation-rail-width)/2);display:grid;width:min(1040px,calc(100vw - var(--navigation-rail-width) - 80px));max-width:1100px;max-height:min(92dvh,1100px);grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:16px;overflow-y:auto;}
+  #sheet>.sheet-header,#sheet>#recentExpenseWrap,#sheet>.sheet-actions{grid-column:1/-1;}
+  #sheet>#payerWrap,#sheet>#splitWrap{grid-column:auto;min-width:0;}
   #sheet>.tf:has(#f-note){grid-column:1;}
   #sheet>#expenseMetadata{grid-column:2;min-width:0;margin-top:0;padding-top:0;border-top:0;}
   #sheet>.sheet-header{margin-bottom:0}
