@@ -632,7 +632,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=21">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=40">
+<link rel="stylesheet" href="navigation.css?v=43">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -1537,7 +1537,7 @@ function openThirdNavigation(){const choice=settings.navThird;if(choice==='budge
 $('bottomNav').addEventListener('click',event=>{if(event.target.closest('#nav-third')){openThirdNavigation();return;}const button=event.target.closest('[data-primary]');if(button)navigatePrimary(button.dataset.primary);});
 function buildDesktopDestinations(){
  const inner=$('bottomNav').querySelector('.bottom-nav-inner');if(!inner||inner.dataset.destinationsBuilt)return;inner.dataset.destinationsBuilt='true';
- const toggle=document.createElement('button');toggle.type='button';toggle.className='desktop-nav-toggle';toggle.id='desktopNavToggle';toggle.setAttribute('aria-controls','bottomNav');toggle.innerHTML='<span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m15.4 6.4-1.4-1.4L6 13l8 8 1.4-1.4L8.8 13z"/></svg></span><span class="desktop-nav-toggle-label"></span>';inner.prepend(toggle);$('nav-expenses').title=T.fragment('Spese');$('nav-statistics').title=T.fragment('Statistiche');
+ const toggle=document.createElement('button');toggle.type='button';toggle.className='desktop-nav-toggle icon-btn';toggle.id='desktopNavToggle';toggle.setAttribute('aria-controls','bottomNav');toggle.innerHTML='<span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m15.4 6.4-1.4-1.4L6 13l8 8 1.4-1.4L8.8 13z"/></svg></span><span class="desktop-nav-toggle-label"></span>';document.querySelector('.desktop-nav-brand').append(toggle);$('nav-expenses').title=T.fragment('Spese');$('nav-statistics').title=T.fragment('Statistiche');
  let collapsed=false;try{collapsed=localStorage.getItem('twofifties-desktop-nav-collapsed-v1')==='true';}catch(_){}document.body.classList.toggle('desktop-nav-collapsed',collapsed);
  const updateToggle=()=>{toggle.setAttribute('aria-expanded',String(!document.body.classList.contains('desktop-nav-collapsed')));const label=document.body.classList.contains('desktop-nav-collapsed')?T.fragment('Espandi navigazione'):T.fragment('Comprimi navigazione');toggle.setAttribute('aria-label',label);toggle.title=label;toggle.querySelector('.desktop-nav-toggle-label').textContent=label;};updateToggle();
  toggle.addEventListener('click',()=>{const next=!document.body.classList.contains('desktop-nav-collapsed');document.body.classList.toggle('desktop-nav-collapsed',next);inner.scrollTop=0;try{localStorage.setItem('twofifties-desktop-nav-collapsed-v1',String(next));}catch(_){}updateToggle();});

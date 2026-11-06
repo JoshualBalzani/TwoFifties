@@ -178,16 +178,16 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   .bottom-nav-item.desktop-destination small,.bottom-nav-item.desktop-destination>span:last-child[aria-hidden="true"]{display:none}
   .bottom-nav-item.desktop-destination .nav-badge{margin-left:auto}
   .desktop-nav-heading{display:block;padding:14px 16px 4px;color:var(--md-on-surface-variant);font-size:12px;line-height:16px;font-weight:500;letter-spacing:.4px}
-  .desktop-nav-brand{display:flex;align-items:center;gap:12px;min-height:48px;flex:0 0 auto;padding:0 16px;color:var(--md-primary);font-size:20px;line-height:28px;font-weight:600;letter-spacing:0}
+  .desktop-nav-brand{display:flex;align-items:center;gap:12px;min-height:56px;flex:0 0 auto;padding:0 8px;color:var(--md-primary);font-size:20px;line-height:28px;font-weight:600;letter-spacing:0}
   .desktop-nav-brand-icon{display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;color:var(--md-primary);border-radius:12px}
   .desktop-nav-brand-icon img{display:block;width:40px;height:40px}
-  .desktop-nav-toggle{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;width:100%;min-height:48px;flex:0 0 auto;margin:0 0 8px;padding:0 16px;border:0;border-radius:28px;background:var(--md-surface-container);color:var(--md-on-surface-variant);font:inherit;text-align:left;cursor:pointer}
+  .desktop-nav-toggle{position:relative;z-index:2;display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;color:var(--md-on-surface-variant);font:inherit;cursor:pointer}
   .desktop-nav-toggle .bottom-nav-indicator{width:24px;height:24px;flex:0 0 24px;background:transparent;color:inherit}
   .desktop-nav-toggle .bottom-nav-indicator svg{transition:transform var(--dur-medium) var(--motion-standard)}
   .desktop-nav-toggle[aria-expanded="false"] .bottom-nav-indicator svg{transform:rotate(180deg)}
-  .desktop-nav-toggle-label{font-size:14px;line-height:20px;white-space:nowrap}
-  .desktop-nav-toggle:hover,.bottom-nav-item.desktop-destination:hover{background:var(--md-surface-container-high)}
-  .desktop-nav-toggle:focus-visible,.bottom-nav-item.desktop-destination:focus-visible{outline:2px solid var(--md-primary);outline-offset:2px}
+  .desktop-nav-toggle-label{display:none}
+  .bottom-nav-item.desktop-destination:hover{background:var(--md-surface-container-high)}
+  .bottom-nav-item.desktop-destination:focus-visible{outline:2px solid var(--md-primary);outline-offset:2px}
   #nav-more{display:none}
   body.desktop-nav-collapsed{--navigation-rail-width:88px}
   body.desktop-nav-collapsed .bottom-nav{padding-inline:4px}
@@ -197,10 +197,10 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   body.desktop-nav-collapsed .bottom-nav-item[aria-current="page"]{background:transparent;color:var(--md-on-surface)}
   body.desktop-nav-collapsed .bottom-nav-item[aria-current="page"] .bottom-nav-indicator{background:var(--md-secondary-container)!important;color:var(--md-on-secondary-container)}
   body.desktop-nav-collapsed .bottom-nav-item .bottom-nav-label,body.desktop-nav-collapsed .bottom-nav-item .more-row-label,body.desktop-nav-collapsed .bottom-nav-item strong,body.desktop-nav-collapsed .desktop-nav-heading,body.desktop-nav-collapsed .desktop-nav-toggle-label{display:none}
-  body.desktop-nav-collapsed .desktop-nav-toggle{width:80px;justify-content:center;padding:0}
-  body.desktop-nav-collapsed .desktop-nav-brand{justify-content:center;padding-inline:4px}
-  body.desktop-nav-collapsed .desktop-nav-brand>span:last-child{display:none}
-  body.desktop-nav-collapsed .desktop-nav-toggle .bottom-nav-indicator{width:56px;height:32px;flex-basis:56px}
+  body.desktop-nav-collapsed .desktop-nav-toggle{width:48px;height:48px;flex-basis:48px}
+  body.desktop-nav-collapsed .desktop-nav-brand{justify-content:space-between;gap:0;padding-inline:0}
+  body.desktop-nav-collapsed .desktop-nav-brand-icon,body.desktop-nav-collapsed .desktop-nav-brand-icon img{width:32px;height:32px;flex-basis:32px}
+  body.desktop-nav-collapsed .desktop-nav-brand>span:nth-child(2){display:none}
   body.desktop-nav-collapsed .bottom-nav-item.desktop-destination .more-avatar{width:24px;height:24px;flex-basis:24px}
   body.desktop-nav-collapsed .bottom-nav-badge{top:2px;right:8px}
   body.desktop-nav-collapsed .bottom-nav-item{position:relative}
