@@ -39,7 +39,7 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   .appbar{width:100%;border:0;box-shadow:none;background:var(--md-surface)}
   .appbar-inner,.appbar-inner.selection-bar{width:100%;max-width:none;height:64px;margin:0;padding-inline:28px}
   .appbar-inner .brand{padding-left:0}
-  .bottom-nav{top:64px;right:auto;bottom:0;left:0;width:var(--navigation-rail-width);box-sizing:border-box;padding:16px 4px env(safe-area-inset-bottom);border-right:1px solid var(--md-outline-variant);box-shadow:none}
+  .bottom-nav{top:64px;right:auto;bottom:0;left:0;width:var(--navigation-rail-width);box-sizing:border-box;padding:16px 4px env(safe-area-inset-bottom);border:0;box-shadow:none;background:var(--md-surface)}
   .bottom-nav-inner{width:100%;height:auto;max-width:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px}
   .bottom-nav-item{width:80px;min-height:72px;flex:0 0 auto;gap:4px;padding:4px 2px;justify-content:center}
   .bottom-nav-indicator{width:56px;height:32px}
