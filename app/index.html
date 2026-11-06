@@ -632,7 +632,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=21">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=38">
+<link rel="stylesheet" href="navigation.css?v=39">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -643,7 +643,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
     <div class="brand" style="flex:1">
       <h1 id="primaryTitle" tabindex="-1">TwoFifties</h1>
     </div>
-    <div class="appbar-actions"><button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="quickSearchForm"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button><button class="icon-btn server-status-button" id="serverStatusButton" type="button" aria-label="Stato server in verifica" title="Stato server in verifica"><span class="sync-dot" id="syncDot" aria-hidden="true"></span></button></div>
+    <div class="appbar-actions"><button class="icon-btn desktop-filter-toggle" id="desktopFilterToggle" type="button" aria-label="Apri filtri" title="Filtri"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18v2H3V5zm3 6h12v2H6v-2zm4 6h4v2h-4v-2z"/></svg></button><button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="quickSearchForm"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button><button class="icon-btn server-status-button" id="serverStatusButton" type="button" aria-label="Stato server in verifica" title="Stato server in verifica"><span class="sync-dot" id="syncDot" aria-hidden="true"></span></button></div>
   </div>
   <div class="appbar-inner selection-bar" id="appbarSelection" hidden>
     <button class="icon-btn" id="selCloseBtn" type="button" aria-label="Esci dalla selezione">
@@ -657,7 +657,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 </header>
 
 <a class="skip-link" id="skipToContent" href="#expensesPage">Vai al contenuto</a>
-<nav class="bottom-nav" id="bottomNav" aria-label="Navigazione principale"><div class="bottom-nav-inner"><button type="button" class="bottom-nav-item" id="nav-expenses" data-primary="expenses" aria-current="page"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v14H3V5zm2 2v10h14V7H5zm2 2h6v2H7zm0 4h10v2H7z"/></svg></span><span class="bottom-nav-label">Spese</span></button><button type="button" class="bottom-nav-item" id="nav-statistics" data-primary="statistics"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h2v18H3zm4 10h3v8H7zm5-6h3v14h-3zm5 3h3v11h-3z"/></svg></span><span class="bottom-nav-label">Statistiche</span></button><button type="button" class="bottom-nav-item" id="nav-third" aria-label="Menu personalizzato"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path id="navThirdIcon" d="M21 7V5H3v14h18v-6h-8V7h8zM3 3h18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm12 6v2h8V9h-8z"/></svg><span class="bottom-nav-badge" id="thirdNavBadge" aria-hidden="true" hidden></span></span><span class="bottom-nav-label" id="navThirdLabel">Budget</span></button><button type="button" class="bottom-nav-item" id="nav-more" data-primary="more"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="bottom-nav-badge" id="moreNavBadge" aria-hidden="true" hidden></span></span><span class="bottom-nav-label">Altro</span></button></div></nav>
+<nav class="bottom-nav" id="bottomNav" aria-label="Navigazione principale"><div class="desktop-nav-brand" aria-label="TwoFifties"><span class="desktop-nav-brand-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="currentColor"/><circle cx="24" cy="32" r="15" fill="var(--md-primary-container)"/><circle cx="40" cy="32" r="15" fill="var(--md-tertiary-container)"/></svg></span><span>TwoFifties</span></div><div class="bottom-nav-inner"><button type="button" class="bottom-nav-item" id="nav-expenses" data-primary="expenses" aria-current="page"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v14H3V5zm2 2v10h14V7H5zm2 2h6v2H7zm0 4h10v2H7z"/></svg></span><span class="bottom-nav-label">Spese</span></button><button type="button" class="bottom-nav-item" id="nav-statistics" data-primary="statistics"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h2v18H3zm4 10h3v8H7zm5-6h3v14h-3zm5 3h3v11h-3z"/></svg></span><span class="bottom-nav-label">Statistiche</span></button><button type="button" class="bottom-nav-item" id="nav-third" aria-label="Menu personalizzato"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path id="navThirdIcon" d="M21 7V5H3v14h18v-6h-8V7h8zM3 3h18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm12 6v2h8V9h-8z"/></svg><span class="bottom-nav-badge" id="thirdNavBadge" aria-hidden="true" hidden></span></span><span class="bottom-nav-label" id="navThirdLabel">Budget</span></button><button type="button" class="bottom-nav-item" id="nav-more" data-primary="more"><span class="bottom-nav-indicator" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="bottom-nav-badge" id="moreNavBadge" aria-hidden="true" hidden></span></span><span class="bottom-nav-label">Altro</span></button></div></nav>
 
 <div class="sr-only" id="syncStatusLive" aria-live="polite"><span id="syncText">person-a &amp; person-b</span></div>
 
@@ -1901,6 +1901,7 @@ function renderFilters(){
   const row = $('filterRow');
   const chips = [];
   const filtersOn = hasActiveFilters(filters);
+  $('expensesPage').classList.toggle('filters-active',filtersOn);
   chips.push(
     '<button class="chip' + (filtersOn ? ' selected' : '') + '" id="openFiltersBtn" type="button">' +
       '<span class="chip-icon">' + (filtersOn ? ICON.check : ICON.filter) + T.fragment('</span>Filtri') +
@@ -1916,6 +1917,7 @@ function renderFilters(){
   }
   row.innerHTML = chips.join('');
   const openBtn = $('openFiltersBtn'); if (openBtn) openBtn.addEventListener('click', openFilterSheet);
+  const desktopFilterToggle=$('desktopFilterToggle'); if(desktopFilterToggle)desktopFilterToggle.onclick=openFilterSheet;
   row.querySelectorAll('[data-clear]').forEach(function(btn){
     btn.addEventListener('click', function(){
       const k = btn.dataset.clear;
