@@ -139,6 +139,10 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   :root{--navigation-rail-width:256px}
   .bottom-nav{display:flex;flex-direction:column;padding:12px 12px 20px;overflow:hidden;transition:width var(--dur-medium) var(--motion-standard)}
   .bottom-nav-inner{width:100%;height:auto;flex:1 1 0;min-height:0;box-sizing:border-box;align-items:stretch;gap:4px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .bottom-nav-inner::-webkit-scrollbar{width:8px}
+  .bottom-nav-inner::-webkit-scrollbar-track{background:transparent}
+  .bottom-nav-inner::-webkit-scrollbar-thumb{border:2px solid var(--md-surface);border-radius:8px;background:var(--md-outline-variant)}
+  .bottom-nav-inner::-webkit-scrollbar-thumb:hover{background:var(--md-outline)}
   .bottom-nav-item{width:100%;min-height:48px;flex:0 0 auto;flex-direction:row;justify-content:flex-start;gap:12px;padding:0 16px;border-radius:28px;text-align:left}
   .bottom-nav-item .bottom-nav-indicator{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:transparent!important;color:inherit}
   .bottom-nav-item[aria-current="page"]{background:var(--md-secondary-container);color:var(--md-on-secondary-container)}
@@ -209,4 +213,7 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   #sheet .sheet-actions .btn{min-width:96px}
   .desktop-settle{display:inline-flex}
   .balance-card .desktop-settle{max-width:220px;margin-top:20px}
+}
+@media(min-width:1000px) and (max-height:800px){
+  #sheet>.sheet-actions{position:static;bottom:auto;z-index:auto;margin:16px 0 0;padding:12px 0 8px;background:transparent;border-top:1px solid var(--md-outline-variant)}
 }
