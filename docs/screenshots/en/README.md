@@ -74,11 +74,11 @@
 <tr><td width="50%" valign="top"><a href="light/10-budget.png"><img src="light/10-budget.png" width="300" alt="Budgets by category — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/10-budget.png"><img src="dark/10-budget.png" width="300" alt="Budgets by category — dark mode" loading="lazy"></a></td></tr>
 </table>
 
-## Organized tools in More
+## Tools in the desktop navigation
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Organized tools in More — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Organized tools in More — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Tools in the desktop navigation — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Tools in the desktop navigation — dark mode" loading="lazy"></a></td></tr>
 </table>
 
 ## Advances and reimbursements
@@ -200,6 +200,38 @@
 <tr><td width="50%" valign="top"><a href="light/28-restore-file.png"><img src="light/28-restore-file.png" width="300" alt="Restore from a JSON file — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/28-restore-file.png"><img src="dark/28-restore-file.png" width="300" alt="Restore from a JSON file — dark mode" loading="lazy"></a></td></tr>
 </table>
 
+## Desktop screens
+
+Four desktop app screens with Material 3 navigation, in light and dark themes. All captures use fictitious data in an isolated temporary workspace.
+
+### Expenses with desktop navigation
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Expenses with desktop navigation — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Expenses with desktop navigation — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Desktop statistics
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Desktop statistics — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Desktop statistics — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Desktop categories
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Desktop categories — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Desktop categories — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Desktop settings
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Desktop settings — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Desktop settings — dark mode" loading="lazy"></a></td></tr>
+</table>
+
 ## Reproduce the images
 
-Run `node scripts/screenshots.cjs` from the repository root. Select a variant with `--language=en --theme=dark` if needed, then run `node scripts/build-galleries.cjs`. Captures use a 430 × 932 viewport at 2× resolution. The script does not use your personal server data.
+Run `node scripts/screenshots.cjs` from the repository root. Select a mobile variant with `--language=en --theme=dark`; add `--desktop` to audit all 28 desktop flows into `artifacts/desktop-gallery/`. Run `node scripts/build-galleries.cjs` to rebuild the galleries. Mobile captures use a 430 × 932 viewport at 2×; desktop captures use 1440 × 1000. The scripts use fictitious data in an isolated temporary workspace.

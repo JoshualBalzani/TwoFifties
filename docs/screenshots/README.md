@@ -2,7 +2,7 @@
 
 Choose your language / Scegli la lingua:
 
-- [English: 28 screens in light and dark mode](en/README.md)
-- [Italiano: 28 schermate nei temi chiaro e scuro](it/README.md)
+- [English: mobile and desktop screenshots](en/README.md)
+- [Italiano: screenshot mobile e desktop](it/README.md)
 
-112 real mobile screenshots in total. All data is fictitious. / 112 screenshot mobile reali in totale, con soli dati inventati.
+128 images in total: 112 mobile and 16 desktop captures across both languages and themes. All sample data is fictitious. / 128 immagini in totale: 112 mobile e 16 desktop, in entrambe le lingue e nei due temi. Tutti i dati sono inventati.

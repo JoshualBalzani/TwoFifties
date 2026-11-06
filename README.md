@@ -1,10 +1,10 @@
 <div align="center">
 
-# TwoFifties
+# TwoFifties — Self-hosted expense sharing for couples and roommates
 
-### Share the expenses. Keep the balance clear.
+### Open-source expense tracker and bill splitting for two people.
 
-A self-hosted expense-sharing app for two people, with a Material 3 interface, flexible splits and a shared view of everyday spending.
+TwoFifties is a free, self-hosted shared expense tracker for couples, roommates and friends. Split bills flexibly, track reimbursements and budgets, and see who owes what. Run it with Docker or Node.js on your own server.
 
 **Developed by JOSHBALZANI** · [Italiano](README.it.md) · [Screenshot gallery](docs/screenshots/en/README.md)
 
@@ -20,6 +20,17 @@ A self-hosted expense-sharing app for two people, with a Material 3 interface, f
 <tr><th colspan="3">Dark mode</th></tr>
 <tr><td align="center"><img src="docs/screenshots/en/dark/03-expenses.png" width="260" alt="Expenses and balance — dark"></td><td align="center"><img src="docs/screenshots/en/dark/05-new-expense.png" width="260" alt="New expense — dark"></td><td align="center"><img src="docs/screenshots/en/dark/09-statistics.png" width="260" alt="Statistics — dark"></td></tr>
 </table>
+
+### Desktop app · Light and dark Material 3
+
+<table>
+<tr><th>Expenses and desktop navigation · light</th><th>Settings and desktop navigation · light</th></tr>
+<tr><td><img src="docs/screenshots/en/light/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 navigation, light theme"></td><td><img src="docs/screenshots/en/light/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in light theme"></td></tr>
+<tr><th>Expenses and desktop navigation · dark</th><th>Settings and desktop navigation · dark</th></tr>
+<tr><td><img src="docs/screenshots/en/dark/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 navigation, dark theme"></td><td><img src="docs/screenshots/en/dark/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in dark theme"></td></tr>
+</table>
+
+**Quick start:** install with Docker Compose or Node.js 24+. This repository contains the application source; the [GitHub Pages website](https://joshualbalzani.github.io/TwoFifties/) is a product guide and does not host the app API. Installation guides for Docker, Node.js and TrueNAS are below.
 
 ## Built for everyday life, together
 
@@ -54,9 +65,9 @@ For example, if Alex pays €80 for an item entirely owed by Sofia, the dedicate
 | **Your data** | Create and restore backups, import JSON/CSV and export transactions to Excel. |
 | **Your preferences** | Edit both names, select light/dark/system theme and switch between Italian and English on each device. |
 
-## A mobile interface with room to breathe
+## Material 3 on mobile and desktop
 
-Bottom navigation keeps Expenses, Statistics, Budget and More within reach. Related tools are grouped in More; settings separate people, appearance, defaults and data. Material 3 surfaces, typography and fixed color roles provide a consistent interface in both themes. Touch gestures support sheet dismissal and supported navigation interactions.
+On mobile, bottom navigation keeps Expenses, Statistics, Budget and More within reach. On desktop, an expandable side navigation exposes every destination directly and can collapse to an icon rail. Desktop dialogs and forms use the wider screen; short windows keep the navigation scrollable. Material 3 surfaces, typography and color roles remain consistent in both themes.
 
 The first-run guide introduces the app and asks for the two names. You can skip the introduction and optional preferences; both names remain required and must be different. A new installation contains no personal records or sample transactions.
 

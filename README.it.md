@@ -1,10 +1,10 @@
 <div align="center">
 
-# TwoFifties
+# TwoFifties — App self-hosted per spese condivise in due
 
-### Dividete le spese. Tenete chiaro il saldo.
+### Expense tracker open source e bill splitting per coppie e coinquilini.
 
-L'app per gestire le spese di due persone: un'interfaccia Material 3, divisioni flessibili e una visione condivisa delle uscite quotidiane. Da ospitare sul proprio server.
+TwoFifties è un’app gratuita e self-hosted per coppie, coinquilini e amici che condividono le spese. Dividi le bollette in modo flessibile, tieni sotto controllo rimborsi e budget e vedi chi deve cosa. La esegui con Docker o Node.js sul tuo server.
 
 **Sviluppato da JOSHBALZANI** · [English](README.md) · [Galleria screenshot](docs/screenshots/it/README.md)
 
@@ -20,6 +20,17 @@ L'app per gestire le spese di due persone: un'interfaccia Material 3, divisioni 
 <tr><th colspan="3">Tema scuro</th></tr>
 <tr><td align="center"><img src="docs/screenshots/it/dark/03-expenses.png" width="260" alt="Spese e saldo — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/05-new-expense.png" width="260" alt="Nuova spesa — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/09-statistics.png" width="260" alt="Statistiche — tema scuro"></td></tr>
 </table>
+
+### App desktop · Material 3 chiaro e scuro
+
+<table>
+<tr><th>Spese e navigazione laterale · chiaro</th><th>Impostazioni e navigazione laterale · chiaro</th></tr>
+<tr><td><img src="docs/screenshots/it/light/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 espandibile, tema chiaro"></td><td><img src="docs/screenshots/it/light/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema chiaro"></td></tr>
+<tr><th>Spese e navigazione laterale · scuro</th><th>Impostazioni e navigazione laterale · scuro</th></tr>
+<tr><td><img src="docs/screenshots/it/dark/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 espandibile, tema scuro"></td><td><img src="docs/screenshots/it/dark/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema scuro"></td></tr>
+</table>
+
+**Avvio rapido:** installa con Docker Compose o Node.js 24+. Questo repository contiene il codice dell’app; il [sito GitHub Pages](https://joshualbalzani.github.io/TwoFifties/) presenta il progetto ma non ospita le API. Più avanti trovi le guide per Docker, Node.js e TrueNAS.
 
 ## Le spese di tutti i giorni, insieme
 
@@ -54,9 +65,9 @@ Per esempio, se Alex paga €80 per un acquisto interamente a carico di Sofia, l
 | **Backup e file** | Crea e ripristina backup, importa JSON/CSV ed esporta i movimenti in Excel. |
 | **Preferenze** | Modifica i nomi, scegli tema chiaro/scuro/sistema e imposta italiano o inglese sul singolo dispositivo. |
 
-## Un'interfaccia pensata per il telefono
+## Material 3 su telefono e desktop
 
-La navigazione inferiore mette a portata di mano Spese, Statistiche, Budget e Altro. Gli strumenti sono raccolti per funzione; le impostazioni distinguono persone, aspetto, preferenze per le nuove spese e dati. Superfici, tipografia e ruoli colore Material 3 mantengono una struttura coerente nei temi chiaro e scuro. Le gesture supportano la chiusura dei pannelli e le interazioni di navigazione previste.
+Su telefono, la barra inferiore mette a portata di mano Spese, Statistiche, Budget e Altro. Su desktop, la barra laterale espandibile mostra direttamente tutte le destinazioni e può ridursi a una rail di icone. Finestre e moduli usano lo spazio largo; con finestre basse la navigazione resta scorrevole. Superfici, tipografia e ruoli colore Material 3 mantengono coerenza nei temi chiaro e scuro.
 
 Al primo avvio una presentazione guidata introduce l'app. Puoi saltare la spiegazione e le preferenze facoltative: **i due nomi rimangono obbligatori e devono essere diversi**. Una nuova installazione parte vuota, senza spese o dati personali precompilati.
 

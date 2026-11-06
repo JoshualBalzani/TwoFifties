@@ -65,8 +65,8 @@
     },
     {
       "id": "11-more",
-      "it": "Strumenti organizzati in Altro",
-      "en": "Organized tools in More"
+      "it": "Strumenti nella barra laterale",
+      "en": "Tools in the desktop navigation"
     },
     {
       "id": "12-reimbursements",
@@ -153,5 +153,14 @@
       "it": "Ripristino da un file JSON",
       "en": "Restore from a JSON file"
     }
-  ]
+  ],
+  "desktop": {
+    "viewport": { "width": 1440, "height": 1000, "scale": 1 },
+    "screens": [
+      { "id": "desktop-03-expenses", "it": "Spese e navigazione laterale", "en": "Expenses with desktop navigation" },
+      { "id": "desktop-09-statistics", "it": "Statistiche desktop", "en": "Desktop statistics" },
+      { "id": "desktop-15-categories", "it": "Categorie desktop", "en": "Desktop categories" },
+      { "id": "desktop-22-settings", "it": "Impostazioni desktop", "en": "Desktop settings" }
+    ]
+  }
 }

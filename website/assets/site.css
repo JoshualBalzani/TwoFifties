@@ -11,3 +11,11 @@
 .cookie-banner{position:fixed;z-index:20;inset:auto 20px 20px;max-width:680px;margin-left:auto;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:0 12px 48px #0003}.cookie-banner[hidden]{display:none}.cookie-banner h2{font-size:20px;margin:0 0 8px}.cookie-banner p{margin:0 0 16px;color:var(--muted)}.cookie-actions{display:flex;gap:12px;flex-wrap:wrap}.cookie-actions button,.cookie-settings{font:inherit;cursor:pointer}.cookie-settings{border:0;padding:0;background:none;color:inherit;text-decoration:underline}.cookie-actions .button{cursor:pointer}@media(max-width:600px){.cookie-banner{inset:auto 10px 10px;padding:18px}}
 
 .cookie-banner{position:fixed;z-index:20;inset:auto 20px 20px;max-width:680px;margin-left:auto;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:0 12px 48px #0003}.cookie-banner[hidden]{display:none}.cookie-banner h2{font-size:20px;margin:0 0 8px}.cookie-banner p{margin:0 0 16px;color:var(--muted)}.cookie-actions{display:flex;gap:12px;flex-wrap:wrap}.cookie-actions button,.cookie-settings{font:inherit;cursor:pointer}.cookie-settings{border:0;padding:0;background:none;color:inherit;text-decoration:underline}@media(max-width:600px){.cookie-banner{inset:auto 10px 10px;padding:18px}}
+
+.desktop-showcase{background:var(--high)}
+.desktop-preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.desktop-preview{min-width:0;margin:0;padding:12px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow)}
+.desktop-preview img{width:100%;aspect-ratio:1.44;object-fit:contain;border:1px solid var(--line);border-radius:12px;background:var(--high)}
+.desktop-preview figcaption{padding:14px 6px 4px;text-align:center;font-size:14px;font-weight:500;color:var(--muted)}
+.desktop-showcase>.wrap>.gallery-link{margin-top:24px}
+@media(max-width:800px){.desktop-preview-grid{grid-template-columns:1fr;gap:20px}.desktop-preview.settings-preview{width:100%}}

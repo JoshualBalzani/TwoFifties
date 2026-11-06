@@ -74,11 +74,11 @@
 <tr><td width="50%" valign="top"><a href="light/10-budget.png"><img src="light/10-budget.png" width="300" alt="Budget per categoria — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/10-budget.png"><img src="dark/10-budget.png" width="300" alt="Budget per categoria — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
-## Strumenti organizzati in Altro
+## Strumenti nella barra laterale
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Strumenti organizzati in Altro — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Strumenti organizzati in Altro — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Strumenti nella barra laterale — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Strumenti nella barra laterale — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
 ## Anticipi e rimborsi
@@ -200,6 +200,38 @@
 <tr><td width="50%" valign="top"><a href="light/28-restore-file.png"><img src="light/28-restore-file.png" width="300" alt="Ripristino da un file JSON — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/28-restore-file.png"><img src="dark/28-restore-file.png" width="300" alt="Ripristino da un file JSON — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
+## Schermate desktop
+
+Quattro schermate dell’app desktop con navigazione Material 3, nei temi chiaro e scuro. Sono generate con dati inventati in uno spazio temporaneo isolato.
+
+### Spese e navigazione laterale
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Spese e navigazione laterale — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Spese e navigazione laterale — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Statistiche desktop
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Statistiche desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Statistiche desktop — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Categorie desktop
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Categorie desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Categorie desktop — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Impostazioni desktop
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Impostazioni desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Impostazioni desktop — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
 ## Rigenerare le immagini
 
-Esegui `node scripts/screenshots.cjs` dalla radice del repository. Puoi selezionare una variante con `--language=it --theme=dark`. Poi esegui `node scripts/build-galleries.cjs`. Le immagini hanno viewport 430 × 932 e risoluzione 2×. Lo script non usa i dati dell’istanza personale.
+Esegui `node scripts/screenshots.cjs` dalla radice del repository. Puoi selezionare una variante con `--language=it --theme=dark`. Per controllare tutti i flussi desktop aggiungi `--desktop`; le 28 schermate vengono salvate in `artifacts/desktop-gallery/`. Poi esegui `node scripts/build-galleries.cjs` per aggiornare le gallerie. Le catture mobile usano viewport 430 × 932 e risoluzione 2×; quelle desktop 1440 × 1000. Gli script usano soltanto dati inventati e uno spazio temporaneo isolato.
