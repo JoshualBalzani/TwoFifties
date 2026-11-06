@@ -51,7 +51,7 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   .bottom-nav-label{max-width:76px;white-space:normal;text-align:center;font-size:12px;line-height:16px;letter-spacing:.4px;font-weight:500}
   .bottom-nav-badge{right:2px}
   main,.primary-page,.sheet.primary-page,.sheet.primary-page.open{width:calc(100% - var(--navigation-rail-width));max-width:none;margin:0 0 0 var(--navigation-rail-width);padding:24px 32px 40px}
-  #expensesPage{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);grid-template-areas:"search filters" "search-status search-status" "balance month" "balance feature" "summary summary" "list list";align-content:start;align-items:start;gap:0 24px;padding-bottom:40px}
+  #expensesPage{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);grid-template-areas:"search filters" "search-status search-status" "balance month" "balance feature" "summary summary" "list list";align-content:start;align-items:start;gap:0 24px;padding-top:16px;padding-bottom:40px}
   #quickSearchForm{grid-area:search;max-width:none;margin:0 0 16px}
   #quickSearchStatus{grid-area:search-status}
   #balanceCard{grid-area:balance;width:100%;min-width:0;margin:0 0 24px}
@@ -134,10 +134,10 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
 }
 @media(min-width:1000px) and (max-width:1240px){
   :root{--context-panel-width:clamp(320px,calc(100vw - var(--navigation-rail-width) - 420px),400px)}
-  body.has-context-panel #listWrap .desktop-list-header,body.has-context-panel #listWrap .list .item{grid-template-columns:28px minmax(0,1fr) 76px 100px;gap:8px;padding-inline:8px}
+  body.has-context-panel #listWrap .desktop-list-header,body.has-context-panel #listWrap .list .item{grid-template-columns:42px minmax(0,1fr) 76px 100px;gap:8px;padding-inline:8px}
   body.has-context-panel #listWrap .desktop-list-header span:nth-child(3),body.has-context-panel #listWrap .list .item-date-column{display:none}
   body.has-context-panel #listWrap .list .item:not(.settle) .item-sub>.sub-text{display:inline}
-  body.has-context-panel #listWrap .desktop-list-header,body.has-context-panel #listWrap .list .item{grid-template-columns:28px minmax(0,1fr) 100px}
+  body.has-context-panel #listWrap .desktop-list-header,body.has-context-panel #listWrap .list .item{grid-template-columns:42px minmax(0,1fr) 100px}
 }
 .more-row:focus-visible::before,.more-person:focus-visible::before{opacity:.12}
 .desktop-nav-heading,.desktop-nav-toggle,.desktop-destination{display:none}

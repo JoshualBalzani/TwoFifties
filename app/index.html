@@ -631,7 +631,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=20">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=34">
+<link rel="stylesheet" href="navigation.css?v=36">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -2272,7 +2272,7 @@ function openActionsSheet(id){
   closeAllSheets();
   if(window.matchMedia('(min-width:1000px)').matches)showDesktopContextPanel($('actionsSheet'),returnFocus);else showSheet($('actionsSheet'));
 }
-function closeActionsSheet(){ $('actionsSheet').classList.remove('open');resetDesktopContextPanel($('actionsSheet'));maybeCloseScrim();restoreFocus(); actionsTargetId = null; }
+function closeActionsSheet(){ const panel=$('actionsSheet');dismissDesktopContextPanel(panel);maybeCloseScrim();restoreFocus();actionsTargetId=null; }
 function duplicateEntry(id){
   const e = entries.find(x => x.id === id);
   if (!e) return;
@@ -2287,6 +2287,7 @@ function duplicateEntry(id){
 function editFromActions(){
   const id = actionsTargetId;
   if (!id) return;
+  if($('actionsSheet').classList.contains('desktop-context-panel')){openEditSheet(id);return;}
   closeActionsSheet();
   setTimeout(function(){ openEditSheet(id); }, 180);
 }
@@ -2466,12 +2467,18 @@ function openEditSheet(id){
     }
   }
   exitSelectionMode();
-  closeAllSheets();
+  const actionsPanel=$('actionsSheet'),transitionFromActions=window.matchMedia('(min-width:1000px)').matches&&actionsPanel.classList.contains('desktop-context-panel')&&actionsPanel.classList.contains('open');
+  if(transitionFromActions){
+    actionsPanel.classList.remove('open');actionsPanel.classList.add('context-panel-exiting');
+    SHEET_IDS.forEach(sheetId=>{if(sheetId==='actionsSheet'||sheetId==='sheet')return;const other=$(sheetId);if(other){other.classList.remove('open');resetDesktopContextPanel(other);}});
+    $('scrim').classList.remove('open','high');actionsTargetId=null;
+  }else closeAllSheets();
   if(featureUI)featureUI.openExpense(e);
   if(window.matchMedia('(min-width:1000px)').matches)showDesktopContextPanel($('sheet'),returnFocus);else showSheet($('sheet'));
+  if(transitionFromActions)setTimeout(()=>{actionsPanel.classList.remove('context-panel-exiting');resetDesktopContextPanel(actionsPanel);},360);
 }
 function closeSheet(){
-  $('sheet').classList.remove('open');resetDesktopContextPanel($('sheet')); maybeCloseScrim();
+  dismissDesktopContextPanel($('sheet'));maybeCloseScrim();
   if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   restoreFocus();
 }
@@ -3256,7 +3263,8 @@ function showDesktopContextPanel(el,returnFocus){
  closeFabMenu();el.querySelectorAll('.tf [aria-invalid]').forEach(clearFieldError);lastFocusBeforeSheet=returnFocus||document.activeElement;el.scrollTop=0;el.classList.add('desktop-context-panel','open');el.setAttribute('role','complementary');el.removeAttribute('aria-modal');document.body.classList.add('has-context-panel');updateModalState();
  const target=el.id==='actionsSheet'?$('actionsCloseBtn'):$('editCloseBtn');requestAnimationFrame(()=>target?.focus({preventScroll:true}));
 }
-function resetDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel'))return;el.classList.remove('desktop-context-panel');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');document.body.classList.remove('has-context-panel');}
+function dismissDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel')){el.classList.remove('open');return;}el.classList.remove('open');el.classList.add('context-panel-exiting');setTimeout(()=>{el.classList.remove('context-panel-exiting');resetDesktopContextPanel(el);},360);}
+function resetDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel'))return;el.classList.remove('desktop-context-panel');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');if(!document.querySelector('.sheet.desktop-context-panel.open'))document.body.classList.remove('has-context-panel');}
 function closeAllSheets(){
   SHEET_IDS.forEach(function(id){ const el = $(id); if (el&&!el.classList.contains('primary-page')){el.classList.remove('open');resetDesktopContextPanel(el);} });
   $('scrim').classList.remove('open');
