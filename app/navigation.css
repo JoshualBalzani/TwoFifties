@@ -154,7 +154,7 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
 }
 .more-row:focus-visible::before,.more-person:focus-visible::before{opacity:.12}
 .desktop-nav-heading,.desktop-nav-toggle,.desktop-destination,.desktop-nav-brand{display:none}
-.desktop-filter-toggle{display:none}
+.desktop-filter-toggle{display:none}.desktop-window-close{display:none}
 @media(min-width:1000px){
   :root{--navigation-rail-width:256px}
   .bottom-nav{display:flex;flex-direction:column;padding:12px 12px 20px;overflow:hidden;transition:width var(--dur-medium) var(--motion-standard)}
@@ -205,17 +205,19 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   body.desktop-nav-collapsed .bottom-nav-badge{top:2px;right:8px}
   body.desktop-nav-collapsed .bottom-nav-item{position:relative}
   .bottom-nav,main,.primary-page,.sheet.primary-page,.sheet.primary-page.open{transition:width var(--dur-medium) var(--motion-standard),margin-left var(--dur-medium) var(--motion-standard)}
-  .sheet:not(.primary-page){top:50%;right:auto;bottom:auto;left:50%;width:min(720px,calc(100vw - var(--navigation-rail-width) - 80px));max-width:900px;max-height:min(88vh,900px);padding:24px 32px 32px;border:1px solid var(--md-outline-variant);border-radius:28px;transform:translate(-50%,-46%);opacity:0;transition:transform var(--dur-medium) var(--motion-standard),opacity var(--dur-medium) var(--motion-standard);box-shadow:var(--elev-3)}
+  .sheet:not(.primary-page){top:50%;right:auto;bottom:auto;left:calc(50% + var(--navigation-rail-width)/2);width:min(840px,calc(100vw - var(--navigation-rail-width) - 80px));max-width:900px;max-height:min(88dvh,900px);padding:24px 32px 32px;border:1px solid var(--md-outline-variant);border-radius:28px;transform:translate(-50%,-46%);opacity:0;transition:transform var(--dur-medium) var(--motion-standard),opacity var(--dur-medium) var(--motion-standard);box-shadow:var(--elev-3)}
+  #filterSheet,#pickerSheet,#bulkCatSheet,#exportSheet,#importSheet{width:min(720px,calc(100vw - var(--navigation-rail-width) - 80px))}
   .sheet:not(.primary-page).open{transform:translate(-50%,-50%);opacity:1}
-  .sheet:not(.primary-page)>.sheet-header{position:sticky;top:-24px;z-index:2;margin:-24px -32px 24px;padding:8px 32px 16px;background:var(--md-surface-container-low);border-bottom:1px solid var(--md-outline-variant);border-radius:28px 28px 0 0}
+  .sheet:not(.primary-page)>.sheet-header{position:sticky;top:-24px;z-index:2;display:flex;align-items:center;gap:12px;margin:-24px -32px 24px;padding:8px 32px 16px;background:var(--md-surface-container-low);border-bottom:1px solid var(--md-outline-variant);border-radius:28px 28px 0 0}
   .sheet:not(.primary-page) .sheet-handle{display:none}
-  .sheet:not(.primary-page) .sheet-title{margin-top:12px}
+  .sheet:not(.primary-page) .sheet-title{flex:1;min-width:0;margin:0}
+  .sheet:not(.primary-page)>.sheet-header>.desktop-window-close,.sheet:not(.primary-page)>.sheet-header>.context-close,.sheet:not(.primary-page)>.sheet-header>.actions-close{display:grid;flex:0 0 48px;margin-left:auto}
   .sheet:not(.primary-page) .feature-form-actions{position:sticky;bottom:-32px;margin-inline:-32px;padding:16px 32px 8px;background:var(--md-surface-container-low);border-top:1px solid var(--md-outline-variant)}
-  .sheet:not(.primary-page) .feature-form,.sheet:not(.primary-page) .management-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .sheet:not(.primary-page) .feature-form,.sheet:not(.primary-page) .management-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));align-items:start;gap:16px}
   .sheet:not(.primary-page) .feature-form>*{min-width:0}
   .sheet:not(.primary-page) .feature-form-actions,.sheet:not(.primary-page) .management-intro,.sheet:not(.primary-page) .management-section-title,.sheet:not(.primary-page) .feature-empty{grid-column:1/-1}
   .sheet:not(.primary-page) .feature-conflict{grid-column:1/-1}
-  .sheet:not(.primary-page) .cat-list,.sheet:not(.primary-page) .rec-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+  .sheet:not(.primary-page) .cat-list,.sheet:not(.primary-page) .rec-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));align-items:start}
   #settingsSheet .settings-nav-list{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}
   #settingsSheet .settings-nav-list:has(>.settings-nav-row:nth-child(2)){grid-template-columns:repeat(2,minmax(0,1fr))}
   #settingsSheet .settings-nav-row{min-width:0;border-right:0}

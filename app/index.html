@@ -632,7 +632,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="features.css?v=21">
 <link rel="stylesheet" href="readability.css?v=13">
 <link rel="stylesheet" href="settings.css?v=15">
-<link rel="stylesheet" href="navigation.css?v=43">
+<link rel="stylesheet" href="navigation.css?v=45">
 <link rel="stylesheet" href="home.css?v=16">
 <link rel="stylesheet" href="fab-actions.css?v=14">
 </head>
@@ -3870,6 +3870,13 @@ function dismissSheet(el){
   const layer = topLayer();
   if (layer) layer.querySelector('.sheet-handle,button')?.focus({preventScroll:true});
 }
+SHEET_IDS.forEach(id=>{
+  const sheet=$(id),header=sheet?.querySelector(':scope > .sheet-header');
+  if(!header||header.querySelector('.context-close,.actions-close,.desktop-window-close'))return;
+  const close=document.createElement('button');close.type='button';close.className='icon-btn desktop-window-close';close.setAttribute('aria-label',T.fragment('Chiudi pannello'));close.title=T.fragment('Chiudi pannello');
+  close.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m19 6.4-1.4-1.4L12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg>';
+  close.addEventListener('click',()=>dismissSheet(sheet));header.append(close);
+});
 window.SpeseGestures.install({ document, sheets:SHEET_IDS.map($), dashboard:$('dashSheet'), expensesPage:$('expensesPage'), quickSearch:$('quickSearch'), searchToggle:$('searchToggle'),
   isTop:el => el.id==='dashSheet'&&currentPrimary==='statistics'?!topLayer():topLayer()===el, dismissSheet, previousMonth:dashPrev, nextMonth:dashNext });
 // Modal surfaces keep page scrolling and keyboard focus inside the active layer.
