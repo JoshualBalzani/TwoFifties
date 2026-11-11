@@ -5,12 +5,12 @@ async function checkSelectionLayout(page,mobile){
  await row.evaluate(el=>el.dispatchEvent(new MouseEvent('contextmenu',{bubbles:true,cancelable:true,view:window})));
  await page.waitForFunction(()=>document.body.classList.contains('selection-mode'));
  await page.locator('#selectionActions.open').waitFor();
- await page.waitForFunction(mobile=>{const r=document.querySelector('#selectionActions').getBoundingClientRect();return mobile?Math.abs(r.bottom-innerHeight)<1:r.top<10},mobile);
+ await page.waitForFunction(mobile=>{const r=document.querySelector('#selectionActions').getBoundingClientRect();return mobile?Math.abs(r.bottom-innerHeight)<1:r.top>=64&&r.bottom<=innerHeight},mobile);
  const layout=await page.evaluate(()=>{const bar=document.querySelector('#selectionActions'),r=bar.getBoundingClientRect(),app=document.querySelector('#appbarSelection').getBoundingClientRect(),buttons=[...bar.querySelectorAll('.sel-action')].map(el=>{const b=el.getBoundingClientRect();return {direction:getComputedStyle(el).flexDirection,top:b.top,bottom:b.bottom,left:b.left,right:b.right}});return {width:innerWidth,height:innerHeight,bar:{top:r.top,bottom:r.bottom,left:r.left,right:r.right,borderRadius:getComputedStyle(bar).borderTopLeftRadius},app:{left:app.left,right:app.right},nav:getComputedStyle(document.querySelector('#bottomNav')).display,overflow:document.documentElement.scrollWidth>innerWidth,buttons}});
  assert.equal(layout.overflow,false,'selection controls do not cause horizontal overflow');
  assert(layout.buttons.every(b=>b.left>=0&&b.right<=layout.width),'selection actions stay within the viewport');
- if(mobile){assert.equal(layout.nav,'none');assert.equal(layout.bar.bottom,layout.height);assert.equal(layout.app.left,0);assert.equal(layout.app.right,layout.width);assert.equal(layout.bar.borderRadius,'24px');assert(layout.buttons.every(b=>b.direction==='column'),'mobile selection actions use the compact bottom bar');}
- else{assert.equal(layout.nav,'flex');assert(layout.bar.top>=0&&layout.bar.bottom<=64,'desktop selection actions sit inside the top app bar');assert(layout.buttons.every(b=>b.direction==='row'),'desktop selection actions are inline in the top bar');}
+ if(mobile){assert.equal(layout.nav,'none');assert.equal(layout.bar.bottom,layout.height);assert.equal(layout.app.left,0);assert.equal(layout.app.right,layout.width);assert.equal(layout.bar.borderRadius,'28px');assert(layout.buttons.every(b=>b.direction==='column'),'mobile selection actions use the compact bottom bar');}
+ else{assert.equal(layout.nav,'flex');assert(layout.bar.top>=64&&layout.bar.bottom<=layout.height,'desktop selection actions stay reachable in the floating toolbar');assert(layout.buttons.every(b=>b.direction==='row'),'desktop selection actions use an inline floating toolbar');}
  await page.locator('#selCloseBtn').click();
 }
 (async()=>{const env=await start();let browser;try{

@@ -21,13 +21,13 @@ TwoFifties is a free, self-hosted shared expense tracker for couples, roommates 
 <tr><td align="center"><img src="docs/screenshots/en/dark/03-expenses.png" width="260" alt="Expenses and balance — dark"></td><td align="center"><img src="docs/screenshots/en/dark/05-new-expense.png" width="260" alt="New expense — dark"></td><td align="center"><img src="docs/screenshots/en/dark/09-statistics.png" width="260" alt="Statistics — dark"></td></tr>
 </table>
 
-### Desktop app · Light and dark Material 3
+### Desktop app · Light and dark Material 3 Expressive
 
 <table>
 <tr><th>Expenses and desktop navigation · light</th><th>Settings and desktop navigation · light</th></tr>
-<tr><td><img src="docs/screenshots/en/light/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 navigation, light theme"></td><td><img src="docs/screenshots/en/light/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in light theme"></td></tr>
+<tr><td><img src="docs/screenshots/en/light/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 Expressive navigation, light theme"></td><td><img src="docs/screenshots/en/light/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in light theme"></td></tr>
 <tr><th>Expenses and desktop navigation · dark</th><th>Settings and desktop navigation · dark</th></tr>
-<tr><td><img src="docs/screenshots/en/dark/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 navigation, dark theme"></td><td><img src="docs/screenshots/en/dark/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in dark theme"></td></tr>
+<tr><td><img src="docs/screenshots/en/dark/desktop-03-expenses.png" width="480" alt="TwoFifties desktop expense tracker with expandable Material 3 Expressive navigation, dark theme"></td><td><img src="docs/screenshots/en/dark/desktop-22-settings.png" width="480" alt="TwoFifties desktop settings in dark theme"></td></tr>
 </table>
 
 **Quick start:** install with Docker Compose or Node.js 24+. This repository contains the application source; the [GitHub Pages website](https://joshualbalzani.github.io/TwoFifties/) is a product guide and does not host the app API. Installation guides for Docker, Node.js and TrueNAS are below.
@@ -65,9 +65,9 @@ For example, if Alex pays €80 for an item entirely owed by Sofia, the dedicate
 | **Your data** | Create and restore backups, import JSON/CSV and export transactions to Excel. |
 | **Your preferences** | Edit both names, select light/dark/system theme and switch between Italian and English on each device. |
 
-## Material 3 on mobile and desktop
+## Material 3 Expressive on mobile and desktop
 
-On mobile, bottom navigation keeps Expenses, Statistics, Budget and More within reach. On desktop, an expandable side navigation exposes every destination directly and can collapse to an icon rail. Desktop dialogs and forms use the wider screen; short windows keep the navigation scrollable. Material 3 surfaces, typography and color roles remain consistent in both themes.
+On mobile, bottom navigation keeps Expenses, Statistics, Budget and More within reach. On desktop, an expandable side navigation exposes every destination directly and can collapse to an icon rail. Desktop dialogs and forms use the wider screen; short windows keep the navigation scrollable. Material 3 Expressive surfaces, emphasized typography, connected button groups and spring motion remain consistent in both themes. Details show the same information on phones and desktop, and reduced motion is respected.
 
 The first-run guide introduces the app and asks for the two names. You can skip the introduction and optional preferences; both names remain required and must be different. A new installation contains no personal records or sample transactions.
 
@@ -126,7 +126,7 @@ After an online visit has cached the app shell, the browser can reopen it offlin
 
 | Component | Project choice |
 | --- | --- |
-| Interface | HTML, CSS and JavaScript, local Roboto fonts and Material 3 roles in both themes. |
+| Interface | HTML, CSS and JavaScript, local Roboto fonts and Material 3 Expressive roles in both themes. |
 | Server | Node.js 24+ and Express 5 serve the application and API. |
 | Storage | JSON state and receipt images in the backups folder, with no separate database service. |
 | Devices | One shared workspace per server, local browser copies and conflict resolution. |
@@ -151,7 +151,7 @@ npm run test:browser
 
 Tests cover split arithmetic, balances, concurrent edits, conflicts, receipts, backup/restore, onboarding, language switching, mobile navigation and offline saving. GitHub Actions repeats the automated suite. Express 5 serves the API and static app; the interface uses HTML, CSS and JavaScript with locally bundled Roboto fonts.
 
-To reproduce the documentation images, run `node scripts/screenshots.cjs` after installing the browser. The script uses temporary fictitious data and leaves the application data directory empty. On Windows the browser scripts use installed Microsoft Edge; other platforms use Playwright Chromium.
+To reproduce the documentation images, run `npm run screenshots` after installing the browser. The script uses temporary fictitious data and leaves the application data directory empty. On Windows the browser scripts use installed Microsoft Edge; other platforms use Playwright Chromium.
 
 [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 

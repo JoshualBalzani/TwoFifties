@@ -21,13 +21,13 @@ TwoFifties è un’app gratuita e self-hosted per coppie, coinquilini e amici ch
 <tr><td align="center"><img src="docs/screenshots/it/dark/03-expenses.png" width="260" alt="Spese e saldo — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/05-new-expense.png" width="260" alt="Nuova spesa — tema scuro"></td><td align="center"><img src="docs/screenshots/it/dark/09-statistics.png" width="260" alt="Statistiche — tema scuro"></td></tr>
 </table>
 
-### App desktop · Material 3 chiaro e scuro
+### App desktop · Material 3 Expressive chiaro e scuro
 
 <table>
 <tr><th>Spese e navigazione laterale · chiaro</th><th>Impostazioni e navigazione laterale · chiaro</th></tr>
-<tr><td><img src="docs/screenshots/it/light/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 espandibile, tema chiaro"></td><td><img src="docs/screenshots/it/light/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema chiaro"></td></tr>
+<tr><td><img src="docs/screenshots/it/light/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 Expressive espandibile, tema chiaro"></td><td><img src="docs/screenshots/it/light/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema chiaro"></td></tr>
 <tr><th>Spese e navigazione laterale · scuro</th><th>Impostazioni e navigazione laterale · scuro</th></tr>
-<tr><td><img src="docs/screenshots/it/dark/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 espandibile, tema scuro"></td><td><img src="docs/screenshots/it/dark/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema scuro"></td></tr>
+<tr><td><img src="docs/screenshots/it/dark/desktop-03-expenses.png" width="480" alt="Expense tracker TwoFifties desktop con navigazione Material 3 Expressive espandibile, tema scuro"></td><td><img src="docs/screenshots/it/dark/desktop-22-settings.png" width="480" alt="Impostazioni TwoFifties desktop, tema scuro"></td></tr>
 </table>
 
 **Avvio rapido:** installa con Docker Compose o Node.js 24+. Questo repository contiene il codice dell’app; il [sito GitHub Pages](https://joshualbalzani.github.io/TwoFifties/) presenta il progetto ma non ospita le API. Più avanti trovi le guide per Docker, Node.js e TrueNAS.
@@ -65,9 +65,9 @@ Per esempio, se Alex paga €80 per un acquisto interamente a carico di Sofia, l
 | **Backup e file** | Crea e ripristina backup, importa JSON/CSV ed esporta i movimenti in Excel. |
 | **Preferenze** | Modifica i nomi, scegli tema chiaro/scuro/sistema e imposta italiano o inglese sul singolo dispositivo. |
 
-## Material 3 su telefono e desktop
+## Material 3 Expressive su telefono e desktop
 
-Su telefono, la barra inferiore mette a portata di mano Spese, Statistiche, Budget e Altro. Su desktop, la barra laterale espandibile mostra direttamente tutte le destinazioni e può ridursi a una rail di icone. Finestre e moduli usano lo spazio largo; con finestre basse la navigazione resta scorrevole. Superfici, tipografia e ruoli colore Material 3 mantengono coerenza nei temi chiaro e scuro.
+Su telefono, la barra inferiore mette a portata di mano Spese, Statistiche, Budget e Altro. Su desktop, la barra laterale espandibile mostra direttamente tutte le destinazioni e può ridursi a una rail di icone. Finestre e moduli usano lo spazio largo; con finestre basse la navigazione resta scorrevole. Superfici Material 3 Expressive, tipografia enfatizzata, gruppi di pulsanti connessi e movimento a molla mantengono coerenza nei due temi. I dettagli mostrano le stesse informazioni su telefono e desktop e viene rispettata la preferenza di movimento ridotto.
 
 Al primo avvio una presentazione guidata introduce l'app. Puoi saltare la spiegazione e le preferenze facoltative: **i due nomi rimangono obbligatori e devono essere diversi**. Una nuova installazione parte vuota, senza spese o dati personali precompilati.
 
@@ -128,7 +128,7 @@ Dopo una visita online che abbia memorizzato l'app, puoi riaprirla offline e sal
 
 | Componente | Scelta del progetto |
 | --- | --- |
-| Interfaccia | HTML, CSS e JavaScript; font Roboto inclusi e ruoli Material 3 per i due temi. |
+| Interfaccia | HTML, CSS e JavaScript; font Roboto inclusi e ruoli Material 3 Expressive per i due temi. |
 | Server | Node.js 24+ ed Express 5; serve sia l’app sia le API. |
 | Archivio | File JSON e immagini nella cartella backups, senza database da amministrare. |
 | Dispositivi | Uno spazio condiviso per server, con copia locale e risoluzione dei conflitti. |
@@ -153,7 +153,7 @@ npm run test:browser
 
 I test verificano divisioni, saldi, modifiche concorrenti, conflitti, ricevute, backup, primo avvio, lingue, navigazione mobile e salvataggio offline. GitHub Actions esegue la suite automatica. Il server usa Express 5; l'interfaccia usa HTML, CSS, JavaScript e font Roboto inclusi localmente.
 
-Per rigenerare la galleria: `node scripts/screenshots.cjs`. Lo script crea soltanto dati dimostrativi temporanei e lascia vuota la cartella dati dell'app. Su Windows utilizza Microsoft Edge installato; sulle altre piattaforme Chromium di Playwright.
+Per rigenerare la galleria: `npm run screenshots`. Lo script crea soltanto dati dimostrativi temporanei e lascia vuota la cartella dati dell'app. Su Windows utilizza Microsoft Edge installato; sulle altre piattaforme Chromium di Playwright.
 
 [Contribuire](CONTRIBUTING.md) · [Novità](CHANGELOG.md) · [Licenze di terze parti](THIRD_PARTY_NOTICES.md)
 

@@ -74,11 +74,11 @@
 <tr><td width="50%" valign="top"><a href="light/10-budget.png"><img src="light/10-budget.png" width="300" alt="Budget per categoria — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/10-budget.png"><img src="dark/10-budget.png" width="300" alt="Budget per categoria — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
-## Strumenti nella barra laterale
+## Strumenti organizzati in Altro
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Strumenti nella barra laterale — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Strumenti nella barra laterale — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Strumenti organizzati in Altro — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Strumenti organizzati in Altro — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
 ## Anticipi e rimborsi
@@ -202,36 +202,204 @@
 
 ## Schermate desktop
 
-Quattro schermate dell’app desktop con navigazione Material 3, nei temi chiaro e scuro. Sono generate con dati inventati in uno spazio temporaneo isolato.
+28 schermate desktop Material 3 Expressive, nei temi chiaro e scuro. Sono generate con dati inventati in uno spazio temporaneo isolato.
 
-### Spese e navigazione laterale
+### Presentazione guidata
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Spese e navigazione laterale — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Spese e navigazione laterale — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-01-welcome.png"><img src="light/desktop-01-welcome.png" width="440" alt="Presentazione guidata — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-01-welcome.png"><img src="dark/desktop-01-welcome.png" width="440" alt="Presentazione guidata — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
-### Statistiche desktop
+### I nomi delle due persone
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Statistiche desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Statistiche desktop — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-02-names.png"><img src="light/desktop-02-names.png" width="440" alt="I nomi delle due persone — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-02-names.png"><img src="dark/desktop-02-names.png" width="440" alt="I nomi delle due persone — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
-### Categorie desktop
+### Spese e saldo condiviso
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Categorie desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Categorie desktop — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Spese e saldo condiviso — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Spese e saldo condiviso — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
-### Impostazioni desktop
+### Azioni rapide dal pulsante +
 
 <table>
 <tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Impostazioni desktop — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Impostazioni desktop — tema scuro" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-04-actions.png"><img src="light/desktop-04-actions.png" width="440" alt="Azioni rapide dal pulsante + — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-04-actions.png"><img src="dark/desktop-04-actions.png" width="440" alt="Azioni rapide dal pulsante + — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Nuova spesa e divisione
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-05-new-expense.png"><img src="light/desktop-05-new-expense.png" width="440" alt="Nuova spesa e divisione — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-05-new-expense.png"><img src="dark/desktop-05-new-expense.png" width="440" alt="Nuova spesa e divisione — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Note, scadenze e ricevute
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-06-receipts.png"><img src="light/desktop-06-receipts.png" width="440" alt="Note, scadenze e ricevute — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-06-receipts.png"><img src="dark/desktop-06-receipts.png" width="440" alt="Note, scadenze e ricevute — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Saldo protetto da conferma
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-07-settlement.png"><img src="light/desktop-07-settlement.png" width="440" alt="Saldo protetto da conferma — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-07-settlement.png"><img src="dark/desktop-07-settlement.png" width="440" alt="Saldo protetto da conferma — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Ricerca nei movimenti
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-08-search.png"><img src="light/desktop-08-search.png" width="440" alt="Ricerca nei movimenti — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-08-search.png"><img src="dark/desktop-08-search.png" width="440" alt="Ricerca nei movimenti — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Statistiche mensili
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Statistiche mensili — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Statistiche mensili — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Budget per categoria
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-10-budget.png"><img src="light/desktop-10-budget.png" width="440" alt="Budget per categoria — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-10-budget.png"><img src="dark/desktop-10-budget.png" width="440" alt="Budget per categoria — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Strumenti organizzati in Altro
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-11-more.png"><img src="light/desktop-11-more.png" width="440" alt="Strumenti organizzati in Altro — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-11-more.png"><img src="dark/desktop-11-more.png" width="440" alt="Strumenti organizzati in Altro — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Anticipi e rimborsi
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-12-reimbursements.png"><img src="light/desktop-12-reimbursements.png" width="440" alt="Anticipi e rimborsi — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-12-reimbursements.png"><img src="dark/desktop-12-reimbursements.png" width="440" alt="Anticipi e rimborsi — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Spese ricorrenti
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-13-recurring.png"><img src="light/desktop-13-recurring.png" width="440" alt="Spese ricorrenti — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-13-recurring.png"><img src="dark/desktop-13-recurring.png" width="440" alt="Spese ricorrenti — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Ricorrenze da confermare
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-14-pending.png"><img src="light/desktop-14-pending.png" width="440" alt="Ricorrenze da confermare — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-14-pending.png"><img src="dark/desktop-14-pending.png" width="440" alt="Ricorrenze da confermare — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Categorie delle spese
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Categorie delle spese — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Categorie delle spese — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Viste e filtri salvati
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-16-saved-views.png"><img src="light/desktop-16-saved-views.png" width="440" alt="Viste e filtri salvati — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-16-saved-views.png"><img src="dark/desktop-16-saved-views.png" width="440" alt="Viste e filtri salvati — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Storico delle modifiche
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-17-history.png"><img src="light/desktop-17-history.png" width="440" alt="Storico delle modifiche — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-17-history.png"><img src="dark/desktop-17-history.png" width="440" alt="Storico delle modifiche — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Recupero dal cestino
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-18-trash.png"><img src="light/desktop-18-trash.png" width="440" alt="Recupero dal cestino — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-18-trash.png"><img src="dark/desktop-18-trash.png" width="440" alt="Recupero dal cestino — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Backup e ripristino
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-19-backup.png"><img src="light/desktop-19-backup.png" width="440" alt="Backup e ripristino — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-19-backup.png"><img src="dark/desktop-19-backup.png" width="440" alt="Backup e ripristino — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Importazione dei movimenti
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-20-import.png"><img src="light/desktop-20-import.png" width="440" alt="Importazione dei movimenti — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-20-import.png"><img src="dark/desktop-20-import.png" width="440" alt="Importazione dei movimenti — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Esportazione Excel
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-21-export.png"><img src="light/desktop-21-export.png" width="440" alt="Esportazione Excel — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-21-export.png"><img src="dark/desktop-21-export.png" width="440" alt="Esportazione Excel — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Impostazioni ordinate
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Impostazioni ordinate — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Impostazioni ordinate — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Nomi e autore delle modifiche
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-23-people.png"><img src="light/desktop-23-people.png" width="440" alt="Nomi e autore delle modifiche — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-23-people.png"><img src="dark/desktop-23-people.png" width="440" alt="Nomi e autore delle modifiche — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Cambio lingua
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-24-language.png"><img src="light/desktop-24-language.png" width="440" alt="Cambio lingua — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-24-language.png"><img src="dark/desktop-24-language.png" width="440" alt="Cambio lingua — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Preferenze del tema
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-25-appearance.png"><img src="light/desktop-25-appearance.png" width="440" alt="Preferenze del tema — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-25-appearance.png"><img src="dark/desktop-25-appearance.png" width="440" alt="Preferenze del tema — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Elenco dei movimenti
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-26-transactions.png"><img src="light/desktop-26-transactions.png" width="440" alt="Elenco dei movimenti — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-26-transactions.png"><img src="dark/desktop-26-transactions.png" width="440" alt="Elenco dei movimenti — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Filtri di ricerca
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-27-filters.png"><img src="light/desktop-27-filters.png" width="440" alt="Filtri di ricerca — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-27-filters.png"><img src="dark/desktop-27-filters.png" width="440" alt="Filtri di ricerca — tema scuro" loading="lazy"></a></td></tr>
+</table>
+
+### Ripristino da un file JSON
+
+<table>
+<tr><th>Tema chiaro</th><th>Tema scuro</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-28-restore-file.png"><img src="light/desktop-28-restore-file.png" width="440" alt="Ripristino da un file JSON — tema chiaro" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-28-restore-file.png"><img src="dark/desktop-28-restore-file.png" width="440" alt="Ripristino da un file JSON — tema scuro" loading="lazy"></a></td></tr>
 </table>
 
 ## Rigenerare le immagini
 
-Esegui `node scripts/screenshots.cjs` dalla radice del repository. Puoi selezionare una variante con `--language=it --theme=dark`. Per controllare tutti i flussi desktop aggiungi `--desktop`; le 28 schermate vengono salvate in `artifacts/desktop-gallery/`. Poi esegui `node scripts/build-galleries.cjs` per aggiornare le gallerie. Le catture mobile usano viewport 430 × 932 e risoluzione 2×; quelle desktop 1440 × 1000. Gli script usano soltanto dati inventati e uno spazio temporaneo isolato.
+Esegui `node scripts/publish-screenshots.cjs` dalla radice del repository. La rigenerazione include tutti i flussi mobile e desktop. Poi esegui `node scripts/build-galleries.cjs` per aggiornare le gallerie. Le catture mobile usano viewport 430 × 932 e risoluzione 2×; quelle desktop 1440 × 1000. Gli script usano soltanto dati inventati e uno spazio temporaneo isolato.

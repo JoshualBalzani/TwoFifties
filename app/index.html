@@ -635,6 +635,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <link rel="stylesheet" href="navigation.css?v=48">
 <link rel="stylesheet" href="home.css?v=17">
 <link rel="stylesheet" href="fab-actions.css?v=14">
+<link rel="stylesheet" href="expressive.css?v=1">
 </head>
 <body>
 
@@ -1323,6 +1324,7 @@ body.selection-mode .snackbar{bottom:calc(80px + env(safe-area-inset-bottom))}
 <script src="features-core.js?v=13"></script>
 <script src="date-fields.js?v=1"></script>
 <script src="features-ui.js?v=14"></script>
+<script src="expressive.js?v=1"></script>
 <script>
 (function(){
 'use strict';
@@ -1720,6 +1722,7 @@ function updateServerIndicator(){
  $('serverStatusButton').addEventListener('click',()=>{const status=serverReachable===true?T.fragment('Server raggiungibile'):serverReachable===false?T.fragment('Server non raggiungibile · modalità locale attiva'):T.fragment('Verifica della connessione al server in corso');toast(status);});
 function setSync(status){
   updateServerIndicator();
+  syncDot.classList.toggle('saving',status==='saving');
   if (drawerSyncDot) drawerSyncDot.className = 'sync-dot';
   clearTimeout(savedFadeTimer);
   if (status === 'saving'){
@@ -1834,6 +1837,7 @@ function renderBalance(){
   const card = $('balanceCard');
   const settled = Math.abs(t.balance) < 0.005;
   const totalPaid = t.paidJ + t.paidG;
+  card.style.setProperty('--amount-digits',String(Math.max(8,Math.abs(t.balance).toFixed(2).length)));
   let head;
   if (settled){
     head = T.fragment('<div class="bc-label">Saldo</div>') +
@@ -1882,6 +1886,7 @@ function renderMonthlyOverview(){
  const value=L.monthlyOverview(entries,todayISO()),difference=value.difference;
  const comparison=difference===0?T.fragment('Come il mese scorso'):fmtEur(Math.abs(difference))+(difference>0?T.fragment(' in più'):T.fragment(' in meno'))+T.fragment(' del mese scorso');
  $('monthlyOverview').innerHTML=T.fragment('<article class="monthly-card"><div class="monthly-heading"><h2>Questo mese</h2><button type="button" class="icon-btn" id="openMonthlyStatistics" aria-label="Apri statistiche del mese"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6z"/></svg></button></div><p class="monthly-total">')+fmtEur(value.total)+'</p><p class="monthly-comparison">'+comparison+T.fragment('</p><button class="monthly-reminders" id="openMonthlyReminders" type="button"><span><strong>Rimborsi aperti</strong><small>')+value.pendingCount+(value.pendingCount===1?T.fragment(' spesa'):T.fragment(' spese'))+'</small></span><strong>'+fmtEur(value.pending)+'</strong></button></article>';
+ $('monthlyOverview').querySelector('.monthly-card').classList.toggle('has-large-total',value.total>=1000000);
  $('openMonthlyStatistics').onclick=()=>{const now=new Date();dashYear=now.getFullYear();dashMonth=now.getMonth();navigatePrimary('statistics');};
  $('openMonthlyReminders').onclick=()=>featureUI.open('reminders');
 }
@@ -1936,6 +1941,7 @@ function renderFilters(){
 /* ---------- RENDER SUMMARY ---------- */
 function renderSummary(){
   const wrap = $('summaryWrap');
+  $('expensesPage').classList.toggle('search-empty',hasActiveFilters(filters)&&getFiltered().length===0);
   if (!hasActiveFilters(filters)){ wrap.innerHTML = ''; return; }
   const list = getFiltered();
   const t = computeTotals(list);
@@ -2014,7 +2020,7 @@ function renderList(){
   if (!sorted.length){
     const hasF = hasActiveFilters(filters);
     wrap.innerHTML = '<div class="empty">' +
-      '<svg width="56" height="56" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" style="opacity:.35">' +
+      '<svg width="56" height="56" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true">' +
         '<path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm80-80h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Z"/>' +
       '</svg>' +
       (hasF
@@ -2505,7 +2511,7 @@ function openEditSheet(id){
   }else closeAllSheets();
   if(featureUI)featureUI.openExpense(e);
   if(window.matchMedia('(min-width:1000px)').matches)showDesktopContextPanel($('sheet'),returnFocus);else showSheet($('sheet'));
-  if(transitionFromActions)setTimeout(()=>{actionsPanel.classList.remove('context-panel-exiting');resetDesktopContextPanel(actionsPanel);},360);
+  if(transitionFromActions)finishContextExit(actionsPanel);
 }
 function closeSheet(){
   dismissDesktopContextPanel($('sheet'));maybeCloseScrim();
@@ -3293,7 +3299,17 @@ function showDesktopContextPanel(el,returnFocus){
  closeFabMenu();el.querySelectorAll('.tf [aria-invalid]').forEach(clearFieldError);lastFocusBeforeSheet=returnFocus||document.activeElement;el.scrollTop=0;el.classList.add('desktop-context-panel','open');el.setAttribute('role','complementary');el.removeAttribute('aria-modal');document.body.classList.add('has-context-panel');updateModalState();
  const target=el.id==='actionsSheet'?$('actionsCloseBtn'):$('editCloseBtn');requestAnimationFrame(()=>target?.focus({preventScroll:true}));
 }
-function dismissDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel')){el.classList.remove('open');return;}el.classList.remove('open');el.classList.add('context-panel-exiting');setTimeout(()=>{el.classList.remove('context-panel-exiting');resetDesktopContextPanel(el);},360);}
+const contextExitCallbacks=new WeakMap();
+function finishContextExit(el){
+ contextExitCallbacks.get(el)?.();
+ let timer;
+ const cancel=()=>{clearTimeout(timer);el.removeEventListener('transitionend',finished);contextExitCallbacks.delete(el);};
+ const complete=()=>{cancel();el.classList.remove('context-panel-exiting');if(!el.classList.contains('open'))resetDesktopContextPanel(el);};
+ const finished=event=>{if(event.target===el&&event.propertyName==='transform')complete();};
+ el.addEventListener('transitionend',finished);contextExitCallbacks.set(el,cancel);
+ timer=setTimeout(complete,matchMedia('(prefers-reduced-motion: reduce)').matches?0:480);
+}
+function dismissDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel')){el.classList.remove('open');return;}el.classList.remove('open');el.classList.add('context-panel-exiting');finishContextExit(el);}
 function resetDesktopContextPanel(el){if(!el.classList.contains('desktop-context-panel'))return;el.classList.remove('desktop-context-panel');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');if(!document.querySelector('.sheet.desktop-context-panel.open'))document.body.classList.remove('has-context-panel');}
 function closeAllSheets(){
   if($('pickerSheet').classList.contains('desktop-picker-open'))closePickerSheet();

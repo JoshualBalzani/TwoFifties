@@ -1,5 +1,6 @@
 ﻿/* Material 3 navigation bar: 80px container, 64x32 indicator, 24px icons. */
-:root{--navigation-height:80px}
+@property --navigation-rail-width{syntax:"<length>";inherits:true;initial-value:88px}
+:root{--navigation-height:80px;--navigation-rail-width:88px;transition:--navigation-rail-width var(--dur-medium) var(--motion-standard)}
 html{scroll-padding-top:80px;scroll-padding-bottom:calc(112px + env(safe-area-inset-bottom))}html:has(body[data-primary="budget"]){scroll-padding-bottom:calc(176px + env(safe-area-inset-bottom))}
 .skip-link{position:fixed;top:8px;left:16px;z-index:100;display:flex;min-height:48px;align-items:center;padding:0 16px;border-radius:16px;background:var(--md-primary);color:var(--md-on-primary);font-size:14px;line-height:20px;font-weight:500;text-decoration:none;transform:translateY(calc(-100% - 16px));transition:transform var(--dur-fast) var(--motion-standard)}
 .skip-link:focus-visible{transform:translateY(0);outline:3px solid var(--md-on-surface);outline-offset:2px}
@@ -30,7 +31,7 @@ html{scroll-padding-top:80px;scroll-padding-bottom:calc(112px + env(safe-area-in
 body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
 @media(hover:hover){.bottom-nav-item:hover .bottom-nav-indicator::before,.more-row:hover::before,.more-person:hover::before{opacity:.08}}
 @media(min-width:840px){.primary-page,.sheet.primary-page{padding-inline:24px}.bottom-nav-inner{max-width:720px}.fab{bottom:calc(96px + env(safe-area-inset-bottom))}}
-@media(prefers-reduced-motion:reduce){.bottom-nav-indicator{transition:none}}
+@media(prefers-reduced-motion:reduce){:root{transition:none}.bottom-nav-indicator{transition:none}}
 /* Desktop Material 3 shell: a persistent navigation rail and fluid content. */
 @media(min-width:840px) and (max-width:999px){
   :root{--navigation-rail-width:88px}
@@ -46,7 +47,12 @@ body.selection-mode .bottom-nav{display:none}body.selection-mode main{padding-bo
   .desktop-nav-brand{display:flex;flex:0 0 64px;align-items:center;justify-content:center;padding:0}
   .desktop-nav-brand>span:nth-child(2),.desktop-nav-toggle,.desktop-nav-heading{display:none}
   .desktop-nav-brand-icon,.desktop-nav-brand-icon img{width:36px;height:36px;flex-basis:36px}
-  .bottom-nav-inner{width:100%;height:auto;max-width:none;min-height:0;flex:1 1 0;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .bottom-nav-inner{width:100%;height:auto;max-width:none;min-height:0;flex:1 1 0;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--md-outline-variant) transparent}
+  .bottom-nav-inner::-webkit-scrollbar{width:6px}
+  .bottom-nav-inner::-webkit-scrollbar-track{background:transparent}
+  .bottom-nav-inner::-webkit-scrollbar-thumb{border:1px solid var(--md-surface);border-radius:8px;background:var(--md-outline-variant)}
+  .bottom-nav-inner::-webkit-scrollbar-thumb:hover{background:var(--md-outline)}
+  .bottom-nav::after{content:"";position:absolute;right:0;bottom:0;left:0;height:24px;background:linear-gradient(transparent,var(--md-surface));pointer-events:none}
   .bottom-nav-item,.bottom-nav-item.desktop-destination{display:flex;width:80px;min-height:68px;flex:0 0 auto;flex-direction:column;justify-content:center;gap:3px;padding:4px 2px;border-radius:16px;text-align:center}
   .bottom-nav-item .bottom-nav-indicator{width:56px;height:32px;flex:0 0 32px;border-radius:16px;background:transparent!important;color:inherit}
   .bottom-nav-item[aria-current="page"]{background:transparent;color:var(--md-on-surface)}

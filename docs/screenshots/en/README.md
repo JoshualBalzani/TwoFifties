@@ -74,11 +74,11 @@
 <tr><td width="50%" valign="top"><a href="light/10-budget.png"><img src="light/10-budget.png" width="300" alt="Budgets by category — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/10-budget.png"><img src="dark/10-budget.png" width="300" alt="Budgets by category — dark mode" loading="lazy"></a></td></tr>
 </table>
 
-## Tools in the desktop navigation
+## Organized tools in More
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Tools in the desktop navigation — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Tools in the desktop navigation — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/11-more.png"><img src="light/11-more.png" width="300" alt="Organized tools in More — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/11-more.png"><img src="dark/11-more.png" width="300" alt="Organized tools in More — dark mode" loading="lazy"></a></td></tr>
 </table>
 
 ## Advances and reimbursements
@@ -202,36 +202,204 @@
 
 ## Desktop screens
 
-Four desktop app screens with Material 3 navigation, in light and dark themes. All captures use fictitious data in an isolated temporary workspace.
+28 Material 3 Expressive desktop app screens, in light and dark themes. All captures use fictitious data in an isolated temporary workspace.
 
-### Expenses with desktop navigation
+### Guided introduction
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Expenses with desktop navigation — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Expenses with desktop navigation — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-01-welcome.png"><img src="light/desktop-01-welcome.png" width="440" alt="Guided introduction — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-01-welcome.png"><img src="dark/desktop-01-welcome.png" width="440" alt="Guided introduction — dark mode" loading="lazy"></a></td></tr>
 </table>
 
-### Desktop statistics
+### Two required names
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Desktop statistics — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Desktop statistics — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-02-names.png"><img src="light/desktop-02-names.png" width="440" alt="Two required names — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-02-names.png"><img src="dark/desktop-02-names.png" width="440" alt="Two required names — dark mode" loading="lazy"></a></td></tr>
 </table>
 
-### Desktop categories
+### Shared expenses and balance
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Desktop categories — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Desktop categories — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-03-expenses.png"><img src="light/desktop-03-expenses.png" width="440" alt="Shared expenses and balance — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-03-expenses.png"><img src="dark/desktop-03-expenses.png" width="440" alt="Shared expenses and balance — dark mode" loading="lazy"></a></td></tr>
 </table>
 
-### Desktop settings
+### Quick actions from the + button
 
 <table>
 <tr><th>Light mode</th><th>Dark mode</th></tr>
-<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Desktop settings — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Desktop settings — dark mode" loading="lazy"></a></td></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-04-actions.png"><img src="light/desktop-04-actions.png" width="440" alt="Quick actions from the + button — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-04-actions.png"><img src="dark/desktop-04-actions.png" width="440" alt="Quick actions from the + button — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### New expense and split options
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-05-new-expense.png"><img src="light/desktop-05-new-expense.png" width="440" alt="New expense and split options — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-05-new-expense.png"><img src="dark/desktop-05-new-expense.png" width="440" alt="New expense and split options — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Notes, due dates and receipts
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-06-receipts.png"><img src="light/desktop-06-receipts.png" width="440" alt="Notes, due dates and receipts — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-06-receipts.png"><img src="dark/desktop-06-receipts.png" width="440" alt="Notes, due dates and receipts — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Settlement with confirmation
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-07-settlement.png"><img src="light/desktop-07-settlement.png" width="440" alt="Settlement with confirmation — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-07-settlement.png"><img src="dark/desktop-07-settlement.png" width="440" alt="Settlement with confirmation — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Search your transactions
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-08-search.png"><img src="light/desktop-08-search.png" width="440" alt="Search your transactions — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-08-search.png"><img src="dark/desktop-08-search.png" width="440" alt="Search your transactions — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Monthly statistics
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-09-statistics.png"><img src="light/desktop-09-statistics.png" width="440" alt="Monthly statistics — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-09-statistics.png"><img src="dark/desktop-09-statistics.png" width="440" alt="Monthly statistics — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Budgets by category
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-10-budget.png"><img src="light/desktop-10-budget.png" width="440" alt="Budgets by category — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-10-budget.png"><img src="dark/desktop-10-budget.png" width="440" alt="Budgets by category — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Organized tools in More
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-11-more.png"><img src="light/desktop-11-more.png" width="440" alt="Organized tools in More — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-11-more.png"><img src="dark/desktop-11-more.png" width="440" alt="Organized tools in More — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Advances and reimbursements
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-12-reimbursements.png"><img src="light/desktop-12-reimbursements.png" width="440" alt="Advances and reimbursements — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-12-reimbursements.png"><img src="dark/desktop-12-reimbursements.png" width="440" alt="Advances and reimbursements — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Recurring expenses
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-13-recurring.png"><img src="light/desktop-13-recurring.png" width="440" alt="Recurring expenses — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-13-recurring.png"><img src="dark/desktop-13-recurring.png" width="440" alt="Recurring expenses — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Recurring expenses awaiting approval
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-14-pending.png"><img src="light/desktop-14-pending.png" width="440" alt="Recurring expenses awaiting approval — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-14-pending.png"><img src="dark/desktop-14-pending.png" width="440" alt="Recurring expenses awaiting approval — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Expense categories
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-15-categories.png"><img src="light/desktop-15-categories.png" width="440" alt="Expense categories — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-15-categories.png"><img src="dark/desktop-15-categories.png" width="440" alt="Expense categories — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Saved views and filters
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-16-saved-views.png"><img src="light/desktop-16-saved-views.png" width="440" alt="Saved views and filters — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-16-saved-views.png"><img src="dark/desktop-16-saved-views.png" width="440" alt="Saved views and filters — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Change history
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-17-history.png"><img src="light/desktop-17-history.png" width="440" alt="Change history — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-17-history.png"><img src="dark/desktop-17-history.png" width="440" alt="Change history — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Restore from trash
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-18-trash.png"><img src="light/desktop-18-trash.png" width="440" alt="Restore from trash — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-18-trash.png"><img src="dark/desktop-18-trash.png" width="440" alt="Restore from trash — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Backup and restore
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-19-backup.png"><img src="light/desktop-19-backup.png" width="440" alt="Backup and restore — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-19-backup.png"><img src="dark/desktop-19-backup.png" width="440" alt="Backup and restore — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Transaction import
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-20-import.png"><img src="light/desktop-20-import.png" width="440" alt="Transaction import — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-20-import.png"><img src="dark/desktop-20-import.png" width="440" alt="Transaction import — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Excel export
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-21-export.png"><img src="light/desktop-21-export.png" width="440" alt="Excel export — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-21-export.png"><img src="dark/desktop-21-export.png" width="440" alt="Excel export — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Organized settings
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-22-settings.png"><img src="light/desktop-22-settings.png" width="440" alt="Organized settings — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-22-settings.png"><img src="dark/desktop-22-settings.png" width="440" alt="Organized settings — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Names and change author
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-23-people.png"><img src="light/desktop-23-people.png" width="440" alt="Names and change author — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-23-people.png"><img src="dark/desktop-23-people.png" width="440" alt="Names and change author — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Language selection
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-24-language.png"><img src="light/desktop-24-language.png" width="440" alt="Language selection — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-24-language.png"><img src="dark/desktop-24-language.png" width="440" alt="Language selection — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Theme preferences
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-25-appearance.png"><img src="light/desktop-25-appearance.png" width="440" alt="Theme preferences — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-25-appearance.png"><img src="dark/desktop-25-appearance.png" width="440" alt="Theme preferences — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Transaction list
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-26-transactions.png"><img src="light/desktop-26-transactions.png" width="440" alt="Transaction list — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-26-transactions.png"><img src="dark/desktop-26-transactions.png" width="440" alt="Transaction list — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Transaction filters
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-27-filters.png"><img src="light/desktop-27-filters.png" width="440" alt="Transaction filters — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-27-filters.png"><img src="dark/desktop-27-filters.png" width="440" alt="Transaction filters — dark mode" loading="lazy"></a></td></tr>
+</table>
+
+### Restore from a JSON file
+
+<table>
+<tr><th>Light mode</th><th>Dark mode</th></tr>
+<tr><td width="50%" valign="top"><a href="light/desktop-28-restore-file.png"><img src="light/desktop-28-restore-file.png" width="440" alt="Restore from a JSON file — light mode" loading="lazy"></a></td><td width="50%" valign="top"><a href="dark/desktop-28-restore-file.png"><img src="dark/desktop-28-restore-file.png" width="440" alt="Restore from a JSON file — dark mode" loading="lazy"></a></td></tr>
 </table>
 
 ## Reproduce the images
 
-Run `node scripts/screenshots.cjs` from the repository root. Select a mobile variant with `--language=en --theme=dark`; add `--desktop` to audit all 28 desktop flows into `artifacts/desktop-gallery/`. Run `node scripts/build-galleries.cjs` to rebuild the galleries. Mobile captures use a 430 × 932 viewport at 2×; desktop captures use 1440 × 1000. The scripts use fictitious data in an isolated temporary workspace.
+Run `npm run screenshots` from the repository root. Both mobile and desktop flows are captured. Run `node scripts/build-galleries.cjs` to rebuild the galleries. Mobile captures use a 430 × 932 viewport at 2×; desktop captures use 1440 × 1000. The scripts use fictitious data in an isolated temporary workspace.
