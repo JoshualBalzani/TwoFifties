@@ -4,7 +4,17 @@
 
 Sito statico in italiano e inglese per GitHub Pages: presenta l’app, mostra screenshot nella lingua scelta, permette di scaricare lo ZIP pubblico e spiega le opzioni Docker, Node.js e TrueNAS. Non ospita le API dell’app o i dati finanziari.
 
-## Anteprima locale
+## Blog italiano
+
+Il blog è pubblicato in `/TwoFifties/blog/`. I 40 articoli iniziali sono file Markdown con front matter compatibile con Jekyll in `website/_posts/`, tutti datati 11 novembre 2026 su richiesta del titolare. Il generatore statico già usato dal sito li compila nello stesso artefatto GitHub Pages, senza cambiare hosting o aggiungere un secondo sistema di pubblicazione.
+
+Ogni articolo ha un permalink `/blog/slug/`, metadati, indice, dati strutturati BlogPosting e collegamenti agli altri articoli. L’indice mette prima i dieci argomenti prioritari e raggruppa tutti i testi nei cinque cluster. Sitemap e feed RSS vengono generati insieme al sito. I link interni rispettano il percorso del progetto, anche durante l’anteprima locale.
+
+I template CSV sono in `website/downloads/` e vengono copiati nell’output pubblico. Contengono soltanto esempi fittizi. Le formule e le istruzioni di importazione sono spiegate negli articoli dedicati.
+
+`node scripts/check-blog.cjs` verifica conteggio degli articoli, 1.000–1.500 parole visibili, titoli e descrizioni, keyword, tre FAQ, link interni e file scaricabili. `npm run site:test` comprende anche la verifica browser del blog. Se si amplia il piano oltre i 40 articoli iniziali, aggiornare il numero atteso nel controllo editoriale.
+
+## Avviare l’anteprima
 
 Le guide complete per principianti sono in [`docs/INSTALLATION.it.md`](../docs/INSTALLATION.it.md) e [`docs/INSTALLATION.md`](../docs/INSTALLATION.md). Pages mostra gli stessi file con indice e comandi copiabili. Modifica i manuali per aggiornare insieme GitHub e Pages: il workflow pubblica automaticamente. `npm run site:test` controlla gli indici, quattro larghezze, entrambi i temi, la copia dei comandi e l'avvio Node documentato.
 

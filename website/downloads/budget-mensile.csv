@@ -1,0 +1,9 @@
+Mese;Tipo;Categoria;Previsto_EUR;Effettivo_EUR;Note
+2026-11;Entrata;Stipendio;1600;1600;Esempio ipotetico da sostituire
+2026-11;Uscita;Casa;650;650;Esempio ipotetico da sostituire
+2026-11;Uscita;Alimentari;250;235;Esempio ipotetico da sostituire
+2026-11;Uscita;Trasporti;80;75;Esempio ipotetico da sostituire
+2026-11;Uscita;Utenze;120;115;Esempio ipotetico da sostituire
+2026-11;Uscita;Tempo libero;100;90;Esempio ipotetico da sostituire
+2026-11;Accantonamento;Spese periodiche;100;100;Trasferimento interno non consumo
+2026-11;Accantonamento;Riserva;150;150;Trasferimento interno non consumo

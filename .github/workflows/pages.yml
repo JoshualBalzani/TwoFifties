@@ -5,6 +5,8 @@ on:
     paths:
       - website/**
       - scripts/build-site.cjs
+      - scripts/build-blog.cjs
+      - scripts/check-blog.cjs
       - scripts/check-site.cjs
       - scripts/render-installation.cjs
       - tests/site-privacy.cjs
@@ -28,6 +30,7 @@ jobs:
           node-version: 24
       - run: node scripts/build-site.cjs
       - run: node scripts/check-site.cjs
+      - run: node scripts/check-blog.cjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .site-dist

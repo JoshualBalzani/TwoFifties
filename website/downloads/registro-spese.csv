@@ -1,0 +1,5 @@
+Data;Categoria;Descrizione;Importo_EUR;Pagatore;Quota_A_EUR;Quota_B_EUR;Note
+2026-11-01;Alimentari;Spesa di esempio;60;A;30;30;Esempio ipotetico da sostituire
+2026-11-02;Trasporti;Biglietto personale di esempio;20;A;20;0;Esempio ipotetico da sostituire
+2026-11-03;Casa;Acquisto condiviso di esempio;40;B;10;30;Esempio ipotetico da sostituire
+2026-11-04;Tempo libero;Ingresso personale di esempio;15;A;15;0;Esempio ipotetico da sostituire
