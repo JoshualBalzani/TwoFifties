@@ -46,6 +46,10 @@ I topic aiutano a classificare il progetto nella ricerca di GitHub: [guida uffic
 
 ## Indicizzazione su Google
 
+Usa la proprietà Search Console con prefisso URL `https://joshualbalzani.github.io/TwoFifties/` e invia `https://joshualbalzani.github.io/TwoFifties/sitemap.xml` nel rapporto Sitemap. Controlla homepage e guida nelle due lingue con Controllo URL e richiedi l'indicizzazione se necessario. Il tag HTML presente non dimostra da solo che proprietà e pagine siano già verificate o indicizzate.
+
+Google legge il `robots.txt` alla radice dell'host, non quello sotto `/TwoFifties/`: invia quindi direttamente la sitemap in Search Console. L'assenza del file alla radice non blocca la scansione. Con un dominio dedicato configurato alla radice, il build colloca automaticamente il file nel punto corretto. La sitemap omette `lastmod`, un campo facoltativo, evitando date di aggiornamento fittizie a ogni compilazione.
+
 Il sito include testo HTML visibile, titoli e descrizioni localizzati, URL canonici, `hreflang`, dati strutturati SoftwareApplication, anteprime social, `sitemap.xml` e `robots.txt`. Non sono presenti valutazioni, recensioni o approvazioni inventate.
 
 Dopo la pubblicazione aggiungi in [Google Search Console](https://search.google.com/search-console/) una proprietà **Prefisso URL** con l’indirizzo esatto del sito. Se scegli la verifica con tag HTML, inserisci il token in `googleSiteVerification` dentro `website/site.config.json`, pubblica e completa la verifica. Poi invia `sitemap.xml` e controlla l’URL principale e quello inglese. Con il dominio acquistato puoi anche usare la verifica della proprietà Dominio tramite DNS.

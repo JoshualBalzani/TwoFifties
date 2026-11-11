@@ -46,6 +46,10 @@ GitHub describes how [topics help categorize repositories](https://docs.github.c
 
 ## Google Search
 
+Use the URL-prefix Search Console property `https://joshualbalzani.github.io/TwoFifties/` and submit `https://joshualbalzani.github.io/TwoFifties/sitemap.xml` in the Sitemaps report. Inspect the homepage and guide in both languages with URL Inspection and request indexing if needed. The HTML tag alone does not prove ownership verification or indexing.
+
+Google reads the host-root `robots.txt`, not the file under `/TwoFifties/`; submit the sitemap directly in Search Console. A missing root file does not block crawling. With a dedicated domain configured at its root, the build puts the file in the correct location automatically. The sitemap omits optional `lastmod` rather than reporting artificial update dates on every build.
+
 The website includes visible static text, localized titles/descriptions, canonical URLs, `hreflang`, SoftwareApplication structured data, social cards, `sitemap.xml` and `robots.txt`. No ratings, endorsements or reviews are fabricated.
 
 After publishing, add an **URL-prefix property** in [Google Search Console](https://search.google.com/search-console/) for the exact site address. If using HTML-tag verification, copy the token into `googleSiteVerification` in `website/site.config.json`, publish, then complete verification. Submit `sitemap.xml` and inspect the homepage and English URL. With a custom domain, a DNS-verified domain property is another option.
