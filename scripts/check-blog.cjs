@@ -20,7 +20,11 @@ for(const post of posts){
   let resolved=path.join(output,decodeURIComponent(target.pathname.slice(base.pathname.length)));if(fs.existsSync(resolved)&&fs.statSync(resolved).isDirectory())resolved=path.join(resolved,'index.html');assert(fs.existsSync(resolved),post.slug+' missing local resource '+target.href);
  }
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);assert.equal(schema['@type'],'BlogPosting');assert.equal(schema.datePublished,post.date);
+ assert(schema.image?.[0]?.includes('/assets/blog/photos/'),post.slug+' social image');assert(html.includes('name="twitter:card" content="summary_large_image"'),post.slug+' large image preview');
+ assert.equal((html.match(/class="blog-faq-item"/g)||[]).length,3,post.slug+' accessible FAQ disclosures');assert(html.includes('class="blog-exercise"'),post.slug+' practical exercise');assert(html.includes('class="blog-summary"'),post.slug+' key takeaways');
  const sitemap=fs.readFileSync(path.join(output,'sitemap.xml'),'utf8');assert(sitemap.includes(new URL('blog/'+post.slug+'/',base).href));
 }
 for(const file of ['budget-mensile.csv','registro-spese.csv'])assert(fs.statSync(path.join(output,'downloads',file)).size>100);
+function jpegDimensions(bytes){let offset=2;while(offset+9<bytes.length){assert.equal(bytes[offset],255);const marker=bytes[offset+1],length=bytes.readUInt16BE(offset+2);if([192,193,194,195,197,198,199,201,202,203,205,206,207].includes(marker))return {width:bytes.readUInt16BE(offset+7),height:bytes.readUInt16BE(offset+5)};offset+=length+2;}throw Error('Invalid JPEG dimensions');}
+const photos=fs.readdirSync(path.join(output,'assets/blog/photos')).filter(file=>file.endsWith('.jpg'));assert.equal(photos.length,24,'12 photos, each with a responsive variant');for(const file of photos){const bytes=fs.readFileSync(path.join(output,'assets/blog/photos',file)),small=file.endsWith('-small.jpg');assert.deepEqual(jpegDimensions(bytes),{width:small?720:1440,height:small?480:960},file);assert(bytes.length<(small?100000:350000),file+' optimized file size');}
 console.log('OK: 40 original posts, '+total+' visible words, today dates, SEO fields, keywords, 3 FAQs, 2-3 internal links, sitemap, templates and static resources');

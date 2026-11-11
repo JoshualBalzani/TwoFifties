@@ -12,6 +12,10 @@ Ogni articolo ha un permalink `/blog/slug/`, metadati, indice, dati strutturati 
 
 I template CSV sono in `website/downloads/` e vengono copiati nell’output pubblico. Contengono soltanto esempi fittizi. Le formule e le istruzioni di importazione sono spiegate negli articoli dedicati.
 
+Il design editoriale è in `scripts/blog-design.cjs` e `website/assets/blog.css`. Tutte le guide hanno una copertina, punti chiave, un esercizio specifico, indice, FAQ apribili e collegamenti alle letture successive. I contenuti delle schede sono in `website/blog-editorial.cjs`; il Markdown integrale resta la fonte degli articoli.
+
+Le 12 fotografie tematiche sono generate con il tool integrato ImageGen e salvate in `website/assets/blog/photos/`: ogni foto ha versioni JPEG 1440×960 e 720×480. I prompt sono nei due file `CREDITS-*.md` della cartella. Le immagini sono illustrative e dichiarate come generate con IA, non foto di utenti reali. Il sito distribuisce soltanto le immagini, non i documenti di lavorazione, e non effettua richieste a servizi fotografici esterni. Le schermate di TwoFifties sono screenshot reali con dati dimostrativi.
+
 `node scripts/check-blog.cjs` verifica conteggio degli articoli, 1.000–1.500 parole visibili, titoli e descrizioni, keyword, tre FAQ, link interni e file scaricabili. `npm run site:test` comprende anche la verifica browser del blog. Se si amplia il piano oltre i 40 articoli iniziali, aggiornare il numero atteso nel controllo editoriale.
 
 ## Avviare l’anteprima

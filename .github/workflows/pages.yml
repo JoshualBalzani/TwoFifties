@@ -6,6 +6,7 @@ on:
       - website/**
       - scripts/build-site.cjs
       - scripts/build-blog.cjs
+      - scripts/blog-design.cjs
       - scripts/check-blog.cjs
       - scripts/check-site.cjs
       - scripts/render-installation.cjs

@@ -4,6 +4,18 @@
  if(button)button.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('twofifties-site-theme',root.dataset.theme);}catch(_){}updateImages();});
  updateImages();
  if(window.matchMedia('(max-width:760px)').matches)document.querySelector('.guide-contents')?.removeAttribute('open');
+ if(window.matchMedia('(max-width:1000px)').matches)document.querySelector('.blog-toc')?.removeAttribute('open');
+ const blogSearch=document.querySelector('[data-blog-search]');
+ if(blogSearch){
+  const cards=[...document.querySelectorAll('.blog-library [data-blog-card]')],clusters=[...document.querySelectorAll('[data-blog-cluster]')],status=document.querySelector('[data-blog-search-status]'),empty=document.querySelector('[data-blog-search-empty]');
+  const normalize=text=>text.toLocaleLowerCase('it').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+  function filterGuides(){const query=normalize(blogSearch.value);let count=0;cards.forEach(card=>{card.hidden=!normalize(card.dataset.search).includes(query);if(!card.hidden)count++;});clusters.forEach(cluster=>{cluster.hidden=[...cluster.querySelectorAll('[data-blog-card]')].every(card=>card.hidden);});if(status)status.textContent=query?(count===1?'1 guida trovata':count+' guide trovate'):count+' guide disponibili';if(empty)empty.hidden=count>0;}
+  blogSearch.addEventListener('input',filterGuides);document.querySelector('[data-blog-search-clear]')?.addEventListener('click',()=>{blogSearch.value='';filterGuides();blogSearch.focus();});filterGuides();
+ }
+ const progress=document.querySelector('[data-reading-progress]'),reading=document.querySelector('.blog-reading .installation-guide');
+ if(progress&&reading){let pending=false;function updateProgress(){const start=reading.getBoundingClientRect().top+window.scrollY,range=Math.max(1,reading.offsetHeight-innerHeight*.65),percent=Math.min(100,Math.max(0,(window.scrollY+innerHeight*.2-start)/range*100));progress.style.width=percent.toFixed(1)+'%';pending=false;}function requestProgress(){if(!pending){pending=true;requestAnimationFrame(updateProgress);}}window.addEventListener('scroll',requestProgress,{passive:true});window.addEventListener('resize',requestProgress);updateProgress();
+  if('IntersectionObserver' in window){const links=[...document.querySelectorAll('.blog-toc nav a')],observer=new IntersectionObserver(entries=>{const current=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];if(!current)return;links.forEach(link=>{if(link.getAttribute('href')==='#'+current.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});},{rootMargin:'-15% 0px -65% 0px'});reading.querySelectorAll('h2[id]').forEach(heading=>observer.observe(heading));}
+ }
  const banner=document.getElementById('cookieBanner'),consentKey='twofifties-analytics-consent',consentVersion='3',measurementId='G-P9818C52WC';
  const sitePath=new URL('../',document.currentScript.src).pathname;
  const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
