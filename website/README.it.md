@@ -50,6 +50,8 @@ Usa la proprietà Search Console con prefisso URL `https://joshualbalzani.github
 
 Per gli esiti dell’audit dell’11 novembre 2026 e le operazioni ancora da eseguire, vedi il [seguito dell’audit SEO](../docs/SEO-FOLLOWUP.it.md).
 
+Le informative complete sono in `website/privacy.it.md` e `website/privacy.en.md`. Per impostazioni Analytics, accordi e gestione delle richieste consulta il [promemoria privacy operativo](../docs/PRIVACY-OPERATIONS.it.md). I test del sito verificano anche blocco preventivo, rifiuto, revoca e scadenza del consenso.
+
 Google legge il `robots.txt` alla radice dell'host, non quello sotto `/TwoFifties/`: invia quindi direttamente la sitemap in Search Console. L'assenza del file alla radice non blocca la scansione. Con un dominio dedicato configurato alla radice, il build colloca automaticamente il file nel punto corretto. La sitemap omette `lastmod`, un campo facoltativo, evitando date di aggiornamento fittizie a ogni compilazione.
 
 Il sito include testo HTML visibile, titoli e descrizioni localizzati, URL canonici, `hreflang`, dati strutturati SoftwareApplication, anteprime social, `sitemap.xml` e `robots.txt`. Non sono presenti valutazioni, recensioni o approvazioni inventate.

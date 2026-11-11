@@ -7,6 +7,7 @@ on:
       - scripts/build-site.cjs
       - scripts/check-site.cjs
       - scripts/render-installation.cjs
+      - tests/site-privacy.cjs
       - docs/INSTALLATION*.md
       - docs/screenshots/**
       - app/fonts/**
