@@ -6,6 +6,8 @@ Sito statico in italiano e inglese per GitHub Pages: presenta l’app, mostra sc
 
 ## Anteprima locale
 
+Le guide complete per principianti sono in [`docs/INSTALLATION.it.md`](../docs/INSTALLATION.it.md) e [`docs/INSTALLATION.md`](../docs/INSTALLATION.md). Pages mostra gli stessi file con indice e comandi copiabili. Modifica i manuali per aggiornare insieme GitHub e Pages: il workflow pubblica automaticamente. `npm run site:test` controlla gli indici, quattro larghezze, entrambi i temi, la copia dei comandi e l'avvio Node documentato.
+
 Con Node.js 24+ e le dipendenze del repository installate:
 
 ```sh

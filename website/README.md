@@ -6,6 +6,8 @@ A static, bilingual product website for GitHub Pages. It introduces the app, sho
 
 ## Preview
 
+The complete beginner guides are maintained in [`docs/INSTALLATION.md`](../docs/INSTALLATION.md) and [`docs/INSTALLATION.it.md`](../docs/INSTALLATION.it.md). Pages renders those same files with a section index and copyable commands. Edit the manuals to update GitHub and Pages together; the deployment workflow rebuilds automatically. `npm run site:test` checks guide anchors, four viewport widths, both themes, copied commands and the documented Node startup.
+
 With Node.js 24+ and the repository dependencies installed:
 
 ```sh

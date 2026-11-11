@@ -22,7 +22,7 @@
     "screenshots": "node scripts/publish-screenshots.cjs && node scripts/build-galleries.cjs",
     "site:build": "node scripts/build-site.cjs",
     "site:preview": "node scripts/preview-site.cjs",
-    "site:test": "node scripts/build-site.cjs && node scripts/check-site.cjs && node tests/site-browser.cjs",
+    "site:test": "node scripts/build-site.cjs && node scripts/check-site.cjs && node tests/site-browser.cjs && node tests/installation-guide.cjs",
     "test:expressive": "node tests/expressive-browser.cjs --full",
     "audit:expressive": "node tests/expressive-browser.cjs --full && node scripts/expressive-gallery.cjs",
     "test:expressive:engines": "node tests/expressive-engines.cjs"

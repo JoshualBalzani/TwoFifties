@@ -14,6 +14,8 @@ TwoFifties is a free, self-hosted shared expense tracker for couples, roommates 
 
 **Product website:** [preview, GitHub Pages and custom-domain setup](website/README.md).
 
+**First installation?** Read the [complete step-by-step beginner guide](docs/INSTALLATION.md): Windows, Mac, Linux, Docker, Node.js, TrueNAS, other NAS devices, phone access, HTTPS, backups, updates and troubleshooting. The same guide is available [on the website](https://joshualbalzani.github.io/TwoFifties/en/install/).
+
 <table>
 <tr><th colspan="3">Light mode</th></tr>
 <tr><td align="center"><img src="docs/screenshots/en/light/03-expenses.png" width="260" alt="Expenses and balance — light"></td><td align="center"><img src="docs/screenshots/en/light/05-new-expense.png" width="260" alt="New expense — light"></td><td align="center"><img src="docs/screenshots/en/light/09-statistics.png" width="260" alt="Statistics — light"></td></tr>

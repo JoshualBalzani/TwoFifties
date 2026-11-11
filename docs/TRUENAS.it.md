@@ -2,6 +2,8 @@
 
 [English](TRUENAS.md) · [Manuale dell’app](../README.it.md) · [YAML da configurare](../deploy/truenas.yaml)
 
+Se parti da zero, leggi anche la [guida completa di installazione](INSTALLATION.it.md): include preparazione dei file, spiegazione di server e rete, prima verifica, aggiornamenti, backup e risoluzione dei problemi.
+
 ## Requisiti e versioni
 
 La procedura riguarda **TrueNAS con Apps basate su Docker, dalla versione 24.10 in poi**. Prima seleziona un pool per le applicazioni nell’interfaccia TrueNAS. Non riguarda le vecchie Apps Kubernetes o TrueNAS CORE basato su FreeBSD: su CORE usa una VM Linux o un host separato con le normali istruzioni Docker. Il passaggio a Docker è descritto nel [riferimento Apps di TrueNAS 24.10](https://www.truenas.com/docs/scale/24.10/scaleuireference/apps/).

@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'../.site-dist'),base=new URL(process.env.SITE_BASE_URL||config.baseUrl);
 const pages=['index.html','en/index.html','installazione/index.html','en/install/index.html'];
 for(const file of pages){
- const html=fs.readFileSync(path.join(root,file),'utf8');assert(html.includes('<h1>'),file);assert(html.includes('name="description"'));assert(html.includes('rel="canonical"'));assert(html.includes('hreflang="it"')&&html.includes('hreflang="en"'));assert(html.includes('application/ld+json'));assert(!html.includes('aggregateRating'));
+ const html=fs.readFileSync(path.join(root,file),'utf8');assert(/<h1(?:\s[^>]*)?>/.test(html),file);assert(html.includes('name="description"'));assert(html.includes('rel="canonical"'));assert(html.includes('hreflang="it"')&&html.includes('hreflang="en"'));assert(html.includes('application/ld+json'));assert(!html.includes('aggregateRating'));
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);assert.equal(schema.name||schema.headline,file.includes('install')?schema.headline:'TwoFifties');
  for(const match of html.matchAll(/(?:src|href)="([^"]+)"/g)){
   const target=match[1];if(/^[a-z]+:|^#|^\//i.test(target))continue;

@@ -19,3 +19,59 @@
 .desktop-preview figcaption{padding:14px 6px 4px;text-align:center;font-size:14px;font-weight:500;color:var(--muted)}
 .desktop-showcase>.wrap>.gallery-link{margin-top:24px}
 @media(max-width:800px){.desktop-preview-grid{grid-template-columns:1fr;gap:20px}.desktop-preview.settings-preview{width:100%}}
+
+/* The installation manual is rendered from the same Markdown published on GitHub. */
+.guide-page{padding-block:48px 80px}
+.guide-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start}
+.guide-navigation{position:sticky;top:112px;max-height:calc(100dvh - 136px);overflow-y:auto;overscroll-behavior:contain;padding:20px;border:1px solid var(--line);border-radius:24px;background:var(--container);scrollbar-width:thin}
+.guide-contents>summary{font-weight:700;font-size:16px;cursor:pointer;min-height:40px;list-style:none}
+.guide-contents>summary::after{content:'⌄';float:right}
+.guide-contents[open]>summary::after{content:'⌃'}
+.guide-contents nav{display:grid;gap:4px}
+.guide-contents nav a{display:block;padding:8px 10px;border-radius:10px;color:var(--muted);font-size:14px;line-height:20px;text-decoration:none}
+.guide-contents nav a:hover,.guide-contents nav a:focus-visible{background:var(--high);color:var(--on)}
+.guide-source{display:block;font-size:14px;line-height:20px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);color:var(--primary)}
+.installation-guide{min-width:0;max-width:860px;font-size:17px;line-height:1.75;overflow-wrap:anywhere}
+.installation-guide h1{font-size:clamp(32px,3.8vw,52px);line-height:1.12;letter-spacing:-1.2px;margin:0 0 28px;max-width:22ch}
+.installation-guide h2{font-size:28px;line-height:1.25;letter-spacing:-.4px;margin:56px 0 20px;padding-top:24px;border-top:1px solid var(--line)}
+.installation-guide h3{font-size:21px;line-height:1.4;margin:32px 0 14px}
+.installation-guide :is(h1,h2,h3){scroll-margin-top:112px}
+.installation-guide p{margin:0 0 20px}
+.installation-guide a{color:var(--primary);text-underline-offset:3px}
+.installation-guide ul,.installation-guide ol{padding-left:24px;margin:16px 0 24px}
+.installation-guide li{padding-left:6px;margin-bottom:12px}
+.installation-guide li::marker{color:var(--primary);font-weight:700}
+.installation-guide :not(pre)>code{font-size:.88em;background:var(--container);border-radius:6px;padding:2px 5px;overflow-wrap:anywhere}
+.guide-code{min-width:0;margin:24px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--container)}
+.guide-code-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:4px 12px 4px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.guide-code-bar button{min-height:40px;max-width:75%;padding:8px 14px;border:0;border-radius:20px;background:var(--primary-container);color:var(--on-container);font:inherit;font-weight:600;cursor:pointer}
+.installation-guide .guide-code pre{max-width:100%;margin:0;padding:20px;overflow-x:auto;background:transparent;border:0;border-radius:0;font-size:14px;line-height:1.65;white-space:pre;tab-size:2}
+.guide-code pre code{padding:0;background:transparent;font-size:inherit;white-space:pre;overflow-wrap:normal}
+.guide-code pre:focus-visible,.guide-table:focus-visible{outline:3px solid var(--primary);outline-offset:-3px}
+.guide-table{max-width:100%;overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:16px;overscroll-behavior-inline:contain}
+.guide-table table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px;line-height:1.6;text-align:left}
+.guide-table th{background:var(--container);font-weight:700}
+.guide-table th,.guide-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;min-width:160px}
+.guide-table tr:last-child td{border-bottom:0}
+.installation-guide blockquote{padding:20px;margin:24px 0;border-left:4px solid var(--primary);background:var(--container);border-radius:0 16px 16px 0}
+.guide-back{padding-top:32px;border-top:1px solid var(--line)}
+.install-guide-entry{margin-bottom:24px}
+.no-js .guide-code-bar button{display:none}
+@media(max-width:1000px){
+ .guide-layout{grid-template-columns:220px minmax(0,1fr);gap:28px}
+ .guide-navigation{padding:16px}
+}
+@media(max-width:760px){
+ .guide-page{padding-block:24px 48px}
+ .guide-layout{grid-template-columns:minmax(0,1fr);gap:32px}
+ .guide-navigation{position:static;max-height:320px;border-radius:20px}
+ .guide-contents nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+ .guide-contents nav a{font-size:13px;line-height:18px;padding:8px}
+ .installation-guide{font-size:16px;line-height:1.75}
+ .installation-guide h1{font-size:34px;letter-spacing:-.7px}
+ .installation-guide h2{font-size:25px;margin-top:40px}
+ .installation-guide h3{font-size:20px}
+ .installation-guide :is(h1,h2,h3){scroll-margin-top:140px}
+ .installation-guide .guide-code pre{padding:16px;font-size:13px}
+}
+@media(max-width:380px){.guide-contents nav{grid-template-columns:minmax(0,1fr)}.installation-guide h1{font-size:30px}}

@@ -6,6 +6,8 @@ on:
       - website/**
       - scripts/build-site.cjs
       - scripts/check-site.cjs
+      - scripts/render-installation.cjs
+      - docs/INSTALLATION*.md
       - docs/screenshots/**
       - app/fonts/**
       - .github/workflows/pages.yml

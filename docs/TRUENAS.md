@@ -1,5 +1,7 @@
 # Install TwoFifties on TrueNAS
 
+New to self-hosting? Start with the [complete installation guide](INSTALLATION.md) for file preparation, server/network basics, first-run checks, updates, backups and troubleshooting.
+
 [Italiano](TRUENAS.it.md) · [Project manual](../README.md) · [Ready-to-edit YAML](../deploy/truenas.yaml)
 
 ## Scope and requirements
